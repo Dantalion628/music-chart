@@ -1,1 +1,3 @@
-web: python generate_demo.py && gunicorn app:app
+release: python generate_demo.py
+web: gunicorn app:app
+
