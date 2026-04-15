@@ -1,14 +1,22 @@
 """
-最简单的 WSGI 应用 - 只用标准库
+Flask 替代方案 - 纯 WSGI 应用
+可在 Gunicorn 下正确运行
 """
 
 import csv
 import json
 import os
+import sys
 from collections import defaultdict
 
 # 全局数据
 DATA = []
+
+def ensure_data():
+    """确保数据已加载"""
+    global DATA
+    if not DATA:
+        load_data()
 
 def load_data():
     """加载或生成数据"""
@@ -16,13 +24,16 @@ def load_data():
     csv_path = 'processed_data.csv'
 
     if not os.path.exists(csv_path):
-        from generate_demo import generate_demo_data
-        data = generate_demo_data()
-        with open(csv_path, 'w', newline='', encoding='utf-8') as f:
-            if data:
-                writer = csv.DictWriter(f, fieldnames=data[0].keys())
-                writer.writeheader()
-                writer.writerows(data)
+        try:
+            from generate_demo import generate_demo_data
+            data = generate_demo_data()
+            with open(csv_path, 'w', newline='', encoding='utf-8') as f:
+                if data:
+                    writer = csv.DictWriter(f, fieldnames=data[0].keys())
+                    writer.writeheader()
+                    writer.writerows(data)
+        except Exception as e:
+            sys.stderr.write("Error generating data: {}\n".format(e))
 
     try:
         with open(csv_path, 'r', encoding='utf-8') as f:
@@ -32,11 +43,12 @@ def load_data():
                 row['year'] = int(row['year'])
                 row['popularity'] = int(row['popularity'])
                 row['rank'] = int(row['rank'])
+        sys.stderr.write("Loaded {} records\n".format(len(DATA)))
     except Exception as e:
-        print("Error loading data: {}".format(e))
+        sys.stderr.write("Error loading data: {}\n".format(e))
 
 def read_file(filepath):
-    """读取文件内容"""
+    """读取文件"""
     try:
         with open(filepath, 'rb') as f:
             return f.read()
@@ -44,7 +56,7 @@ def read_file(filepath):
         return None
 
 def get_content_type(filepath):
-    """获取文件的Content-Type"""
+    """获取MIME类型"""
     if filepath.endswith('.css'):
         return 'text/css; charset=utf-8'
     elif filepath.endswith('.js'):
@@ -55,13 +67,14 @@ def get_content_type(filepath):
         return 'text/html; charset=utf-8'
     elif filepath.endswith('.png'):
         return 'image/png'
-    elif filepath.endswith('.jpg') or filepath.endswith('.jpeg'):
+    elif filepath.endswith('.jpg'):
         return 'image/jpeg'
     else:
         return 'application/octet-stream'
 
 def get_periods():
     """获取5年周期数据"""
+    ensure_data()
     periods = {}
     years = [1995, 2000, 2005, 2010, 2015, 2020]
 
@@ -105,16 +118,11 @@ def get_periods():
     return periods
 
 def get_period(year):
-    """获取特定年份的数据"""
+    """获取特定年份排行"""
+    ensure_data()
     year_data = [d for d in DATA if int(d['year']) == year]
     year_data.sort(key=lambda x: int(x['popularity']), reverse=True)
     top_10 = year_data[:10]
-
-    genre_stats = defaultdict(int)
-    for entry in year_data:
-        genre_stats[entry['genre']] += 1
-
-    top_genres = sorted(genre_stats.items(), key=lambda x: x[1], reverse=True)[:5]
 
     return {
         'year': year,
@@ -127,15 +135,12 @@ def get_period(year):
                 'popularity': int(d['popularity'])
             }
             for i, d in enumerate(top_10)
-        ],
-        'top_5_genres': [
-            {'name': genre, 'count': count}
-            for genre, count in top_genres
         ]
     }
 
 def get_trends():
     """获取流派趋势"""
+    ensure_data()
     trends = defaultdict(lambda: defaultdict(int))
     for entry in DATA:
         year = int(entry['year'])
@@ -150,9 +155,6 @@ def get_trends():
             'data': [trends[genre].get(y, 0) for y in range(1995, 2021)]
         }
     return result
-
-# 加载数据
-load_data()
 
 # WSGI 应用
 def application(environ, start_response):
@@ -219,15 +221,13 @@ def application(environ, start_response):
             return [b'Not Found']
 
     except Exception as e:
-        print("Error: {}".format(e))
+        sys.stderr.write("Error: {}\n".format(e))
         start_response('500 Internal Server Error', [])
         return [b'Internal Server Error']
 
-# 兼容 gunicorn
-app = application
-
+# 当本地运行时
 if __name__ == '__main__':
     from wsgiref.simple_server import make_server
-    print('Starting server on http://127.0.0.1:5000')
+    print('Starting development server on http://127.0.0.1:5000')
     server = make_server('127.0.0.1', 5000, application)
     server.serve_forever()
