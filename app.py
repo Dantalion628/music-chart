@@ -161,15 +161,19 @@ def application(environ, start_response):
     method = environ.get('REQUEST_METHOD', 'GET')
 
     try:
-        # 主页
+        # 主页（首页封面）
         if path == '/' and method == 'GET':
-            body = read_file('templates/index.html')
+            body = read_file('templates/landing.html')
             if body:
                 start_response('200 OK', [('Content-Type', 'text/html; charset=utf-8')])
                 return [body]
-            else:
-                start_response('404 Not Found', [])
-                return [b'Not Found']
+
+        # 应用页面
+        elif path == '/app' and method == 'GET':
+            body = read_file('templates/app.html')
+            if body:
+                start_response('200 OK', [('Content-Type', 'text/html; charset=utf-8')])
+                return [body]
 
         # API: 5年周期
         elif path == '/api/periods' and method == 'GET':

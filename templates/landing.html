@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大众金曲 | 1995-2020 音乐时代</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1a2e 50%, #16213e 100%);
+            color: #e0e0e0;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .landing {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(88, 166, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 107, 107, 0.1) 0%, transparent 50%);
+        }
+
+        /* 音乐蒙盤背景 */
+        .vinyl {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #333, #000);
+            box-shadow:
+                0 0 60px rgba(88, 166, 255, 0.3),
+                inset -2px -2px 10px rgba(0, 0, 0, 0.8),
+                inset 2px 2px 10px rgba(255, 255, 255, 0.1);
+            animation: spin 20s linear infinite;
+            opacity: 0.8;
+        }
+
+        .vinyl::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background:
+                repeating-conic-gradient(
+                    from 0deg,
+                    #1a1a1a 0deg 2deg,
+                    #0a0a0a 2deg 4deg
+                );
+            opacity: 0.5;
+        }
+
+        .vinyl::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle at 30% 30%, #ffcc00, #cc8800);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow:
+                0 0 20px rgba(255, 204, 0, 0.5),
+                inset -1px -1px 5px rgba(0, 0, 0, 0.8);
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* 主要内容 */
+        .landing-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .landing-eyebrow {
+            font-size: 0.9em;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #58a6ff;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .landing-title {
+            font-size: 4em;
+            font-weight: 300;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+            line-height: 1.2;
+            background: linear-gradient(135deg, #58a6ff, #79c0ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .landing-subtitle {
+            font-size: 1.2em;
+            color: #a8b2c1;
+            margin-bottom: 40px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .landing-description {
+            font-size: 1em;
+            color: #8b949e;
+            max-width: 500px;
+            margin: 0 auto 50px;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        /* 按钮 */
+        .cta-button {
+            padding: 16px 50px;
+            font-size: 1.1em;
+            background: linear-gradient(135deg, #58a6ff, #388bfd);
+            color: white;
+            border: 2px solid #58a6ff;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-family: 'Noto Serif SC', serif;
+            letter-spacing: 2px;
+            box-shadow: 0 4px 20px rgba(88, 166, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(88, 166, 255, 0.5);
+        }
+
+        .cta-button:active {
+            transform: translateY(-1px);
+        }
+
+        /* 滚动提示 */
+        .scroll-hint {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            color: #8b949e;
+            font-size: 0.9em;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .vinyl {
+                width: 250px;
+                height: 250px;
+                opacity: 0.5;
+            }
+
+            .landing-title {
+                font-size: 2.5em;
+            }
+
+            .landing-subtitle {
+                font-size: 1em;
+            }
+
+            .landing-description {
+                font-size: 0.95em;
+                max-width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="landing">
+        <!-- 蒙盤背景 -->
+        <div class="vinyl"></div>
+
+        <!-- 主要内容 -->
+        <div class="landing-content">
+            <div class="landing-eyebrow">🎵 音乐时代演变</div>
+            <h1 class="landing-title">大众金曲<br>1995-2020</h1>
+            <div class="landing-subtitle">探索 25 年流行音乐的演变</div>
+            <p class="landing-description">
+                从 Britpop 到 Hip-Hop 霸权，<br>
+                从 Electronic 革命到 Pop 文艺复兴。<br>
+                每一首歌都是时代的记忆。
+            </p>
+            <button class="cta-button" onclick="enterApp()">进入探索</button>
+        </div>
+
+        <!-- 滚动提示 -->
+        <div class="scroll-hint">↓ 向下了解更多</div>
+    </div>
+
+    <script>
+        function enterApp() {
+            document.querySelector('.landing-content').style.animation = 'fadeInUp 0.8s ease-in reverse';
+            document.querySelector('.vinyl').style.animation = 'spin 20s linear infinite, fadeInUp 0.8s ease-in reverse';
+
+            setTimeout(() => {
+                window.location.href = '/app';
+            }, 600);
+        }
+
+        // 键盘快捷键
+        document.addEventListener('keydown', (e) => {
+            if (e.code === 'Enter' || e.code === 'Space') {
+                enterApp();
+            }
+        });
+    </script>
+</body>
+</html>
