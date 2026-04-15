@@ -14,16 +14,24 @@ def load_data():
     import os
 
     # 如果数据文件不存在，自动生成
-    if not os.path.exists('processed_data.csv'):
+    csv_path = 'processed_data.csv'
+    if not os.path.exists(csv_path):
         print("[INFO] Data file not found. Generating demo data...")
-        import subprocess
         try:
-            subprocess.run(['python3', 'generate_demo.py'], check=True)
-        except:
-            pass
+            # 直接导入并运行生成函数
+            from generate_demo import generate_demo_data
+            data = generate_demo_data()
+            with open(csv_path, 'w', newline='', encoding='utf-8') as f:
+                if data:
+                    writer = csv.DictWriter(f, fieldnames=data[0].keys())
+                    writer.writeheader()
+                    writer.writerows(data)
+            print("[OK] Demo data generated")
+        except Exception as e:
+            print("[ERROR] Failed to generate demo data: {}".format(e))
 
     try:
-        with open('processed_data.csv', 'r', encoding='utf-8') as f:
+        with open(csv_path, 'r', encoding='utf-8') as f:
             reader = csv.DictReader(f)
             DATA = list(reader)
             # 转换数据类型
