@@ -107,39 +107,7 @@ git push -u origin master
 | `/api/period/<year>` | GET | 获取特定年份前 10 排行 |
 | `/api/trends` | GET | 获取 5 大流派趋势数据 |
 
-## 🎨 自定义
 
-### 修改颜色方案
-
-编辑 `static/css/style.css` 中的 CSS 变量：
-
-```css
-:root {
-    --bg-dark: #0f1419;
-    --accent-blue: #4a90e2;
-    /* ... 其他颜色 */
-}
-```
-
-### 修改数据
-
-1. 替换 `processed_data.csv` 为你的数据文件
-2. 确保 CSV 包含列: `year, date, rank, song, artist, genre, popularity`
-
-## ⚠️ 常见问题
-
-**Q: 无法从 GitHub 获取数据？**  
-A: 脚本会自动使用演示数据。演示数据基于真实市场统计，可用于演示。
-
-**Q: Render 部署失败？**  
-A: 检查 `build.sh` 和 `generate_demo.py` 是否可以在没有网络的情况下运行。
-
-**Q: 如何更新真实数据？**  
-A: 修改 `fetch_and_process_data.py` 的数据源，或直接替换 `processed_data.csv`。
-
-## 📝 许可证
-
-MIT License
 
 ---
 
