@@ -1,0 +1,1301 @@
+year,date,rank,song,artist,genre,popularity
+1995,1995-01-01,1,Waterfalls,TLC,r&b,85
+1995,1995-01-01,2,Creep,Radiohead,rock,83
+1995,1995-01-01,3,No Scrubs,TLC,r&b,85
+1995,1995-01-01,4,Bitter Sweet Symphony,The Verve,rock,82
+1995,1995-02-01,5,Wonderwall,Oasis,rock,85
+1995,1995-02-01,6,One Sweet Day,Mariah Carey,pop,83
+1995,1995-02-01,7,Exhale (Shoop),Whitney Houston,r&b,83
+1995,1995-02-01,8,I Will Make Love to You,Boyz II Men,r&b,83
+1995,1995-03-01,9,Vision of Love,Mariah Carey,pop,83
+1995,1995-03-01,10,All For Love,Rod Stewart,pop,83
+1995,1995-03-01,11,Waterfalls,TLC,r&b,95
+1995,1995-03-01,12,Creep,Radiohead,rock,93
+1995,1995-04-01,13,No Scrubs,TLC,r&b,95
+1995,1995-04-01,14,Bitter Sweet Symphony,The Verve,rock,92
+1995,1995-04-01,15,Wonderwall,Oasis,rock,95
+1995,1995-04-01,16,One Sweet Day,Mariah Carey,pop,93
+1995,1995-05-01,17,Exhale (Shoop),Whitney Houston,r&b,93
+1995,1995-05-01,18,I Will Make Love to You,Boyz II Men,r&b,93
+1995,1995-05-01,19,Vision of Love,Mariah Carey,pop,93
+1995,1995-05-01,20,All For Love,Rod Stewart,pop,93
+1995,1995-06-01,21,Waterfalls,TLC,r&b,85
+1995,1995-06-01,22,Creep,Radiohead,rock,83
+1995,1995-06-01,23,No Scrubs,TLC,r&b,85
+1995,1995-06-01,24,Bitter Sweet Symphony,The Verve,rock,82
+1995,1995-07-01,25,Wonderwall,Oasis,rock,85
+1995,1995-07-01,26,One Sweet Day,Mariah Carey,pop,83
+1995,1995-07-01,27,Exhale (Shoop),Whitney Houston,r&b,83
+1995,1995-07-01,28,I Will Make Love to You,Boyz II Men,r&b,83
+1995,1995-08-01,29,Vision of Love,Mariah Carey,pop,83
+1995,1995-08-01,30,All For Love,Rod Stewart,pop,83
+1995,1995-08-01,31,Waterfalls,TLC,r&b,95
+1995,1995-08-01,32,Creep,Radiohead,rock,93
+1995,1995-09-01,33,No Scrubs,TLC,r&b,95
+1995,1995-09-01,34,Bitter Sweet Symphony,The Verve,rock,92
+1995,1995-09-01,35,Wonderwall,Oasis,rock,95
+1995,1995-09-01,36,One Sweet Day,Mariah Carey,pop,93
+1995,1995-10-01,37,Exhale (Shoop),Whitney Houston,r&b,93
+1995,1995-10-01,38,I Will Make Love to You,Boyz II Men,r&b,93
+1995,1995-10-01,39,Vision of Love,Mariah Carey,pop,93
+1995,1995-10-01,40,All For Love,Rod Stewart,pop,93
+1995,1995-11-01,41,Waterfalls,TLC,r&b,85
+1995,1995-11-01,42,Creep,Radiohead,rock,83
+1995,1995-11-01,43,No Scrubs,TLC,r&b,85
+1995,1995-11-01,44,Bitter Sweet Symphony,The Verve,rock,82
+1995,1995-12-01,45,Wonderwall,Oasis,rock,85
+1995,1995-12-01,46,One Sweet Day,Mariah Carey,pop,83
+1995,1995-12-01,47,Exhale (Shoop),Whitney Houston,r&b,83
+1995,1995-12-01,48,I Will Make Love to You,Boyz II Men,r&b,83
+1995,1995-13-01,49,Vision of Love,Mariah Carey,pop,83
+1995,1995-13-01,50,All For Love,Rod Stewart,pop,83
+1996,1996-01-01,1,Waterfalls,TLC,r&b,85
+1996,1996-01-01,2,Creep,Radiohead,rock,83
+1996,1996-01-01,3,No Scrubs,TLC,r&b,85
+1996,1996-01-01,4,Bitter Sweet Symphony,The Verve,rock,82
+1996,1996-02-01,5,Wonderwall,Oasis,rock,85
+1996,1996-02-01,6,One Sweet Day,Mariah Carey,pop,83
+1996,1996-02-01,7,Exhale (Shoop),Whitney Houston,r&b,83
+1996,1996-02-01,8,I Will Make Love to You,Boyz II Men,r&b,83
+1996,1996-03-01,9,Vision of Love,Mariah Carey,pop,83
+1996,1996-03-01,10,All For Love,Rod Stewart,pop,83
+1996,1996-03-01,11,Waterfalls,TLC,r&b,95
+1996,1996-03-01,12,Creep,Radiohead,rock,93
+1996,1996-04-01,13,No Scrubs,TLC,r&b,95
+1996,1996-04-01,14,Bitter Sweet Symphony,The Verve,rock,92
+1996,1996-04-01,15,Wonderwall,Oasis,rock,95
+1996,1996-04-01,16,One Sweet Day,Mariah Carey,pop,93
+1996,1996-05-01,17,Exhale (Shoop),Whitney Houston,r&b,93
+1996,1996-05-01,18,I Will Make Love to You,Boyz II Men,r&b,93
+1996,1996-05-01,19,Vision of Love,Mariah Carey,pop,93
+1996,1996-05-01,20,All For Love,Rod Stewart,pop,93
+1996,1996-06-01,21,Waterfalls,TLC,r&b,85
+1996,1996-06-01,22,Creep,Radiohead,rock,83
+1996,1996-06-01,23,No Scrubs,TLC,r&b,85
+1996,1996-06-01,24,Bitter Sweet Symphony,The Verve,rock,82
+1996,1996-07-01,25,Wonderwall,Oasis,rock,85
+1996,1996-07-01,26,One Sweet Day,Mariah Carey,pop,83
+1996,1996-07-01,27,Exhale (Shoop),Whitney Houston,r&b,83
+1996,1996-07-01,28,I Will Make Love to You,Boyz II Men,r&b,83
+1996,1996-08-01,29,Vision of Love,Mariah Carey,pop,83
+1996,1996-08-01,30,All For Love,Rod Stewart,pop,83
+1996,1996-08-01,31,Waterfalls,TLC,r&b,95
+1996,1996-08-01,32,Creep,Radiohead,rock,93
+1996,1996-09-01,33,No Scrubs,TLC,r&b,95
+1996,1996-09-01,34,Bitter Sweet Symphony,The Verve,rock,92
+1996,1996-09-01,35,Wonderwall,Oasis,rock,95
+1996,1996-09-01,36,One Sweet Day,Mariah Carey,pop,93
+1996,1996-10-01,37,Exhale (Shoop),Whitney Houston,r&b,93
+1996,1996-10-01,38,I Will Make Love to You,Boyz II Men,r&b,93
+1996,1996-10-01,39,Vision of Love,Mariah Carey,pop,93
+1996,1996-10-01,40,All For Love,Rod Stewart,pop,93
+1996,1996-11-01,41,Waterfalls,TLC,r&b,85
+1996,1996-11-01,42,Creep,Radiohead,rock,83
+1996,1996-11-01,43,No Scrubs,TLC,r&b,85
+1996,1996-11-01,44,Bitter Sweet Symphony,The Verve,rock,82
+1996,1996-12-01,45,Wonderwall,Oasis,rock,85
+1996,1996-12-01,46,One Sweet Day,Mariah Carey,pop,83
+1996,1996-12-01,47,Exhale (Shoop),Whitney Houston,r&b,83
+1996,1996-12-01,48,I Will Make Love to You,Boyz II Men,r&b,83
+1996,1996-13-01,49,Vision of Love,Mariah Carey,pop,83
+1996,1996-13-01,50,All For Love,Rod Stewart,pop,83
+1997,1997-01-01,1,Waterfalls,TLC,r&b,85
+1997,1997-01-01,2,Creep,Radiohead,rock,83
+1997,1997-01-01,3,No Scrubs,TLC,r&b,85
+1997,1997-01-01,4,Bitter Sweet Symphony,The Verve,rock,82
+1997,1997-02-01,5,Wonderwall,Oasis,rock,85
+1997,1997-02-01,6,One Sweet Day,Mariah Carey,pop,83
+1997,1997-02-01,7,Exhale (Shoop),Whitney Houston,r&b,83
+1997,1997-02-01,8,I Will Make Love to You,Boyz II Men,r&b,83
+1997,1997-03-01,9,Vision of Love,Mariah Carey,pop,83
+1997,1997-03-01,10,All For Love,Rod Stewart,pop,83
+1997,1997-03-01,11,Waterfalls,TLC,r&b,95
+1997,1997-03-01,12,Creep,Radiohead,rock,93
+1997,1997-04-01,13,No Scrubs,TLC,r&b,95
+1997,1997-04-01,14,Bitter Sweet Symphony,The Verve,rock,92
+1997,1997-04-01,15,Wonderwall,Oasis,rock,95
+1997,1997-04-01,16,One Sweet Day,Mariah Carey,pop,93
+1997,1997-05-01,17,Exhale (Shoop),Whitney Houston,r&b,93
+1997,1997-05-01,18,I Will Make Love to You,Boyz II Men,r&b,93
+1997,1997-05-01,19,Vision of Love,Mariah Carey,pop,93
+1997,1997-05-01,20,All For Love,Rod Stewart,pop,93
+1997,1997-06-01,21,Waterfalls,TLC,r&b,85
+1997,1997-06-01,22,Creep,Radiohead,rock,83
+1997,1997-06-01,23,No Scrubs,TLC,r&b,85
+1997,1997-06-01,24,Bitter Sweet Symphony,The Verve,rock,82
+1997,1997-07-01,25,Wonderwall,Oasis,rock,85
+1997,1997-07-01,26,One Sweet Day,Mariah Carey,pop,83
+1997,1997-07-01,27,Exhale (Shoop),Whitney Houston,r&b,83
+1997,1997-07-01,28,I Will Make Love to You,Boyz II Men,r&b,83
+1997,1997-08-01,29,Vision of Love,Mariah Carey,pop,83
+1997,1997-08-01,30,All For Love,Rod Stewart,pop,83
+1997,1997-08-01,31,Waterfalls,TLC,r&b,95
+1997,1997-08-01,32,Creep,Radiohead,rock,93
+1997,1997-09-01,33,No Scrubs,TLC,r&b,95
+1997,1997-09-01,34,Bitter Sweet Symphony,The Verve,rock,92
+1997,1997-09-01,35,Wonderwall,Oasis,rock,95
+1997,1997-09-01,36,One Sweet Day,Mariah Carey,pop,93
+1997,1997-10-01,37,Exhale (Shoop),Whitney Houston,r&b,93
+1997,1997-10-01,38,I Will Make Love to You,Boyz II Men,r&b,93
+1997,1997-10-01,39,Vision of Love,Mariah Carey,pop,93
+1997,1997-10-01,40,All For Love,Rod Stewart,pop,93
+1997,1997-11-01,41,Waterfalls,TLC,r&b,85
+1997,1997-11-01,42,Creep,Radiohead,rock,83
+1997,1997-11-01,43,No Scrubs,TLC,r&b,85
+1997,1997-11-01,44,Bitter Sweet Symphony,The Verve,rock,82
+1997,1997-12-01,45,Wonderwall,Oasis,rock,85
+1997,1997-12-01,46,One Sweet Day,Mariah Carey,pop,83
+1997,1997-12-01,47,Exhale (Shoop),Whitney Houston,r&b,83
+1997,1997-12-01,48,I Will Make Love to You,Boyz II Men,r&b,83
+1997,1997-13-01,49,Vision of Love,Mariah Carey,pop,83
+1997,1997-13-01,50,All For Love,Rod Stewart,pop,83
+1998,1998-01-01,1,Believe,Cher,pop,84
+1998,1998-01-01,2,...Baby One More Time,Britney Spears,pop,87
+1998,1998-01-01,3,Bye Bye Bye,N*SYNC,pop,87
+1998,1998-01-01,4,Crazy in Love,Beyoncé,r&b,86
+1998,1998-02-01,5,Hips Don't Lie,Shakira,pop,86
+1998,1998-02-01,6,I'll Be Missing You,Puff Daddy,hip-hop,86
+1998,1998-02-01,7,Lady Marmalade,Christina Aguilera,pop,86
+1998,1998-02-01,8,Beautiful,Christina Aguilera,pop,86
+1998,1998-03-01,9,Toxic,Britney Spears,pop,86
+1998,1998-03-01,10,Yeah!,Usher,r&b,86
+1998,1998-03-01,11,Believe,Cher,pop,94
+1998,1998-03-01,12,...Baby One More Time,Britney Spears,pop,97
+1998,1998-04-01,13,Bye Bye Bye,N*SYNC,pop,97
+1998,1998-04-01,14,Crazy in Love,Beyoncé,r&b,96
+1998,1998-04-01,15,Hips Don't Lie,Shakira,pop,96
+1998,1998-04-01,16,I'll Be Missing You,Puff Daddy,hip-hop,96
+1998,1998-05-01,17,Lady Marmalade,Christina Aguilera,pop,96
+1998,1998-05-01,18,Beautiful,Christina Aguilera,pop,96
+1998,1998-05-01,19,Toxic,Britney Spears,pop,96
+1998,1998-05-01,20,Yeah!,Usher,r&b,96
+1998,1998-06-01,21,Believe,Cher,pop,84
+1998,1998-06-01,22,...Baby One More Time,Britney Spears,pop,87
+1998,1998-06-01,23,Bye Bye Bye,N*SYNC,pop,87
+1998,1998-06-01,24,Crazy in Love,Beyoncé,r&b,86
+1998,1998-07-01,25,Hips Don't Lie,Shakira,pop,86
+1998,1998-07-01,26,I'll Be Missing You,Puff Daddy,hip-hop,86
+1998,1998-07-01,27,Lady Marmalade,Christina Aguilera,pop,86
+1998,1998-07-01,28,Beautiful,Christina Aguilera,pop,86
+1998,1998-08-01,29,Toxic,Britney Spears,pop,86
+1998,1998-08-01,30,Yeah!,Usher,r&b,86
+1998,1998-08-01,31,Believe,Cher,pop,94
+1998,1998-08-01,32,...Baby One More Time,Britney Spears,pop,97
+1998,1998-09-01,33,Bye Bye Bye,N*SYNC,pop,97
+1998,1998-09-01,34,Crazy in Love,Beyoncé,r&b,96
+1998,1998-09-01,35,Hips Don't Lie,Shakira,pop,96
+1998,1998-09-01,36,I'll Be Missing You,Puff Daddy,hip-hop,96
+1998,1998-10-01,37,Lady Marmalade,Christina Aguilera,pop,96
+1998,1998-10-01,38,Beautiful,Christina Aguilera,pop,96
+1998,1998-10-01,39,Toxic,Britney Spears,pop,96
+1998,1998-10-01,40,Yeah!,Usher,r&b,96
+1998,1998-11-01,41,Believe,Cher,pop,84
+1998,1998-11-01,42,...Baby One More Time,Britney Spears,pop,87
+1998,1998-11-01,43,Bye Bye Bye,N*SYNC,pop,87
+1998,1998-11-01,44,Crazy in Love,Beyoncé,r&b,86
+1998,1998-12-01,45,Hips Don't Lie,Shakira,pop,86
+1998,1998-12-01,46,I'll Be Missing You,Puff Daddy,hip-hop,86
+1998,1998-12-01,47,Lady Marmalade,Christina Aguilera,pop,86
+1998,1998-12-01,48,Beautiful,Christina Aguilera,pop,86
+1998,1998-13-01,49,Toxic,Britney Spears,pop,86
+1998,1998-13-01,50,Yeah!,Usher,r&b,86
+1999,1999-01-01,1,Believe,Cher,pop,84
+1999,1999-01-01,2,...Baby One More Time,Britney Spears,pop,87
+1999,1999-01-01,3,Bye Bye Bye,N*SYNC,pop,87
+1999,1999-01-01,4,Crazy in Love,Beyoncé,r&b,86
+1999,1999-02-01,5,Hips Don't Lie,Shakira,pop,86
+1999,1999-02-01,6,I'll Be Missing You,Puff Daddy,hip-hop,86
+1999,1999-02-01,7,Lady Marmalade,Christina Aguilera,pop,86
+1999,1999-02-01,8,Beautiful,Christina Aguilera,pop,86
+1999,1999-03-01,9,Toxic,Britney Spears,pop,86
+1999,1999-03-01,10,Yeah!,Usher,r&b,86
+1999,1999-03-01,11,Believe,Cher,pop,94
+1999,1999-03-01,12,...Baby One More Time,Britney Spears,pop,97
+1999,1999-04-01,13,Bye Bye Bye,N*SYNC,pop,97
+1999,1999-04-01,14,Crazy in Love,Beyoncé,r&b,96
+1999,1999-04-01,15,Hips Don't Lie,Shakira,pop,96
+1999,1999-04-01,16,I'll Be Missing You,Puff Daddy,hip-hop,96
+1999,1999-05-01,17,Lady Marmalade,Christina Aguilera,pop,96
+1999,1999-05-01,18,Beautiful,Christina Aguilera,pop,96
+1999,1999-05-01,19,Toxic,Britney Spears,pop,96
+1999,1999-05-01,20,Yeah!,Usher,r&b,96
+1999,1999-06-01,21,Believe,Cher,pop,84
+1999,1999-06-01,22,...Baby One More Time,Britney Spears,pop,87
+1999,1999-06-01,23,Bye Bye Bye,N*SYNC,pop,87
+1999,1999-06-01,24,Crazy in Love,Beyoncé,r&b,86
+1999,1999-07-01,25,Hips Don't Lie,Shakira,pop,86
+1999,1999-07-01,26,I'll Be Missing You,Puff Daddy,hip-hop,86
+1999,1999-07-01,27,Lady Marmalade,Christina Aguilera,pop,86
+1999,1999-07-01,28,Beautiful,Christina Aguilera,pop,86
+1999,1999-08-01,29,Toxic,Britney Spears,pop,86
+1999,1999-08-01,30,Yeah!,Usher,r&b,86
+1999,1999-08-01,31,Believe,Cher,pop,94
+1999,1999-08-01,32,...Baby One More Time,Britney Spears,pop,97
+1999,1999-09-01,33,Bye Bye Bye,N*SYNC,pop,97
+1999,1999-09-01,34,Crazy in Love,Beyoncé,r&b,96
+1999,1999-09-01,35,Hips Don't Lie,Shakira,pop,96
+1999,1999-09-01,36,I'll Be Missing You,Puff Daddy,hip-hop,96
+1999,1999-10-01,37,Lady Marmalade,Christina Aguilera,pop,96
+1999,1999-10-01,38,Beautiful,Christina Aguilera,pop,96
+1999,1999-10-01,39,Toxic,Britney Spears,pop,96
+1999,1999-10-01,40,Yeah!,Usher,r&b,96
+1999,1999-11-01,41,Believe,Cher,pop,84
+1999,1999-11-01,42,...Baby One More Time,Britney Spears,pop,87
+1999,1999-11-01,43,Bye Bye Bye,N*SYNC,pop,87
+1999,1999-11-01,44,Crazy in Love,Beyoncé,r&b,86
+1999,1999-12-01,45,Hips Don't Lie,Shakira,pop,86
+1999,1999-12-01,46,I'll Be Missing You,Puff Daddy,hip-hop,86
+1999,1999-12-01,47,Lady Marmalade,Christina Aguilera,pop,86
+1999,1999-12-01,48,Beautiful,Christina Aguilera,pop,86
+1999,1999-13-01,49,Toxic,Britney Spears,pop,86
+1999,1999-13-01,50,Yeah!,Usher,r&b,86
+2000,2000-01-01,1,Believe,Cher,pop,84
+2000,2000-01-01,2,...Baby One More Time,Britney Spears,pop,87
+2000,2000-01-01,3,Bye Bye Bye,N*SYNC,pop,87
+2000,2000-01-01,4,Crazy in Love,Beyoncé,r&b,86
+2000,2000-02-01,5,Hips Don't Lie,Shakira,pop,86
+2000,2000-02-01,6,I'll Be Missing You,Puff Daddy,hip-hop,86
+2000,2000-02-01,7,Lady Marmalade,Christina Aguilera,pop,86
+2000,2000-02-01,8,Beautiful,Christina Aguilera,pop,86
+2000,2000-03-01,9,Toxic,Britney Spears,pop,86
+2000,2000-03-01,10,Yeah!,Usher,r&b,86
+2000,2000-03-01,11,Believe,Cher,pop,94
+2000,2000-03-01,12,...Baby One More Time,Britney Spears,pop,97
+2000,2000-04-01,13,Bye Bye Bye,N*SYNC,pop,97
+2000,2000-04-01,14,Crazy in Love,Beyoncé,r&b,96
+2000,2000-04-01,15,Hips Don't Lie,Shakira,pop,96
+2000,2000-04-01,16,I'll Be Missing You,Puff Daddy,hip-hop,96
+2000,2000-05-01,17,Lady Marmalade,Christina Aguilera,pop,96
+2000,2000-05-01,18,Beautiful,Christina Aguilera,pop,96
+2000,2000-05-01,19,Toxic,Britney Spears,pop,96
+2000,2000-05-01,20,Yeah!,Usher,r&b,96
+2000,2000-06-01,21,Believe,Cher,pop,84
+2000,2000-06-01,22,...Baby One More Time,Britney Spears,pop,87
+2000,2000-06-01,23,Bye Bye Bye,N*SYNC,pop,87
+2000,2000-06-01,24,Crazy in Love,Beyoncé,r&b,86
+2000,2000-07-01,25,Hips Don't Lie,Shakira,pop,86
+2000,2000-07-01,26,I'll Be Missing You,Puff Daddy,hip-hop,86
+2000,2000-07-01,27,Lady Marmalade,Christina Aguilera,pop,86
+2000,2000-07-01,28,Beautiful,Christina Aguilera,pop,86
+2000,2000-08-01,29,Toxic,Britney Spears,pop,86
+2000,2000-08-01,30,Yeah!,Usher,r&b,86
+2000,2000-08-01,31,Believe,Cher,pop,94
+2000,2000-08-01,32,...Baby One More Time,Britney Spears,pop,97
+2000,2000-09-01,33,Bye Bye Bye,N*SYNC,pop,97
+2000,2000-09-01,34,Crazy in Love,Beyoncé,r&b,96
+2000,2000-09-01,35,Hips Don't Lie,Shakira,pop,96
+2000,2000-09-01,36,I'll Be Missing You,Puff Daddy,hip-hop,96
+2000,2000-10-01,37,Lady Marmalade,Christina Aguilera,pop,96
+2000,2000-10-01,38,Beautiful,Christina Aguilera,pop,96
+2000,2000-10-01,39,Toxic,Britney Spears,pop,96
+2000,2000-10-01,40,Yeah!,Usher,r&b,96
+2000,2000-11-01,41,Believe,Cher,pop,84
+2000,2000-11-01,42,...Baby One More Time,Britney Spears,pop,87
+2000,2000-11-01,43,Bye Bye Bye,N*SYNC,pop,87
+2000,2000-11-01,44,Crazy in Love,Beyoncé,r&b,86
+2000,2000-12-01,45,Hips Don't Lie,Shakira,pop,86
+2000,2000-12-01,46,I'll Be Missing You,Puff Daddy,hip-hop,86
+2000,2000-12-01,47,Lady Marmalade,Christina Aguilera,pop,86
+2000,2000-12-01,48,Beautiful,Christina Aguilera,pop,86
+2000,2000-13-01,49,Toxic,Britney Spears,pop,86
+2000,2000-13-01,50,Yeah!,Usher,r&b,86
+2001,2001-01-01,1,Believe,Cher,pop,84
+2001,2001-01-01,2,...Baby One More Time,Britney Spears,pop,87
+2001,2001-01-01,3,Bye Bye Bye,N*SYNC,pop,87
+2001,2001-01-01,4,Crazy in Love,Beyoncé,r&b,86
+2001,2001-02-01,5,Hips Don't Lie,Shakira,pop,86
+2001,2001-02-01,6,I'll Be Missing You,Puff Daddy,hip-hop,86
+2001,2001-02-01,7,Lady Marmalade,Christina Aguilera,pop,86
+2001,2001-02-01,8,Beautiful,Christina Aguilera,pop,86
+2001,2001-03-01,9,Toxic,Britney Spears,pop,86
+2001,2001-03-01,10,Yeah!,Usher,r&b,86
+2001,2001-03-01,11,Believe,Cher,pop,94
+2001,2001-03-01,12,...Baby One More Time,Britney Spears,pop,97
+2001,2001-04-01,13,Bye Bye Bye,N*SYNC,pop,97
+2001,2001-04-01,14,Crazy in Love,Beyoncé,r&b,96
+2001,2001-04-01,15,Hips Don't Lie,Shakira,pop,96
+2001,2001-04-01,16,I'll Be Missing You,Puff Daddy,hip-hop,96
+2001,2001-05-01,17,Lady Marmalade,Christina Aguilera,pop,96
+2001,2001-05-01,18,Beautiful,Christina Aguilera,pop,96
+2001,2001-05-01,19,Toxic,Britney Spears,pop,96
+2001,2001-05-01,20,Yeah!,Usher,r&b,96
+2001,2001-06-01,21,Believe,Cher,pop,84
+2001,2001-06-01,22,...Baby One More Time,Britney Spears,pop,87
+2001,2001-06-01,23,Bye Bye Bye,N*SYNC,pop,87
+2001,2001-06-01,24,Crazy in Love,Beyoncé,r&b,86
+2001,2001-07-01,25,Hips Don't Lie,Shakira,pop,86
+2001,2001-07-01,26,I'll Be Missing You,Puff Daddy,hip-hop,86
+2001,2001-07-01,27,Lady Marmalade,Christina Aguilera,pop,86
+2001,2001-07-01,28,Beautiful,Christina Aguilera,pop,86
+2001,2001-08-01,29,Toxic,Britney Spears,pop,86
+2001,2001-08-01,30,Yeah!,Usher,r&b,86
+2001,2001-08-01,31,Believe,Cher,pop,94
+2001,2001-08-01,32,...Baby One More Time,Britney Spears,pop,97
+2001,2001-09-01,33,Bye Bye Bye,N*SYNC,pop,97
+2001,2001-09-01,34,Crazy in Love,Beyoncé,r&b,96
+2001,2001-09-01,35,Hips Don't Lie,Shakira,pop,96
+2001,2001-09-01,36,I'll Be Missing You,Puff Daddy,hip-hop,96
+2001,2001-10-01,37,Lady Marmalade,Christina Aguilera,pop,96
+2001,2001-10-01,38,Beautiful,Christina Aguilera,pop,96
+2001,2001-10-01,39,Toxic,Britney Spears,pop,96
+2001,2001-10-01,40,Yeah!,Usher,r&b,96
+2001,2001-11-01,41,Believe,Cher,pop,84
+2001,2001-11-01,42,...Baby One More Time,Britney Spears,pop,87
+2001,2001-11-01,43,Bye Bye Bye,N*SYNC,pop,87
+2001,2001-11-01,44,Crazy in Love,Beyoncé,r&b,86
+2001,2001-12-01,45,Hips Don't Lie,Shakira,pop,86
+2001,2001-12-01,46,I'll Be Missing You,Puff Daddy,hip-hop,86
+2001,2001-12-01,47,Lady Marmalade,Christina Aguilera,pop,86
+2001,2001-12-01,48,Beautiful,Christina Aguilera,pop,86
+2001,2001-13-01,49,Toxic,Britney Spears,pop,86
+2001,2001-13-01,50,Yeah!,Usher,r&b,86
+2002,2002-01-01,1,Without Me,Eminem,hip-hop,87
+2002,2002-01-01,2,In Da Club,50 Cent,hip-hop,87
+2002,2002-01-01,3,Hot in Herre,Nelly,hip-hop,87
+2002,2002-01-01,4,Hollaback Girl,Gwen Stefani,pop,86
+2002,2002-02-01,5,SexyBack,Justin Timberlake,pop,86
+2002,2002-02-01,6,Lose Yourself,Eminem,hip-hop,89
+2002,2002-02-01,7,Gold Digger,Kanye West,hip-hop,89
+2002,2002-02-01,8,Single Ladies,Beyoncé,pop,88
+2002,2002-03-01,9,Since U Been Gone,Kelly Clarkson,pop,88
+2002,2002-03-01,10,Beautiful,Christina Aguilera,pop,88
+2002,2002-03-01,11,Without Me,Eminem,hip-hop,97
+2002,2002-03-01,12,In Da Club,50 Cent,hip-hop,97
+2002,2002-04-01,13,Hot in Herre,Nelly,hip-hop,97
+2002,2002-04-01,14,Hollaback Girl,Gwen Stefani,pop,96
+2002,2002-04-01,15,SexyBack,Justin Timberlake,pop,96
+2002,2002-04-01,16,Lose Yourself,Eminem,hip-hop,99
+2002,2002-05-01,17,Gold Digger,Kanye West,hip-hop,99
+2002,2002-05-01,18,Single Ladies,Beyoncé,pop,98
+2002,2002-05-01,19,Since U Been Gone,Kelly Clarkson,pop,98
+2002,2002-05-01,20,Beautiful,Christina Aguilera,pop,98
+2002,2002-06-01,21,Without Me,Eminem,hip-hop,87
+2002,2002-06-01,22,In Da Club,50 Cent,hip-hop,87
+2002,2002-06-01,23,Hot in Herre,Nelly,hip-hop,87
+2002,2002-06-01,24,Hollaback Girl,Gwen Stefani,pop,86
+2002,2002-07-01,25,SexyBack,Justin Timberlake,pop,86
+2002,2002-07-01,26,Lose Yourself,Eminem,hip-hop,89
+2002,2002-07-01,27,Gold Digger,Kanye West,hip-hop,89
+2002,2002-07-01,28,Single Ladies,Beyoncé,pop,88
+2002,2002-08-01,29,Since U Been Gone,Kelly Clarkson,pop,88
+2002,2002-08-01,30,Beautiful,Christina Aguilera,pop,88
+2002,2002-08-01,31,Without Me,Eminem,hip-hop,97
+2002,2002-08-01,32,In Da Club,50 Cent,hip-hop,97
+2002,2002-09-01,33,Hot in Herre,Nelly,hip-hop,97
+2002,2002-09-01,34,Hollaback Girl,Gwen Stefani,pop,96
+2002,2002-09-01,35,SexyBack,Justin Timberlake,pop,96
+2002,2002-09-01,36,Lose Yourself,Eminem,hip-hop,99
+2002,2002-10-01,37,Gold Digger,Kanye West,hip-hop,99
+2002,2002-10-01,38,Single Ladies,Beyoncé,pop,98
+2002,2002-10-01,39,Since U Been Gone,Kelly Clarkson,pop,98
+2002,2002-10-01,40,Beautiful,Christina Aguilera,pop,98
+2002,2002-11-01,41,Without Me,Eminem,hip-hop,87
+2002,2002-11-01,42,In Da Club,50 Cent,hip-hop,87
+2002,2002-11-01,43,Hot in Herre,Nelly,hip-hop,87
+2002,2002-11-01,44,Hollaback Girl,Gwen Stefani,pop,86
+2002,2002-12-01,45,SexyBack,Justin Timberlake,pop,86
+2002,2002-12-01,46,Lose Yourself,Eminem,hip-hop,89
+2002,2002-12-01,47,Gold Digger,Kanye West,hip-hop,89
+2002,2002-12-01,48,Single Ladies,Beyoncé,pop,88
+2002,2002-13-01,49,Since U Been Gone,Kelly Clarkson,pop,88
+2002,2002-13-01,50,Beautiful,Christina Aguilera,pop,88
+2003,2003-01-01,1,Without Me,Eminem,hip-hop,87
+2003,2003-01-01,2,In Da Club,50 Cent,hip-hop,87
+2003,2003-01-01,3,Hot in Herre,Nelly,hip-hop,87
+2003,2003-01-01,4,Hollaback Girl,Gwen Stefani,pop,86
+2003,2003-02-01,5,SexyBack,Justin Timberlake,pop,86
+2003,2003-02-01,6,Lose Yourself,Eminem,hip-hop,89
+2003,2003-02-01,7,Gold Digger,Kanye West,hip-hop,89
+2003,2003-02-01,8,Single Ladies,Beyoncé,pop,88
+2003,2003-03-01,9,Since U Been Gone,Kelly Clarkson,pop,88
+2003,2003-03-01,10,Beautiful,Christina Aguilera,pop,88
+2003,2003-03-01,11,Without Me,Eminem,hip-hop,97
+2003,2003-03-01,12,In Da Club,50 Cent,hip-hop,97
+2003,2003-04-01,13,Hot in Herre,Nelly,hip-hop,97
+2003,2003-04-01,14,Hollaback Girl,Gwen Stefani,pop,96
+2003,2003-04-01,15,SexyBack,Justin Timberlake,pop,96
+2003,2003-04-01,16,Lose Yourself,Eminem,hip-hop,99
+2003,2003-05-01,17,Gold Digger,Kanye West,hip-hop,99
+2003,2003-05-01,18,Single Ladies,Beyoncé,pop,98
+2003,2003-05-01,19,Since U Been Gone,Kelly Clarkson,pop,98
+2003,2003-05-01,20,Beautiful,Christina Aguilera,pop,98
+2003,2003-06-01,21,Without Me,Eminem,hip-hop,87
+2003,2003-06-01,22,In Da Club,50 Cent,hip-hop,87
+2003,2003-06-01,23,Hot in Herre,Nelly,hip-hop,87
+2003,2003-06-01,24,Hollaback Girl,Gwen Stefani,pop,86
+2003,2003-07-01,25,SexyBack,Justin Timberlake,pop,86
+2003,2003-07-01,26,Lose Yourself,Eminem,hip-hop,89
+2003,2003-07-01,27,Gold Digger,Kanye West,hip-hop,89
+2003,2003-07-01,28,Single Ladies,Beyoncé,pop,88
+2003,2003-08-01,29,Since U Been Gone,Kelly Clarkson,pop,88
+2003,2003-08-01,30,Beautiful,Christina Aguilera,pop,88
+2003,2003-08-01,31,Without Me,Eminem,hip-hop,97
+2003,2003-08-01,32,In Da Club,50 Cent,hip-hop,97
+2003,2003-09-01,33,Hot in Herre,Nelly,hip-hop,97
+2003,2003-09-01,34,Hollaback Girl,Gwen Stefani,pop,96
+2003,2003-09-01,35,SexyBack,Justin Timberlake,pop,96
+2003,2003-09-01,36,Lose Yourself,Eminem,hip-hop,99
+2003,2003-10-01,37,Gold Digger,Kanye West,hip-hop,99
+2003,2003-10-01,38,Single Ladies,Beyoncé,pop,98
+2003,2003-10-01,39,Since U Been Gone,Kelly Clarkson,pop,98
+2003,2003-10-01,40,Beautiful,Christina Aguilera,pop,98
+2003,2003-11-01,41,Without Me,Eminem,hip-hop,87
+2003,2003-11-01,42,In Da Club,50 Cent,hip-hop,87
+2003,2003-11-01,43,Hot in Herre,Nelly,hip-hop,87
+2003,2003-11-01,44,Hollaback Girl,Gwen Stefani,pop,86
+2003,2003-12-01,45,SexyBack,Justin Timberlake,pop,86
+2003,2003-12-01,46,Lose Yourself,Eminem,hip-hop,89
+2003,2003-12-01,47,Gold Digger,Kanye West,hip-hop,89
+2003,2003-12-01,48,Single Ladies,Beyoncé,pop,88
+2003,2003-13-01,49,Since U Been Gone,Kelly Clarkson,pop,88
+2003,2003-13-01,50,Beautiful,Christina Aguilera,pop,88
+2004,2004-01-01,1,Without Me,Eminem,hip-hop,87
+2004,2004-01-01,2,In Da Club,50 Cent,hip-hop,87
+2004,2004-01-01,3,Hot in Herre,Nelly,hip-hop,87
+2004,2004-01-01,4,Hollaback Girl,Gwen Stefani,pop,86
+2004,2004-02-01,5,SexyBack,Justin Timberlake,pop,86
+2004,2004-02-01,6,Lose Yourself,Eminem,hip-hop,89
+2004,2004-02-01,7,Gold Digger,Kanye West,hip-hop,89
+2004,2004-02-01,8,Single Ladies,Beyoncé,pop,88
+2004,2004-03-01,9,Since U Been Gone,Kelly Clarkson,pop,88
+2004,2004-03-01,10,Beautiful,Christina Aguilera,pop,88
+2004,2004-03-01,11,Without Me,Eminem,hip-hop,97
+2004,2004-03-01,12,In Da Club,50 Cent,hip-hop,97
+2004,2004-04-01,13,Hot in Herre,Nelly,hip-hop,97
+2004,2004-04-01,14,Hollaback Girl,Gwen Stefani,pop,96
+2004,2004-04-01,15,SexyBack,Justin Timberlake,pop,96
+2004,2004-04-01,16,Lose Yourself,Eminem,hip-hop,99
+2004,2004-05-01,17,Gold Digger,Kanye West,hip-hop,99
+2004,2004-05-01,18,Single Ladies,Beyoncé,pop,98
+2004,2004-05-01,19,Since U Been Gone,Kelly Clarkson,pop,98
+2004,2004-05-01,20,Beautiful,Christina Aguilera,pop,98
+2004,2004-06-01,21,Without Me,Eminem,hip-hop,87
+2004,2004-06-01,22,In Da Club,50 Cent,hip-hop,87
+2004,2004-06-01,23,Hot in Herre,Nelly,hip-hop,87
+2004,2004-06-01,24,Hollaback Girl,Gwen Stefani,pop,86
+2004,2004-07-01,25,SexyBack,Justin Timberlake,pop,86
+2004,2004-07-01,26,Lose Yourself,Eminem,hip-hop,89
+2004,2004-07-01,27,Gold Digger,Kanye West,hip-hop,89
+2004,2004-07-01,28,Single Ladies,Beyoncé,pop,88
+2004,2004-08-01,29,Since U Been Gone,Kelly Clarkson,pop,88
+2004,2004-08-01,30,Beautiful,Christina Aguilera,pop,88
+2004,2004-08-01,31,Without Me,Eminem,hip-hop,97
+2004,2004-08-01,32,In Da Club,50 Cent,hip-hop,97
+2004,2004-09-01,33,Hot in Herre,Nelly,hip-hop,97
+2004,2004-09-01,34,Hollaback Girl,Gwen Stefani,pop,96
+2004,2004-09-01,35,SexyBack,Justin Timberlake,pop,96
+2004,2004-09-01,36,Lose Yourself,Eminem,hip-hop,99
+2004,2004-10-01,37,Gold Digger,Kanye West,hip-hop,99
+2004,2004-10-01,38,Single Ladies,Beyoncé,pop,98
+2004,2004-10-01,39,Since U Been Gone,Kelly Clarkson,pop,98
+2004,2004-10-01,40,Beautiful,Christina Aguilera,pop,98
+2004,2004-11-01,41,Without Me,Eminem,hip-hop,87
+2004,2004-11-01,42,In Da Club,50 Cent,hip-hop,87
+2004,2004-11-01,43,Hot in Herre,Nelly,hip-hop,87
+2004,2004-11-01,44,Hollaback Girl,Gwen Stefani,pop,86
+2004,2004-12-01,45,SexyBack,Justin Timberlake,pop,86
+2004,2004-12-01,46,Lose Yourself,Eminem,hip-hop,89
+2004,2004-12-01,47,Gold Digger,Kanye West,hip-hop,89
+2004,2004-12-01,48,Single Ladies,Beyoncé,pop,88
+2004,2004-13-01,49,Since U Been Gone,Kelly Clarkson,pop,88
+2004,2004-13-01,50,Beautiful,Christina Aguilera,pop,88
+2005,2005-01-01,1,Without Me,Eminem,hip-hop,87
+2005,2005-01-01,2,In Da Club,50 Cent,hip-hop,87
+2005,2005-01-01,3,Hot in Herre,Nelly,hip-hop,87
+2005,2005-01-01,4,Hollaback Girl,Gwen Stefani,pop,86
+2005,2005-02-01,5,SexyBack,Justin Timberlake,pop,86
+2005,2005-02-01,6,Lose Yourself,Eminem,hip-hop,89
+2005,2005-02-01,7,Gold Digger,Kanye West,hip-hop,89
+2005,2005-02-01,8,Single Ladies,Beyoncé,pop,88
+2005,2005-03-01,9,Since U Been Gone,Kelly Clarkson,pop,88
+2005,2005-03-01,10,Beautiful,Christina Aguilera,pop,88
+2005,2005-03-01,11,Without Me,Eminem,hip-hop,97
+2005,2005-03-01,12,In Da Club,50 Cent,hip-hop,97
+2005,2005-04-01,13,Hot in Herre,Nelly,hip-hop,97
+2005,2005-04-01,14,Hollaback Girl,Gwen Stefani,pop,96
+2005,2005-04-01,15,SexyBack,Justin Timberlake,pop,96
+2005,2005-04-01,16,Lose Yourself,Eminem,hip-hop,99
+2005,2005-05-01,17,Gold Digger,Kanye West,hip-hop,99
+2005,2005-05-01,18,Single Ladies,Beyoncé,pop,98
+2005,2005-05-01,19,Since U Been Gone,Kelly Clarkson,pop,98
+2005,2005-05-01,20,Beautiful,Christina Aguilera,pop,98
+2005,2005-06-01,21,Without Me,Eminem,hip-hop,87
+2005,2005-06-01,22,In Da Club,50 Cent,hip-hop,87
+2005,2005-06-01,23,Hot in Herre,Nelly,hip-hop,87
+2005,2005-06-01,24,Hollaback Girl,Gwen Stefani,pop,86
+2005,2005-07-01,25,SexyBack,Justin Timberlake,pop,86
+2005,2005-07-01,26,Lose Yourself,Eminem,hip-hop,89
+2005,2005-07-01,27,Gold Digger,Kanye West,hip-hop,89
+2005,2005-07-01,28,Single Ladies,Beyoncé,pop,88
+2005,2005-08-01,29,Since U Been Gone,Kelly Clarkson,pop,88
+2005,2005-08-01,30,Beautiful,Christina Aguilera,pop,88
+2005,2005-08-01,31,Without Me,Eminem,hip-hop,97
+2005,2005-08-01,32,In Da Club,50 Cent,hip-hop,97
+2005,2005-09-01,33,Hot in Herre,Nelly,hip-hop,97
+2005,2005-09-01,34,Hollaback Girl,Gwen Stefani,pop,96
+2005,2005-09-01,35,SexyBack,Justin Timberlake,pop,96
+2005,2005-09-01,36,Lose Yourself,Eminem,hip-hop,99
+2005,2005-10-01,37,Gold Digger,Kanye West,hip-hop,99
+2005,2005-10-01,38,Single Ladies,Beyoncé,pop,98
+2005,2005-10-01,39,Since U Been Gone,Kelly Clarkson,pop,98
+2005,2005-10-01,40,Beautiful,Christina Aguilera,pop,98
+2005,2005-11-01,41,Without Me,Eminem,hip-hop,87
+2005,2005-11-01,42,In Da Club,50 Cent,hip-hop,87
+2005,2005-11-01,43,Hot in Herre,Nelly,hip-hop,87
+2005,2005-11-01,44,Hollaback Girl,Gwen Stefani,pop,86
+2005,2005-12-01,45,SexyBack,Justin Timberlake,pop,86
+2005,2005-12-01,46,Lose Yourself,Eminem,hip-hop,89
+2005,2005-12-01,47,Gold Digger,Kanye West,hip-hop,89
+2005,2005-12-01,48,Single Ladies,Beyoncé,pop,88
+2005,2005-13-01,49,Since U Been Gone,Kelly Clarkson,pop,88
+2005,2005-13-01,50,Beautiful,Christina Aguilera,pop,88
+2006,2006-01-01,1,Umbrella,Rihanna,pop,85
+2006,2006-01-01,2,Single Ladies,Beyoncé,pop,87
+2006,2006-01-01,3,Poker Face,Lady Gaga,pop,86
+2006,2006-01-01,4,I Gotta Feeling,Black Eyed Peas,pop,86
+2006,2006-02-01,5,Bad Romance,Lady Gaga,pop,86
+2006,2006-02-01,6,Viva la Vida,Coldplay,rock,85
+2006,2006-02-01,7,Use Somebody,Kings of Leon,rock,84
+2006,2006-02-01,8,Sex on Fire,Kings of Leon,rock,84
+2006,2006-03-01,9,Bleeding Love,Leona Lewis,pop,87
+2006,2006-03-01,10,Chasing Pavements,Adele,pop,87
+2006,2006-03-01,11,Umbrella,Rihanna,pop,95
+2006,2006-03-01,12,Single Ladies,Beyoncé,pop,97
+2006,2006-04-01,13,Poker Face,Lady Gaga,pop,96
+2006,2006-04-01,14,I Gotta Feeling,Black Eyed Peas,pop,96
+2006,2006-04-01,15,Bad Romance,Lady Gaga,pop,96
+2006,2006-04-01,16,Viva la Vida,Coldplay,rock,95
+2006,2006-05-01,17,Use Somebody,Kings of Leon,rock,94
+2006,2006-05-01,18,Sex on Fire,Kings of Leon,rock,94
+2006,2006-05-01,19,Bleeding Love,Leona Lewis,pop,97
+2006,2006-05-01,20,Chasing Pavements,Adele,pop,97
+2006,2006-06-01,21,Umbrella,Rihanna,pop,85
+2006,2006-06-01,22,Single Ladies,Beyoncé,pop,87
+2006,2006-06-01,23,Poker Face,Lady Gaga,pop,86
+2006,2006-06-01,24,I Gotta Feeling,Black Eyed Peas,pop,86
+2006,2006-07-01,25,Bad Romance,Lady Gaga,pop,86
+2006,2006-07-01,26,Viva la Vida,Coldplay,rock,85
+2006,2006-07-01,27,Use Somebody,Kings of Leon,rock,84
+2006,2006-07-01,28,Sex on Fire,Kings of Leon,rock,84
+2006,2006-08-01,29,Bleeding Love,Leona Lewis,pop,87
+2006,2006-08-01,30,Chasing Pavements,Adele,pop,87
+2006,2006-08-01,31,Umbrella,Rihanna,pop,95
+2006,2006-08-01,32,Single Ladies,Beyoncé,pop,97
+2006,2006-09-01,33,Poker Face,Lady Gaga,pop,96
+2006,2006-09-01,34,I Gotta Feeling,Black Eyed Peas,pop,96
+2006,2006-09-01,35,Bad Romance,Lady Gaga,pop,96
+2006,2006-09-01,36,Viva la Vida,Coldplay,rock,95
+2006,2006-10-01,37,Use Somebody,Kings of Leon,rock,94
+2006,2006-10-01,38,Sex on Fire,Kings of Leon,rock,94
+2006,2006-10-01,39,Bleeding Love,Leona Lewis,pop,97
+2006,2006-10-01,40,Chasing Pavements,Adele,pop,97
+2006,2006-11-01,41,Umbrella,Rihanna,pop,85
+2006,2006-11-01,42,Single Ladies,Beyoncé,pop,87
+2006,2006-11-01,43,Poker Face,Lady Gaga,pop,86
+2006,2006-11-01,44,I Gotta Feeling,Black Eyed Peas,pop,86
+2006,2006-12-01,45,Bad Romance,Lady Gaga,pop,86
+2006,2006-12-01,46,Viva la Vida,Coldplay,rock,85
+2006,2006-12-01,47,Use Somebody,Kings of Leon,rock,84
+2006,2006-12-01,48,Sex on Fire,Kings of Leon,rock,84
+2006,2006-13-01,49,Bleeding Love,Leona Lewis,pop,87
+2006,2006-13-01,50,Chasing Pavements,Adele,pop,87
+2007,2007-01-01,1,Umbrella,Rihanna,pop,85
+2007,2007-01-01,2,Single Ladies,Beyoncé,pop,87
+2007,2007-01-01,3,Poker Face,Lady Gaga,pop,86
+2007,2007-01-01,4,I Gotta Feeling,Black Eyed Peas,pop,86
+2007,2007-02-01,5,Bad Romance,Lady Gaga,pop,86
+2007,2007-02-01,6,Viva la Vida,Coldplay,rock,85
+2007,2007-02-01,7,Use Somebody,Kings of Leon,rock,84
+2007,2007-02-01,8,Sex on Fire,Kings of Leon,rock,84
+2007,2007-03-01,9,Bleeding Love,Leona Lewis,pop,87
+2007,2007-03-01,10,Chasing Pavements,Adele,pop,87
+2007,2007-03-01,11,Umbrella,Rihanna,pop,95
+2007,2007-03-01,12,Single Ladies,Beyoncé,pop,97
+2007,2007-04-01,13,Poker Face,Lady Gaga,pop,96
+2007,2007-04-01,14,I Gotta Feeling,Black Eyed Peas,pop,96
+2007,2007-04-01,15,Bad Romance,Lady Gaga,pop,96
+2007,2007-04-01,16,Viva la Vida,Coldplay,rock,95
+2007,2007-05-01,17,Use Somebody,Kings of Leon,rock,94
+2007,2007-05-01,18,Sex on Fire,Kings of Leon,rock,94
+2007,2007-05-01,19,Bleeding Love,Leona Lewis,pop,97
+2007,2007-05-01,20,Chasing Pavements,Adele,pop,97
+2007,2007-06-01,21,Umbrella,Rihanna,pop,85
+2007,2007-06-01,22,Single Ladies,Beyoncé,pop,87
+2007,2007-06-01,23,Poker Face,Lady Gaga,pop,86
+2007,2007-06-01,24,I Gotta Feeling,Black Eyed Peas,pop,86
+2007,2007-07-01,25,Bad Romance,Lady Gaga,pop,86
+2007,2007-07-01,26,Viva la Vida,Coldplay,rock,85
+2007,2007-07-01,27,Use Somebody,Kings of Leon,rock,84
+2007,2007-07-01,28,Sex on Fire,Kings of Leon,rock,84
+2007,2007-08-01,29,Bleeding Love,Leona Lewis,pop,87
+2007,2007-08-01,30,Chasing Pavements,Adele,pop,87
+2007,2007-08-01,31,Umbrella,Rihanna,pop,95
+2007,2007-08-01,32,Single Ladies,Beyoncé,pop,97
+2007,2007-09-01,33,Poker Face,Lady Gaga,pop,96
+2007,2007-09-01,34,I Gotta Feeling,Black Eyed Peas,pop,96
+2007,2007-09-01,35,Bad Romance,Lady Gaga,pop,96
+2007,2007-09-01,36,Viva la Vida,Coldplay,rock,95
+2007,2007-10-01,37,Use Somebody,Kings of Leon,rock,94
+2007,2007-10-01,38,Sex on Fire,Kings of Leon,rock,94
+2007,2007-10-01,39,Bleeding Love,Leona Lewis,pop,97
+2007,2007-10-01,40,Chasing Pavements,Adele,pop,97
+2007,2007-11-01,41,Umbrella,Rihanna,pop,85
+2007,2007-11-01,42,Single Ladies,Beyoncé,pop,87
+2007,2007-11-01,43,Poker Face,Lady Gaga,pop,86
+2007,2007-11-01,44,I Gotta Feeling,Black Eyed Peas,pop,86
+2007,2007-12-01,45,Bad Romance,Lady Gaga,pop,86
+2007,2007-12-01,46,Viva la Vida,Coldplay,rock,85
+2007,2007-12-01,47,Use Somebody,Kings of Leon,rock,84
+2007,2007-12-01,48,Sex on Fire,Kings of Leon,rock,84
+2007,2007-13-01,49,Bleeding Love,Leona Lewis,pop,87
+2007,2007-13-01,50,Chasing Pavements,Adele,pop,87
+2008,2008-01-01,1,Umbrella,Rihanna,pop,85
+2008,2008-01-01,2,Single Ladies,Beyoncé,pop,87
+2008,2008-01-01,3,Poker Face,Lady Gaga,pop,86
+2008,2008-01-01,4,I Gotta Feeling,Black Eyed Peas,pop,86
+2008,2008-02-01,5,Bad Romance,Lady Gaga,pop,86
+2008,2008-02-01,6,Viva la Vida,Coldplay,rock,85
+2008,2008-02-01,7,Use Somebody,Kings of Leon,rock,84
+2008,2008-02-01,8,Sex on Fire,Kings of Leon,rock,84
+2008,2008-03-01,9,Bleeding Love,Leona Lewis,pop,87
+2008,2008-03-01,10,Chasing Pavements,Adele,pop,87
+2008,2008-03-01,11,Umbrella,Rihanna,pop,95
+2008,2008-03-01,12,Single Ladies,Beyoncé,pop,97
+2008,2008-04-01,13,Poker Face,Lady Gaga,pop,96
+2008,2008-04-01,14,I Gotta Feeling,Black Eyed Peas,pop,96
+2008,2008-04-01,15,Bad Romance,Lady Gaga,pop,96
+2008,2008-04-01,16,Viva la Vida,Coldplay,rock,95
+2008,2008-05-01,17,Use Somebody,Kings of Leon,rock,94
+2008,2008-05-01,18,Sex on Fire,Kings of Leon,rock,94
+2008,2008-05-01,19,Bleeding Love,Leona Lewis,pop,97
+2008,2008-05-01,20,Chasing Pavements,Adele,pop,97
+2008,2008-06-01,21,Umbrella,Rihanna,pop,85
+2008,2008-06-01,22,Single Ladies,Beyoncé,pop,87
+2008,2008-06-01,23,Poker Face,Lady Gaga,pop,86
+2008,2008-06-01,24,I Gotta Feeling,Black Eyed Peas,pop,86
+2008,2008-07-01,25,Bad Romance,Lady Gaga,pop,86
+2008,2008-07-01,26,Viva la Vida,Coldplay,rock,85
+2008,2008-07-01,27,Use Somebody,Kings of Leon,rock,84
+2008,2008-07-01,28,Sex on Fire,Kings of Leon,rock,84
+2008,2008-08-01,29,Bleeding Love,Leona Lewis,pop,87
+2008,2008-08-01,30,Chasing Pavements,Adele,pop,87
+2008,2008-08-01,31,Umbrella,Rihanna,pop,95
+2008,2008-08-01,32,Single Ladies,Beyoncé,pop,97
+2008,2008-09-01,33,Poker Face,Lady Gaga,pop,96
+2008,2008-09-01,34,I Gotta Feeling,Black Eyed Peas,pop,96
+2008,2008-09-01,35,Bad Romance,Lady Gaga,pop,96
+2008,2008-09-01,36,Viva la Vida,Coldplay,rock,95
+2008,2008-10-01,37,Use Somebody,Kings of Leon,rock,94
+2008,2008-10-01,38,Sex on Fire,Kings of Leon,rock,94
+2008,2008-10-01,39,Bleeding Love,Leona Lewis,pop,97
+2008,2008-10-01,40,Chasing Pavements,Adele,pop,97
+2008,2008-11-01,41,Umbrella,Rihanna,pop,85
+2008,2008-11-01,42,Single Ladies,Beyoncé,pop,87
+2008,2008-11-01,43,Poker Face,Lady Gaga,pop,86
+2008,2008-11-01,44,I Gotta Feeling,Black Eyed Peas,pop,86
+2008,2008-12-01,45,Bad Romance,Lady Gaga,pop,86
+2008,2008-12-01,46,Viva la Vida,Coldplay,rock,85
+2008,2008-12-01,47,Use Somebody,Kings of Leon,rock,84
+2008,2008-12-01,48,Sex on Fire,Kings of Leon,rock,84
+2008,2008-13-01,49,Bleeding Love,Leona Lewis,pop,87
+2008,2008-13-01,50,Chasing Pavements,Adele,pop,87
+2009,2009-01-01,1,Umbrella,Rihanna,pop,85
+2009,2009-01-01,2,Single Ladies,Beyoncé,pop,87
+2009,2009-01-01,3,Poker Face,Lady Gaga,pop,86
+2009,2009-01-01,4,I Gotta Feeling,Black Eyed Peas,pop,86
+2009,2009-02-01,5,Bad Romance,Lady Gaga,pop,86
+2009,2009-02-01,6,Viva la Vida,Coldplay,rock,85
+2009,2009-02-01,7,Use Somebody,Kings of Leon,rock,84
+2009,2009-02-01,8,Sex on Fire,Kings of Leon,rock,84
+2009,2009-03-01,9,Bleeding Love,Leona Lewis,pop,87
+2009,2009-03-01,10,Chasing Pavements,Adele,pop,87
+2009,2009-03-01,11,Umbrella,Rihanna,pop,95
+2009,2009-03-01,12,Single Ladies,Beyoncé,pop,97
+2009,2009-04-01,13,Poker Face,Lady Gaga,pop,96
+2009,2009-04-01,14,I Gotta Feeling,Black Eyed Peas,pop,96
+2009,2009-04-01,15,Bad Romance,Lady Gaga,pop,96
+2009,2009-04-01,16,Viva la Vida,Coldplay,rock,95
+2009,2009-05-01,17,Use Somebody,Kings of Leon,rock,94
+2009,2009-05-01,18,Sex on Fire,Kings of Leon,rock,94
+2009,2009-05-01,19,Bleeding Love,Leona Lewis,pop,97
+2009,2009-05-01,20,Chasing Pavements,Adele,pop,97
+2009,2009-06-01,21,Umbrella,Rihanna,pop,85
+2009,2009-06-01,22,Single Ladies,Beyoncé,pop,87
+2009,2009-06-01,23,Poker Face,Lady Gaga,pop,86
+2009,2009-06-01,24,I Gotta Feeling,Black Eyed Peas,pop,86
+2009,2009-07-01,25,Bad Romance,Lady Gaga,pop,86
+2009,2009-07-01,26,Viva la Vida,Coldplay,rock,85
+2009,2009-07-01,27,Use Somebody,Kings of Leon,rock,84
+2009,2009-07-01,28,Sex on Fire,Kings of Leon,rock,84
+2009,2009-08-01,29,Bleeding Love,Leona Lewis,pop,87
+2009,2009-08-01,30,Chasing Pavements,Adele,pop,87
+2009,2009-08-01,31,Umbrella,Rihanna,pop,95
+2009,2009-08-01,32,Single Ladies,Beyoncé,pop,97
+2009,2009-09-01,33,Poker Face,Lady Gaga,pop,96
+2009,2009-09-01,34,I Gotta Feeling,Black Eyed Peas,pop,96
+2009,2009-09-01,35,Bad Romance,Lady Gaga,pop,96
+2009,2009-09-01,36,Viva la Vida,Coldplay,rock,95
+2009,2009-10-01,37,Use Somebody,Kings of Leon,rock,94
+2009,2009-10-01,38,Sex on Fire,Kings of Leon,rock,94
+2009,2009-10-01,39,Bleeding Love,Leona Lewis,pop,97
+2009,2009-10-01,40,Chasing Pavements,Adele,pop,97
+2009,2009-11-01,41,Umbrella,Rihanna,pop,85
+2009,2009-11-01,42,Single Ladies,Beyoncé,pop,87
+2009,2009-11-01,43,Poker Face,Lady Gaga,pop,86
+2009,2009-11-01,44,I Gotta Feeling,Black Eyed Peas,pop,86
+2009,2009-12-01,45,Bad Romance,Lady Gaga,pop,86
+2009,2009-12-01,46,Viva la Vida,Coldplay,rock,85
+2009,2009-12-01,47,Use Somebody,Kings of Leon,rock,84
+2009,2009-12-01,48,Sex on Fire,Kings of Leon,rock,84
+2009,2009-13-01,49,Bleeding Love,Leona Lewis,pop,87
+2009,2009-13-01,50,Chasing Pavements,Adele,pop,87
+2010,2010-01-01,1,Rolling in the Deep,Adele,pop,88
+2010,2010-01-01,2,Hotline Bling,Drake,hip-hop,88
+2010,2010-01-01,3,Shake It Off,Taylor Swift,pop,88
+2010,2010-01-01,4,Uptown Funk,Mark Ronson,pop,88
+2010,2010-02-01,5,Lean On,Major Lazer,electronic,88
+2010,2010-02-01,6,Wake Me Up,Avicii,electronic,88
+2010,2010-02-01,7,Titanium,David Guetta,electronic,88
+2010,2010-02-01,8,Levels,Avicii,electronic,88
+2010,2010-03-01,9,Animals,Martin Garrix,electronic,88
+2010,2010-03-01,10,Clarity,Zedd,electronic,88
+2010,2010-03-01,11,Rolling in the Deep,Adele,pop,98
+2010,2010-03-01,12,Hotline Bling,Drake,hip-hop,98
+2010,2010-04-01,13,Shake It Off,Taylor Swift,pop,98
+2010,2010-04-01,14,Uptown Funk,Mark Ronson,pop,98
+2010,2010-04-01,15,Lean On,Major Lazer,electronic,98
+2010,2010-04-01,16,Wake Me Up,Avicii,electronic,98
+2010,2010-05-01,17,Titanium,David Guetta,electronic,98
+2010,2010-05-01,18,Levels,Avicii,electronic,98
+2010,2010-05-01,19,Animals,Martin Garrix,electronic,98
+2010,2010-05-01,20,Clarity,Zedd,electronic,98
+2010,2010-06-01,21,Rolling in the Deep,Adele,pop,88
+2010,2010-06-01,22,Hotline Bling,Drake,hip-hop,88
+2010,2010-06-01,23,Shake It Off,Taylor Swift,pop,88
+2010,2010-06-01,24,Uptown Funk,Mark Ronson,pop,88
+2010,2010-07-01,25,Lean On,Major Lazer,electronic,88
+2010,2010-07-01,26,Wake Me Up,Avicii,electronic,88
+2010,2010-07-01,27,Titanium,David Guetta,electronic,88
+2010,2010-07-01,28,Levels,Avicii,electronic,88
+2010,2010-08-01,29,Animals,Martin Garrix,electronic,88
+2010,2010-08-01,30,Clarity,Zedd,electronic,88
+2010,2010-08-01,31,Rolling in the Deep,Adele,pop,98
+2010,2010-08-01,32,Hotline Bling,Drake,hip-hop,98
+2010,2010-09-01,33,Shake It Off,Taylor Swift,pop,98
+2010,2010-09-01,34,Uptown Funk,Mark Ronson,pop,98
+2010,2010-09-01,35,Lean On,Major Lazer,electronic,98
+2010,2010-09-01,36,Wake Me Up,Avicii,electronic,98
+2010,2010-10-01,37,Titanium,David Guetta,electronic,98
+2010,2010-10-01,38,Levels,Avicii,electronic,98
+2010,2010-10-01,39,Animals,Martin Garrix,electronic,98
+2010,2010-10-01,40,Clarity,Zedd,electronic,98
+2010,2010-11-01,41,Rolling in the Deep,Adele,pop,88
+2010,2010-11-01,42,Hotline Bling,Drake,hip-hop,88
+2010,2010-11-01,43,Shake It Off,Taylor Swift,pop,88
+2010,2010-11-01,44,Uptown Funk,Mark Ronson,pop,88
+2010,2010-12-01,45,Lean On,Major Lazer,electronic,88
+2010,2010-12-01,46,Wake Me Up,Avicii,electronic,88
+2010,2010-12-01,47,Titanium,David Guetta,electronic,88
+2010,2010-12-01,48,Levels,Avicii,electronic,88
+2010,2010-13-01,49,Animals,Martin Garrix,electronic,88
+2010,2010-13-01,50,Clarity,Zedd,electronic,88
+2011,2011-01-01,1,Rolling in the Deep,Adele,pop,88
+2011,2011-01-01,2,Hotline Bling,Drake,hip-hop,88
+2011,2011-01-01,3,Shake It Off,Taylor Swift,pop,88
+2011,2011-01-01,4,Uptown Funk,Mark Ronson,pop,88
+2011,2011-02-01,5,Lean On,Major Lazer,electronic,88
+2011,2011-02-01,6,Wake Me Up,Avicii,electronic,88
+2011,2011-02-01,7,Titanium,David Guetta,electronic,88
+2011,2011-02-01,8,Levels,Avicii,electronic,88
+2011,2011-03-01,9,Animals,Martin Garrix,electronic,88
+2011,2011-03-01,10,Clarity,Zedd,electronic,88
+2011,2011-03-01,11,Rolling in the Deep,Adele,pop,98
+2011,2011-03-01,12,Hotline Bling,Drake,hip-hop,98
+2011,2011-04-01,13,Shake It Off,Taylor Swift,pop,98
+2011,2011-04-01,14,Uptown Funk,Mark Ronson,pop,98
+2011,2011-04-01,15,Lean On,Major Lazer,electronic,98
+2011,2011-04-01,16,Wake Me Up,Avicii,electronic,98
+2011,2011-05-01,17,Titanium,David Guetta,electronic,98
+2011,2011-05-01,18,Levels,Avicii,electronic,98
+2011,2011-05-01,19,Animals,Martin Garrix,electronic,98
+2011,2011-05-01,20,Clarity,Zedd,electronic,98
+2011,2011-06-01,21,Rolling in the Deep,Adele,pop,88
+2011,2011-06-01,22,Hotline Bling,Drake,hip-hop,88
+2011,2011-06-01,23,Shake It Off,Taylor Swift,pop,88
+2011,2011-06-01,24,Uptown Funk,Mark Ronson,pop,88
+2011,2011-07-01,25,Lean On,Major Lazer,electronic,88
+2011,2011-07-01,26,Wake Me Up,Avicii,electronic,88
+2011,2011-07-01,27,Titanium,David Guetta,electronic,88
+2011,2011-07-01,28,Levels,Avicii,electronic,88
+2011,2011-08-01,29,Animals,Martin Garrix,electronic,88
+2011,2011-08-01,30,Clarity,Zedd,electronic,88
+2011,2011-08-01,31,Rolling in the Deep,Adele,pop,98
+2011,2011-08-01,32,Hotline Bling,Drake,hip-hop,98
+2011,2011-09-01,33,Shake It Off,Taylor Swift,pop,98
+2011,2011-09-01,34,Uptown Funk,Mark Ronson,pop,98
+2011,2011-09-01,35,Lean On,Major Lazer,electronic,98
+2011,2011-09-01,36,Wake Me Up,Avicii,electronic,98
+2011,2011-10-01,37,Titanium,David Guetta,electronic,98
+2011,2011-10-01,38,Levels,Avicii,electronic,98
+2011,2011-10-01,39,Animals,Martin Garrix,electronic,98
+2011,2011-10-01,40,Clarity,Zedd,electronic,98
+2011,2011-11-01,41,Rolling in the Deep,Adele,pop,88
+2011,2011-11-01,42,Hotline Bling,Drake,hip-hop,88
+2011,2011-11-01,43,Shake It Off,Taylor Swift,pop,88
+2011,2011-11-01,44,Uptown Funk,Mark Ronson,pop,88
+2011,2011-12-01,45,Lean On,Major Lazer,electronic,88
+2011,2011-12-01,46,Wake Me Up,Avicii,electronic,88
+2011,2011-12-01,47,Titanium,David Guetta,electronic,88
+2011,2011-12-01,48,Levels,Avicii,electronic,88
+2011,2011-13-01,49,Animals,Martin Garrix,electronic,88
+2011,2011-13-01,50,Clarity,Zedd,electronic,88
+2012,2012-01-01,1,Rolling in the Deep,Adele,pop,88
+2012,2012-01-01,2,Hotline Bling,Drake,hip-hop,88
+2012,2012-01-01,3,Shake It Off,Taylor Swift,pop,88
+2012,2012-01-01,4,Uptown Funk,Mark Ronson,pop,88
+2012,2012-02-01,5,Lean On,Major Lazer,electronic,88
+2012,2012-02-01,6,Wake Me Up,Avicii,electronic,88
+2012,2012-02-01,7,Titanium,David Guetta,electronic,88
+2012,2012-02-01,8,Levels,Avicii,electronic,88
+2012,2012-03-01,9,Animals,Martin Garrix,electronic,88
+2012,2012-03-01,10,Clarity,Zedd,electronic,88
+2012,2012-03-01,11,Rolling in the Deep,Adele,pop,98
+2012,2012-03-01,12,Hotline Bling,Drake,hip-hop,98
+2012,2012-04-01,13,Shake It Off,Taylor Swift,pop,98
+2012,2012-04-01,14,Uptown Funk,Mark Ronson,pop,98
+2012,2012-04-01,15,Lean On,Major Lazer,electronic,98
+2012,2012-04-01,16,Wake Me Up,Avicii,electronic,98
+2012,2012-05-01,17,Titanium,David Guetta,electronic,98
+2012,2012-05-01,18,Levels,Avicii,electronic,98
+2012,2012-05-01,19,Animals,Martin Garrix,electronic,98
+2012,2012-05-01,20,Clarity,Zedd,electronic,98
+2012,2012-06-01,21,Rolling in the Deep,Adele,pop,88
+2012,2012-06-01,22,Hotline Bling,Drake,hip-hop,88
+2012,2012-06-01,23,Shake It Off,Taylor Swift,pop,88
+2012,2012-06-01,24,Uptown Funk,Mark Ronson,pop,88
+2012,2012-07-01,25,Lean On,Major Lazer,electronic,88
+2012,2012-07-01,26,Wake Me Up,Avicii,electronic,88
+2012,2012-07-01,27,Titanium,David Guetta,electronic,88
+2012,2012-07-01,28,Levels,Avicii,electronic,88
+2012,2012-08-01,29,Animals,Martin Garrix,electronic,88
+2012,2012-08-01,30,Clarity,Zedd,electronic,88
+2012,2012-08-01,31,Rolling in the Deep,Adele,pop,98
+2012,2012-08-01,32,Hotline Bling,Drake,hip-hop,98
+2012,2012-09-01,33,Shake It Off,Taylor Swift,pop,98
+2012,2012-09-01,34,Uptown Funk,Mark Ronson,pop,98
+2012,2012-09-01,35,Lean On,Major Lazer,electronic,98
+2012,2012-09-01,36,Wake Me Up,Avicii,electronic,98
+2012,2012-10-01,37,Titanium,David Guetta,electronic,98
+2012,2012-10-01,38,Levels,Avicii,electronic,98
+2012,2012-10-01,39,Animals,Martin Garrix,electronic,98
+2012,2012-10-01,40,Clarity,Zedd,electronic,98
+2012,2012-11-01,41,Rolling in the Deep,Adele,pop,88
+2012,2012-11-01,42,Hotline Bling,Drake,hip-hop,88
+2012,2012-11-01,43,Shake It Off,Taylor Swift,pop,88
+2012,2012-11-01,44,Uptown Funk,Mark Ronson,pop,88
+2012,2012-12-01,45,Lean On,Major Lazer,electronic,88
+2012,2012-12-01,46,Wake Me Up,Avicii,electronic,88
+2012,2012-12-01,47,Titanium,David Guetta,electronic,88
+2012,2012-12-01,48,Levels,Avicii,electronic,88
+2012,2012-13-01,49,Animals,Martin Garrix,electronic,88
+2012,2012-13-01,50,Clarity,Zedd,electronic,88
+2013,2013-01-01,1,Rolling in the Deep,Adele,pop,88
+2013,2013-01-01,2,Hotline Bling,Drake,hip-hop,88
+2013,2013-01-01,3,Shake It Off,Taylor Swift,pop,88
+2013,2013-01-01,4,Uptown Funk,Mark Ronson,pop,88
+2013,2013-02-01,5,Lean On,Major Lazer,electronic,88
+2013,2013-02-01,6,Wake Me Up,Avicii,electronic,88
+2013,2013-02-01,7,Titanium,David Guetta,electronic,88
+2013,2013-02-01,8,Levels,Avicii,electronic,88
+2013,2013-03-01,9,Animals,Martin Garrix,electronic,88
+2013,2013-03-01,10,Clarity,Zedd,electronic,88
+2013,2013-03-01,11,Rolling in the Deep,Adele,pop,98
+2013,2013-03-01,12,Hotline Bling,Drake,hip-hop,98
+2013,2013-04-01,13,Shake It Off,Taylor Swift,pop,98
+2013,2013-04-01,14,Uptown Funk,Mark Ronson,pop,98
+2013,2013-04-01,15,Lean On,Major Lazer,electronic,98
+2013,2013-04-01,16,Wake Me Up,Avicii,electronic,98
+2013,2013-05-01,17,Titanium,David Guetta,electronic,98
+2013,2013-05-01,18,Levels,Avicii,electronic,98
+2013,2013-05-01,19,Animals,Martin Garrix,electronic,98
+2013,2013-05-01,20,Clarity,Zedd,electronic,98
+2013,2013-06-01,21,Rolling in the Deep,Adele,pop,88
+2013,2013-06-01,22,Hotline Bling,Drake,hip-hop,88
+2013,2013-06-01,23,Shake It Off,Taylor Swift,pop,88
+2013,2013-06-01,24,Uptown Funk,Mark Ronson,pop,88
+2013,2013-07-01,25,Lean On,Major Lazer,electronic,88
+2013,2013-07-01,26,Wake Me Up,Avicii,electronic,88
+2013,2013-07-01,27,Titanium,David Guetta,electronic,88
+2013,2013-07-01,28,Levels,Avicii,electronic,88
+2013,2013-08-01,29,Animals,Martin Garrix,electronic,88
+2013,2013-08-01,30,Clarity,Zedd,electronic,88
+2013,2013-08-01,31,Rolling in the Deep,Adele,pop,98
+2013,2013-08-01,32,Hotline Bling,Drake,hip-hop,98
+2013,2013-09-01,33,Shake It Off,Taylor Swift,pop,98
+2013,2013-09-01,34,Uptown Funk,Mark Ronson,pop,98
+2013,2013-09-01,35,Lean On,Major Lazer,electronic,98
+2013,2013-09-01,36,Wake Me Up,Avicii,electronic,98
+2013,2013-10-01,37,Titanium,David Guetta,electronic,98
+2013,2013-10-01,38,Levels,Avicii,electronic,98
+2013,2013-10-01,39,Animals,Martin Garrix,electronic,98
+2013,2013-10-01,40,Clarity,Zedd,electronic,98
+2013,2013-11-01,41,Rolling in the Deep,Adele,pop,88
+2013,2013-11-01,42,Hotline Bling,Drake,hip-hop,88
+2013,2013-11-01,43,Shake It Off,Taylor Swift,pop,88
+2013,2013-11-01,44,Uptown Funk,Mark Ronson,pop,88
+2013,2013-12-01,45,Lean On,Major Lazer,electronic,88
+2013,2013-12-01,46,Wake Me Up,Avicii,electronic,88
+2013,2013-12-01,47,Titanium,David Guetta,electronic,88
+2013,2013-12-01,48,Levels,Avicii,electronic,88
+2013,2013-13-01,49,Animals,Martin Garrix,electronic,88
+2013,2013-13-01,50,Clarity,Zedd,electronic,88
+2014,2014-01-01,1,Rolling in the Deep,Adele,pop,88
+2014,2014-01-01,2,Hotline Bling,Drake,hip-hop,88
+2014,2014-01-01,3,Shake It Off,Taylor Swift,pop,88
+2014,2014-01-01,4,Uptown Funk,Mark Ronson,pop,88
+2014,2014-02-01,5,Lean On,Major Lazer,electronic,88
+2014,2014-02-01,6,Wake Me Up,Avicii,electronic,88
+2014,2014-02-01,7,Titanium,David Guetta,electronic,88
+2014,2014-02-01,8,Levels,Avicii,electronic,88
+2014,2014-03-01,9,Animals,Martin Garrix,electronic,88
+2014,2014-03-01,10,Clarity,Zedd,electronic,88
+2014,2014-03-01,11,Rolling in the Deep,Adele,pop,98
+2014,2014-03-01,12,Hotline Bling,Drake,hip-hop,98
+2014,2014-04-01,13,Shake It Off,Taylor Swift,pop,98
+2014,2014-04-01,14,Uptown Funk,Mark Ronson,pop,98
+2014,2014-04-01,15,Lean On,Major Lazer,electronic,98
+2014,2014-04-01,16,Wake Me Up,Avicii,electronic,98
+2014,2014-05-01,17,Titanium,David Guetta,electronic,98
+2014,2014-05-01,18,Levels,Avicii,electronic,98
+2014,2014-05-01,19,Animals,Martin Garrix,electronic,98
+2014,2014-05-01,20,Clarity,Zedd,electronic,98
+2014,2014-06-01,21,Rolling in the Deep,Adele,pop,88
+2014,2014-06-01,22,Hotline Bling,Drake,hip-hop,88
+2014,2014-06-01,23,Shake It Off,Taylor Swift,pop,88
+2014,2014-06-01,24,Uptown Funk,Mark Ronson,pop,88
+2014,2014-07-01,25,Lean On,Major Lazer,electronic,88
+2014,2014-07-01,26,Wake Me Up,Avicii,electronic,88
+2014,2014-07-01,27,Titanium,David Guetta,electronic,88
+2014,2014-07-01,28,Levels,Avicii,electronic,88
+2014,2014-08-01,29,Animals,Martin Garrix,electronic,88
+2014,2014-08-01,30,Clarity,Zedd,electronic,88
+2014,2014-08-01,31,Rolling in the Deep,Adele,pop,98
+2014,2014-08-01,32,Hotline Bling,Drake,hip-hop,98
+2014,2014-09-01,33,Shake It Off,Taylor Swift,pop,98
+2014,2014-09-01,34,Uptown Funk,Mark Ronson,pop,98
+2014,2014-09-01,35,Lean On,Major Lazer,electronic,98
+2014,2014-09-01,36,Wake Me Up,Avicii,electronic,98
+2014,2014-10-01,37,Titanium,David Guetta,electronic,98
+2014,2014-10-01,38,Levels,Avicii,electronic,98
+2014,2014-10-01,39,Animals,Martin Garrix,electronic,98
+2014,2014-10-01,40,Clarity,Zedd,electronic,98
+2014,2014-11-01,41,Rolling in the Deep,Adele,pop,88
+2014,2014-11-01,42,Hotline Bling,Drake,hip-hop,88
+2014,2014-11-01,43,Shake It Off,Taylor Swift,pop,88
+2014,2014-11-01,44,Uptown Funk,Mark Ronson,pop,88
+2014,2014-12-01,45,Lean On,Major Lazer,electronic,88
+2014,2014-12-01,46,Wake Me Up,Avicii,electronic,88
+2014,2014-12-01,47,Titanium,David Guetta,electronic,88
+2014,2014-12-01,48,Levels,Avicii,electronic,88
+2014,2014-13-01,49,Animals,Martin Garrix,electronic,88
+2014,2014-13-01,50,Clarity,Zedd,electronic,88
+2015,2015-01-01,1,Rolling in the Deep,Adele,pop,88
+2015,2015-01-01,2,Hotline Bling,Drake,hip-hop,88
+2015,2015-01-01,3,Shake It Off,Taylor Swift,pop,88
+2015,2015-01-01,4,Uptown Funk,Mark Ronson,pop,88
+2015,2015-02-01,5,Lean On,Major Lazer,electronic,88
+2015,2015-02-01,6,Wake Me Up,Avicii,electronic,88
+2015,2015-02-01,7,Titanium,David Guetta,electronic,88
+2015,2015-02-01,8,Levels,Avicii,electronic,88
+2015,2015-03-01,9,Animals,Martin Garrix,electronic,88
+2015,2015-03-01,10,Clarity,Zedd,electronic,88
+2015,2015-03-01,11,Rolling in the Deep,Adele,pop,98
+2015,2015-03-01,12,Hotline Bling,Drake,hip-hop,98
+2015,2015-04-01,13,Shake It Off,Taylor Swift,pop,98
+2015,2015-04-01,14,Uptown Funk,Mark Ronson,pop,98
+2015,2015-04-01,15,Lean On,Major Lazer,electronic,98
+2015,2015-04-01,16,Wake Me Up,Avicii,electronic,98
+2015,2015-05-01,17,Titanium,David Guetta,electronic,98
+2015,2015-05-01,18,Levels,Avicii,electronic,98
+2015,2015-05-01,19,Animals,Martin Garrix,electronic,98
+2015,2015-05-01,20,Clarity,Zedd,electronic,98
+2015,2015-06-01,21,Rolling in the Deep,Adele,pop,88
+2015,2015-06-01,22,Hotline Bling,Drake,hip-hop,88
+2015,2015-06-01,23,Shake It Off,Taylor Swift,pop,88
+2015,2015-06-01,24,Uptown Funk,Mark Ronson,pop,88
+2015,2015-07-01,25,Lean On,Major Lazer,electronic,88
+2015,2015-07-01,26,Wake Me Up,Avicii,electronic,88
+2015,2015-07-01,27,Titanium,David Guetta,electronic,88
+2015,2015-07-01,28,Levels,Avicii,electronic,88
+2015,2015-08-01,29,Animals,Martin Garrix,electronic,88
+2015,2015-08-01,30,Clarity,Zedd,electronic,88
+2015,2015-08-01,31,Rolling in the Deep,Adele,pop,98
+2015,2015-08-01,32,Hotline Bling,Drake,hip-hop,98
+2015,2015-09-01,33,Shake It Off,Taylor Swift,pop,98
+2015,2015-09-01,34,Uptown Funk,Mark Ronson,pop,98
+2015,2015-09-01,35,Lean On,Major Lazer,electronic,98
+2015,2015-09-01,36,Wake Me Up,Avicii,electronic,98
+2015,2015-10-01,37,Titanium,David Guetta,electronic,98
+2015,2015-10-01,38,Levels,Avicii,electronic,98
+2015,2015-10-01,39,Animals,Martin Garrix,electronic,98
+2015,2015-10-01,40,Clarity,Zedd,electronic,98
+2015,2015-11-01,41,Rolling in the Deep,Adele,pop,88
+2015,2015-11-01,42,Hotline Bling,Drake,hip-hop,88
+2015,2015-11-01,43,Shake It Off,Taylor Swift,pop,88
+2015,2015-11-01,44,Uptown Funk,Mark Ronson,pop,88
+2015,2015-12-01,45,Lean On,Major Lazer,electronic,88
+2015,2015-12-01,46,Wake Me Up,Avicii,electronic,88
+2015,2015-12-01,47,Titanium,David Guetta,electronic,88
+2015,2015-12-01,48,Levels,Avicii,electronic,88
+2015,2015-13-01,49,Animals,Martin Garrix,electronic,88
+2015,2015-13-01,50,Clarity,Zedd,electronic,88
+2016,2016-01-01,1,One Dance,Drake,hip-hop,89
+2016,2016-01-01,2,Blinding Lights,The Weeknd,pop,89
+2016,2016-01-01,3,Bad Guy,Billie Eilish,pop,89
+2016,2016-01-01,4,HUMBLE.,Kendrick Lamar,hip-hop,89
+2016,2016-02-01,5,God's Plan,Drake,hip-hop,89
+2016,2016-02-01,6,Shut Up and Dance,WALK THE MOON,pop,89
+2016,2016-02-01,7,Closer,The Chainsmokers,electronic,89
+2016,2016-02-01,8,This Is What You Came For,Calvin Harris,electronic,89
+2016,2016-03-01,9,Starboy,The Weeknd,pop,89
+2016,2016-03-01,10,Shape of You,Ed Sheeran,pop,89
+2016,2016-03-01,11,One Dance,Drake,hip-hop,99
+2016,2016-03-01,12,Blinding Lights,The Weeknd,pop,99
+2016,2016-04-01,13,Bad Guy,Billie Eilish,pop,99
+2016,2016-04-01,14,HUMBLE.,Kendrick Lamar,hip-hop,99
+2016,2016-04-01,15,God's Plan,Drake,hip-hop,99
+2016,2016-04-01,16,Shut Up and Dance,WALK THE MOON,pop,99
+2016,2016-05-01,17,Closer,The Chainsmokers,electronic,99
+2016,2016-05-01,18,This Is What You Came For,Calvin Harris,electronic,99
+2016,2016-05-01,19,Starboy,The Weeknd,pop,99
+2016,2016-05-01,20,Shape of You,Ed Sheeran,pop,99
+2016,2016-06-01,21,One Dance,Drake,hip-hop,89
+2016,2016-06-01,22,Blinding Lights,The Weeknd,pop,89
+2016,2016-06-01,23,Bad Guy,Billie Eilish,pop,89
+2016,2016-06-01,24,HUMBLE.,Kendrick Lamar,hip-hop,89
+2016,2016-07-01,25,God's Plan,Drake,hip-hop,89
+2016,2016-07-01,26,Shut Up and Dance,WALK THE MOON,pop,89
+2016,2016-07-01,27,Closer,The Chainsmokers,electronic,89
+2016,2016-07-01,28,This Is What You Came For,Calvin Harris,electronic,89
+2016,2016-08-01,29,Starboy,The Weeknd,pop,89
+2016,2016-08-01,30,Shape of You,Ed Sheeran,pop,89
+2016,2016-08-01,31,One Dance,Drake,hip-hop,99
+2016,2016-08-01,32,Blinding Lights,The Weeknd,pop,99
+2016,2016-09-01,33,Bad Guy,Billie Eilish,pop,99
+2016,2016-09-01,34,HUMBLE.,Kendrick Lamar,hip-hop,99
+2016,2016-09-01,35,God's Plan,Drake,hip-hop,99
+2016,2016-09-01,36,Shut Up and Dance,WALK THE MOON,pop,99
+2016,2016-10-01,37,Closer,The Chainsmokers,electronic,99
+2016,2016-10-01,38,This Is What You Came For,Calvin Harris,electronic,99
+2016,2016-10-01,39,Starboy,The Weeknd,pop,99
+2016,2016-10-01,40,Shape of You,Ed Sheeran,pop,99
+2016,2016-11-01,41,One Dance,Drake,hip-hop,89
+2016,2016-11-01,42,Blinding Lights,The Weeknd,pop,89
+2016,2016-11-01,43,Bad Guy,Billie Eilish,pop,89
+2016,2016-11-01,44,HUMBLE.,Kendrick Lamar,hip-hop,89
+2016,2016-12-01,45,God's Plan,Drake,hip-hop,89
+2016,2016-12-01,46,Shut Up and Dance,WALK THE MOON,pop,89
+2016,2016-12-01,47,Closer,The Chainsmokers,electronic,89
+2016,2016-12-01,48,This Is What You Came For,Calvin Harris,electronic,89
+2016,2016-13-01,49,Starboy,The Weeknd,pop,89
+2016,2016-13-01,50,Shape of You,Ed Sheeran,pop,89
+2017,2017-01-01,1,One Dance,Drake,hip-hop,89
+2017,2017-01-01,2,Blinding Lights,The Weeknd,pop,89
+2017,2017-01-01,3,Bad Guy,Billie Eilish,pop,89
+2017,2017-01-01,4,HUMBLE.,Kendrick Lamar,hip-hop,89
+2017,2017-02-01,5,God's Plan,Drake,hip-hop,89
+2017,2017-02-01,6,Shut Up and Dance,WALK THE MOON,pop,89
+2017,2017-02-01,7,Closer,The Chainsmokers,electronic,89
+2017,2017-02-01,8,This Is What You Came For,Calvin Harris,electronic,89
+2017,2017-03-01,9,Starboy,The Weeknd,pop,89
+2017,2017-03-01,10,Shape of You,Ed Sheeran,pop,89
+2017,2017-03-01,11,One Dance,Drake,hip-hop,99
+2017,2017-03-01,12,Blinding Lights,The Weeknd,pop,99
+2017,2017-04-01,13,Bad Guy,Billie Eilish,pop,99
+2017,2017-04-01,14,HUMBLE.,Kendrick Lamar,hip-hop,99
+2017,2017-04-01,15,God's Plan,Drake,hip-hop,99
+2017,2017-04-01,16,Shut Up and Dance,WALK THE MOON,pop,99
+2017,2017-05-01,17,Closer,The Chainsmokers,electronic,99
+2017,2017-05-01,18,This Is What You Came For,Calvin Harris,electronic,99
+2017,2017-05-01,19,Starboy,The Weeknd,pop,99
+2017,2017-05-01,20,Shape of You,Ed Sheeran,pop,99
+2017,2017-06-01,21,One Dance,Drake,hip-hop,89
+2017,2017-06-01,22,Blinding Lights,The Weeknd,pop,89
+2017,2017-06-01,23,Bad Guy,Billie Eilish,pop,89
+2017,2017-06-01,24,HUMBLE.,Kendrick Lamar,hip-hop,89
+2017,2017-07-01,25,God's Plan,Drake,hip-hop,89
+2017,2017-07-01,26,Shut Up and Dance,WALK THE MOON,pop,89
+2017,2017-07-01,27,Closer,The Chainsmokers,electronic,89
+2017,2017-07-01,28,This Is What You Came For,Calvin Harris,electronic,89
+2017,2017-08-01,29,Starboy,The Weeknd,pop,89
+2017,2017-08-01,30,Shape of You,Ed Sheeran,pop,89
+2017,2017-08-01,31,One Dance,Drake,hip-hop,99
+2017,2017-08-01,32,Blinding Lights,The Weeknd,pop,99
+2017,2017-09-01,33,Bad Guy,Billie Eilish,pop,99
+2017,2017-09-01,34,HUMBLE.,Kendrick Lamar,hip-hop,99
+2017,2017-09-01,35,God's Plan,Drake,hip-hop,99
+2017,2017-09-01,36,Shut Up and Dance,WALK THE MOON,pop,99
+2017,2017-10-01,37,Closer,The Chainsmokers,electronic,99
+2017,2017-10-01,38,This Is What You Came For,Calvin Harris,electronic,99
+2017,2017-10-01,39,Starboy,The Weeknd,pop,99
+2017,2017-10-01,40,Shape of You,Ed Sheeran,pop,99
+2017,2017-11-01,41,One Dance,Drake,hip-hop,89
+2017,2017-11-01,42,Blinding Lights,The Weeknd,pop,89
+2017,2017-11-01,43,Bad Guy,Billie Eilish,pop,89
+2017,2017-11-01,44,HUMBLE.,Kendrick Lamar,hip-hop,89
+2017,2017-12-01,45,God's Plan,Drake,hip-hop,89
+2017,2017-12-01,46,Shut Up and Dance,WALK THE MOON,pop,89
+2017,2017-12-01,47,Closer,The Chainsmokers,electronic,89
+2017,2017-12-01,48,This Is What You Came For,Calvin Harris,electronic,89
+2017,2017-13-01,49,Starboy,The Weeknd,pop,89
+2017,2017-13-01,50,Shape of You,Ed Sheeran,pop,89
+2018,2018-01-01,1,One Dance,Drake,hip-hop,89
+2018,2018-01-01,2,Blinding Lights,The Weeknd,pop,89
+2018,2018-01-01,3,Bad Guy,Billie Eilish,pop,89
+2018,2018-01-01,4,HUMBLE.,Kendrick Lamar,hip-hop,89
+2018,2018-02-01,5,God's Plan,Drake,hip-hop,89
+2018,2018-02-01,6,Shut Up and Dance,WALK THE MOON,pop,89
+2018,2018-02-01,7,Closer,The Chainsmokers,electronic,89
+2018,2018-02-01,8,This Is What You Came For,Calvin Harris,electronic,89
+2018,2018-03-01,9,Starboy,The Weeknd,pop,89
+2018,2018-03-01,10,Shape of You,Ed Sheeran,pop,89
+2018,2018-03-01,11,One Dance,Drake,hip-hop,99
+2018,2018-03-01,12,Blinding Lights,The Weeknd,pop,99
+2018,2018-04-01,13,Bad Guy,Billie Eilish,pop,99
+2018,2018-04-01,14,HUMBLE.,Kendrick Lamar,hip-hop,99
+2018,2018-04-01,15,God's Plan,Drake,hip-hop,99
+2018,2018-04-01,16,Shut Up and Dance,WALK THE MOON,pop,99
+2018,2018-05-01,17,Closer,The Chainsmokers,electronic,99
+2018,2018-05-01,18,This Is What You Came For,Calvin Harris,electronic,99
+2018,2018-05-01,19,Starboy,The Weeknd,pop,99
+2018,2018-05-01,20,Shape of You,Ed Sheeran,pop,99
+2018,2018-06-01,21,One Dance,Drake,hip-hop,89
+2018,2018-06-01,22,Blinding Lights,The Weeknd,pop,89
+2018,2018-06-01,23,Bad Guy,Billie Eilish,pop,89
+2018,2018-06-01,24,HUMBLE.,Kendrick Lamar,hip-hop,89
+2018,2018-07-01,25,God's Plan,Drake,hip-hop,89
+2018,2018-07-01,26,Shut Up and Dance,WALK THE MOON,pop,89
+2018,2018-07-01,27,Closer,The Chainsmokers,electronic,89
+2018,2018-07-01,28,This Is What You Came For,Calvin Harris,electronic,89
+2018,2018-08-01,29,Starboy,The Weeknd,pop,89
+2018,2018-08-01,30,Shape of You,Ed Sheeran,pop,89
+2018,2018-08-01,31,One Dance,Drake,hip-hop,99
+2018,2018-08-01,32,Blinding Lights,The Weeknd,pop,99
+2018,2018-09-01,33,Bad Guy,Billie Eilish,pop,99
+2018,2018-09-01,34,HUMBLE.,Kendrick Lamar,hip-hop,99
+2018,2018-09-01,35,God's Plan,Drake,hip-hop,99
+2018,2018-09-01,36,Shut Up and Dance,WALK THE MOON,pop,99
+2018,2018-10-01,37,Closer,The Chainsmokers,electronic,99
+2018,2018-10-01,38,This Is What You Came For,Calvin Harris,electronic,99
+2018,2018-10-01,39,Starboy,The Weeknd,pop,99
+2018,2018-10-01,40,Shape of You,Ed Sheeran,pop,99
+2018,2018-11-01,41,One Dance,Drake,hip-hop,89
+2018,2018-11-01,42,Blinding Lights,The Weeknd,pop,89
+2018,2018-11-01,43,Bad Guy,Billie Eilish,pop,89
+2018,2018-11-01,44,HUMBLE.,Kendrick Lamar,hip-hop,89
+2018,2018-12-01,45,God's Plan,Drake,hip-hop,89
+2018,2018-12-01,46,Shut Up and Dance,WALK THE MOON,pop,89
+2018,2018-12-01,47,Closer,The Chainsmokers,electronic,89
+2018,2018-12-01,48,This Is What You Came For,Calvin Harris,electronic,89
+2018,2018-13-01,49,Starboy,The Weeknd,pop,89
+2018,2018-13-01,50,Shape of You,Ed Sheeran,pop,89
+2019,2019-01-01,1,One Dance,Drake,hip-hop,89
+2019,2019-01-01,2,Blinding Lights,The Weeknd,pop,89
+2019,2019-01-01,3,Bad Guy,Billie Eilish,pop,89
+2019,2019-01-01,4,HUMBLE.,Kendrick Lamar,hip-hop,89
+2019,2019-02-01,5,God's Plan,Drake,hip-hop,89
+2019,2019-02-01,6,Shut Up and Dance,WALK THE MOON,pop,89
+2019,2019-02-01,7,Closer,The Chainsmokers,electronic,89
+2019,2019-02-01,8,This Is What You Came For,Calvin Harris,electronic,89
+2019,2019-03-01,9,Starboy,The Weeknd,pop,89
+2019,2019-03-01,10,Shape of You,Ed Sheeran,pop,89
+2019,2019-03-01,11,One Dance,Drake,hip-hop,99
+2019,2019-03-01,12,Blinding Lights,The Weeknd,pop,99
+2019,2019-04-01,13,Bad Guy,Billie Eilish,pop,99
+2019,2019-04-01,14,HUMBLE.,Kendrick Lamar,hip-hop,99
+2019,2019-04-01,15,God's Plan,Drake,hip-hop,99
+2019,2019-04-01,16,Shut Up and Dance,WALK THE MOON,pop,99
+2019,2019-05-01,17,Closer,The Chainsmokers,electronic,99
+2019,2019-05-01,18,This Is What You Came For,Calvin Harris,electronic,99
+2019,2019-05-01,19,Starboy,The Weeknd,pop,99
+2019,2019-05-01,20,Shape of You,Ed Sheeran,pop,99
+2019,2019-06-01,21,One Dance,Drake,hip-hop,89
+2019,2019-06-01,22,Blinding Lights,The Weeknd,pop,89
+2019,2019-06-01,23,Bad Guy,Billie Eilish,pop,89
+2019,2019-06-01,24,HUMBLE.,Kendrick Lamar,hip-hop,89
+2019,2019-07-01,25,God's Plan,Drake,hip-hop,89
+2019,2019-07-01,26,Shut Up and Dance,WALK THE MOON,pop,89
+2019,2019-07-01,27,Closer,The Chainsmokers,electronic,89
+2019,2019-07-01,28,This Is What You Came For,Calvin Harris,electronic,89
+2019,2019-08-01,29,Starboy,The Weeknd,pop,89
+2019,2019-08-01,30,Shape of You,Ed Sheeran,pop,89
+2019,2019-08-01,31,One Dance,Drake,hip-hop,99
+2019,2019-08-01,32,Blinding Lights,The Weeknd,pop,99
+2019,2019-09-01,33,Bad Guy,Billie Eilish,pop,99
+2019,2019-09-01,34,HUMBLE.,Kendrick Lamar,hip-hop,99
+2019,2019-09-01,35,God's Plan,Drake,hip-hop,99
+2019,2019-09-01,36,Shut Up and Dance,WALK THE MOON,pop,99
+2019,2019-10-01,37,Closer,The Chainsmokers,electronic,99
+2019,2019-10-01,38,This Is What You Came For,Calvin Harris,electronic,99
+2019,2019-10-01,39,Starboy,The Weeknd,pop,99
+2019,2019-10-01,40,Shape of You,Ed Sheeran,pop,99
+2019,2019-11-01,41,One Dance,Drake,hip-hop,89
+2019,2019-11-01,42,Blinding Lights,The Weeknd,pop,89
+2019,2019-11-01,43,Bad Guy,Billie Eilish,pop,89
+2019,2019-11-01,44,HUMBLE.,Kendrick Lamar,hip-hop,89
+2019,2019-12-01,45,God's Plan,Drake,hip-hop,89
+2019,2019-12-01,46,Shut Up and Dance,WALK THE MOON,pop,89
+2019,2019-12-01,47,Closer,The Chainsmokers,electronic,89
+2019,2019-12-01,48,This Is What You Came For,Calvin Harris,electronic,89
+2019,2019-13-01,49,Starboy,The Weeknd,pop,89
+2019,2019-13-01,50,Shape of You,Ed Sheeran,pop,89
+2020,2020-01-01,1,One Dance,Drake,hip-hop,89
+2020,2020-01-01,2,Blinding Lights,The Weeknd,pop,89
+2020,2020-01-01,3,Bad Guy,Billie Eilish,pop,89
+2020,2020-01-01,4,HUMBLE.,Kendrick Lamar,hip-hop,89
+2020,2020-02-01,5,God's Plan,Drake,hip-hop,89
+2020,2020-02-01,6,Shut Up and Dance,WALK THE MOON,pop,89
+2020,2020-02-01,7,Closer,The Chainsmokers,electronic,89
+2020,2020-02-01,8,This Is What You Came For,Calvin Harris,electronic,89
+2020,2020-03-01,9,Starboy,The Weeknd,pop,89
+2020,2020-03-01,10,Shape of You,Ed Sheeran,pop,89
+2020,2020-03-01,11,One Dance,Drake,hip-hop,99
+2020,2020-03-01,12,Blinding Lights,The Weeknd,pop,99
+2020,2020-04-01,13,Bad Guy,Billie Eilish,pop,99
+2020,2020-04-01,14,HUMBLE.,Kendrick Lamar,hip-hop,99
+2020,2020-04-01,15,God's Plan,Drake,hip-hop,99
+2020,2020-04-01,16,Shut Up and Dance,WALK THE MOON,pop,99
+2020,2020-05-01,17,Closer,The Chainsmokers,electronic,99
+2020,2020-05-01,18,This Is What You Came For,Calvin Harris,electronic,99
+2020,2020-05-01,19,Starboy,The Weeknd,pop,99
+2020,2020-05-01,20,Shape of You,Ed Sheeran,pop,99
+2020,2020-06-01,21,One Dance,Drake,hip-hop,89
+2020,2020-06-01,22,Blinding Lights,The Weeknd,pop,89
+2020,2020-06-01,23,Bad Guy,Billie Eilish,pop,89
+2020,2020-06-01,24,HUMBLE.,Kendrick Lamar,hip-hop,89
+2020,2020-07-01,25,God's Plan,Drake,hip-hop,89
+2020,2020-07-01,26,Shut Up and Dance,WALK THE MOON,pop,89
+2020,2020-07-01,27,Closer,The Chainsmokers,electronic,89
+2020,2020-07-01,28,This Is What You Came For,Calvin Harris,electronic,89
+2020,2020-08-01,29,Starboy,The Weeknd,pop,89
+2020,2020-08-01,30,Shape of You,Ed Sheeran,pop,89
+2020,2020-08-01,31,One Dance,Drake,hip-hop,99
+2020,2020-08-01,32,Blinding Lights,The Weeknd,pop,99
+2020,2020-09-01,33,Bad Guy,Billie Eilish,pop,99
+2020,2020-09-01,34,HUMBLE.,Kendrick Lamar,hip-hop,99
+2020,2020-09-01,35,God's Plan,Drake,hip-hop,99
+2020,2020-09-01,36,Shut Up and Dance,WALK THE MOON,pop,99
+2020,2020-10-01,37,Closer,The Chainsmokers,electronic,99
+2020,2020-10-01,38,This Is What You Came For,Calvin Harris,electronic,99
+2020,2020-10-01,39,Starboy,The Weeknd,pop,99
+2020,2020-10-01,40,Shape of You,Ed Sheeran,pop,99
+2020,2020-11-01,41,One Dance,Drake,hip-hop,89
+2020,2020-11-01,42,Blinding Lights,The Weeknd,pop,89
+2020,2020-11-01,43,Bad Guy,Billie Eilish,pop,89
+2020,2020-11-01,44,HUMBLE.,Kendrick Lamar,hip-hop,89
+2020,2020-12-01,45,God's Plan,Drake,hip-hop,89
+2020,2020-12-01,46,Shut Up and Dance,WALK THE MOON,pop,89
+2020,2020-12-01,47,Closer,The Chainsmokers,electronic,89
+2020,2020-12-01,48,This Is What You Came For,Calvin Harris,electronic,89
+2020,2020-13-01,49,Starboy,The Weeknd,pop,89
+2020,2020-13-01,50,Shape of You,Ed Sheeran,pop,89

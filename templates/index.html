@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1995-2020 大众金曲流行度分析</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <header class="header">
+            <h1>🎵 大众金曲流行度分析</h1>
+            <p class="subtitle">1995-2020年 | 5大音乐流派 | 前10热曲排行</p>
+        </header>
+
+        <!-- 导航标签 -->
+        <nav class="nav">
+            <button class="nav-btn active" data-tab="periods">五年周期</button>
+            <button class="nav-btn" data-tab="trends">流派趋势</button>
+            <button class="nav-btn" data-tab="rankings">排行榜</button>
+        </nav>
+
+        <!-- 五年周期分析 -->
+        <section id="periods" class="tab-content active">
+            <div class="section-title">📊 每五年最流行音乐类型分析</div>
+            <div class="periods-grid" id="periodsGrid">
+                <!-- 动态加载 -->
+            </div>
+        </section>
+
+        <!-- 流派趋势图 -->
+        <section id="trends" class="tab-content">
+            <div class="section-title">📈 音乐流派流行度趋势（1995-2020）</div>
+            <div id="trendsChart" style="width: 100%; height: 500px;"></div>
+        </section>
+
+        <!-- 排行榜 -->
+        <section id="rankings" class="tab-content">
+            <div class="section-title">🏆 选择年份查看前10排行</div>
+            <div class="year-selector">
+                <button class="year-btn" data-year="1995">1995</button>
+                <button class="year-btn" data-year="2000">2000</button>
+                <button class="year-btn" data-year="2005">2005</button>
+                <button class="year-btn" data-year="2010">2010</button>
+                <button class="year-btn" data-year="2015">2015</button>
+                <button class="year-btn" data-year="2020">2020</button>
+            </div>
+            <div id="rankingsTable" class="rankings-table">
+                <!-- 动态加载 -->
+            </div>
+        </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
