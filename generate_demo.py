@@ -120,7 +120,7 @@ def generate_demo_data():
     return data
 
 def main():
-    print("生成演示数据...")
+    print("[INFO] Generating demo data...")
     data = generate_demo_data()
 
     # 保存为CSV

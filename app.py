@@ -11,6 +11,17 @@ DATA = []
 def load_data():
     """加载处理好的数据"""
     global DATA
+    import os
+
+    # 如果数据文件不存在，自动生成
+    if not os.path.exists('processed_data.csv'):
+        print("[INFO] Data file not found. Generating demo data...")
+        import subprocess
+        try:
+            subprocess.run(['python3', 'generate_demo.py'], check=True)
+        except:
+            pass
+
     try:
         with open('processed_data.csv', 'r', encoding='utf-8') as f:
             reader = csv.DictReader(f)
