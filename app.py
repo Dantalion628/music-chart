@@ -186,19 +186,32 @@ def application(environ, start_response):
     elif path.startswith('/static/'):
         filepath = path[1:]  # 移除开头的 /
         try:
+            # 确保文件路径存在
+            if not os.path.exists(filepath):
+                status = '404 Not Found'
+                start_response(status, [])
+                return [b'Not Found']
+
             with open(filepath, 'rb') as f:
                 body = f.read()
+
             if filepath.endswith('.css'):
-                content_type = 'text/css'
+                content_type = 'text/css; charset=utf-8'
             elif filepath.endswith('.js'):
-                content_type = 'application/javascript'
+                content_type = 'application/javascript; charset=utf-8'
+            elif filepath.endswith('.png'):
+                content_type = 'image/png'
+            elif filepath.endswith('.jpg') or filepath.endswith('.jpeg'):
+                content_type = 'image/jpeg'
             else:
                 content_type = 'application/octet-stream'
+
             status = '200 OK'
-            headers = [('Content-Type', content_type)]
+            headers = [('Content-Type', content_type), ('Cache-Control', 'max-age=3600')]
             start_response(status, headers)
             return [body]
-        except:
+        except Exception as e:
+            print("[ERROR] Static file error: {}".format(e))
             status = '404 Not Found'
             start_response(status, [])
             return [b'Not Found']
