@@ -1,12 +1,11 @@
 """
-Simple WSGI app without Flask complexity
-直接使用 WSGI，避免所有复杂依赖
+最简单的 WSGI 应用 - 只用标准库
 """
 
 import csv
 import json
-from collections import defaultdict
 import os
+from collections import defaultdict
 
 # 全局数据
 DATA = []
@@ -24,7 +23,6 @@ def load_data():
                 writer = csv.DictWriter(f, fieldnames=data[0].keys())
                 writer.writeheader()
                 writer.writerows(data)
-        print("[OK] Demo data generated")
 
     try:
         with open(csv_path, 'r', encoding='utf-8') as f:
@@ -34,9 +32,33 @@ def load_data():
                 row['year'] = int(row['year'])
                 row['popularity'] = int(row['popularity'])
                 row['rank'] = int(row['rank'])
-        print("[OK] Loaded {} records".format(len(DATA)))
     except Exception as e:
-        print("[ERROR] Cannot load data: {}".format(e))
+        print("Error loading data: {}".format(e))
+
+def read_file(filepath):
+    """读取文件内容"""
+    try:
+        with open(filepath, 'rb') as f:
+            return f.read()
+    except:
+        return None
+
+def get_content_type(filepath):
+    """获取文件的Content-Type"""
+    if filepath.endswith('.css'):
+        return 'text/css; charset=utf-8'
+    elif filepath.endswith('.js'):
+        return 'application/javascript; charset=utf-8'
+    elif filepath.endswith('.json'):
+        return 'application/json'
+    elif filepath.endswith('.html'):
+        return 'text/html; charset=utf-8'
+    elif filepath.endswith('.png'):
+        return 'image/png'
+    elif filepath.endswith('.jpg') or filepath.endswith('.jpeg'):
+        return 'image/jpeg'
+    else:
+        return 'application/octet-stream'
 
 def get_periods():
     """获取5年周期数据"""
@@ -45,17 +67,14 @@ def get_periods():
 
     for year in years:
         period_data = [d for d in DATA if abs(int(d['year']) - year) <= 2]
-
         if not period_data:
             continue
 
         genre_stats = defaultdict(lambda: {'count': 0, 'popularity': 0, 'songs': []})
-
         for entry in period_data:
             genre = entry['genre']
             genre_stats[genre]['count'] += 1
             genre_stats[genre]['popularity'] += int(entry['popularity'])
-
             if len(genre_stats[genre]['songs']) < 3:
                 genre_stats[genre]['songs'].append({
                     'song': entry['song'],
@@ -89,7 +108,6 @@ def get_period(year):
     """获取特定年份的数据"""
     year_data = [d for d in DATA if int(d['year']) == year]
     year_data.sort(key=lambda x: int(x['popularity']), reverse=True)
-
     top_10 = year_data[:10]
 
     genre_stats = defaultdict(int)
@@ -119,7 +137,6 @@ def get_period(year):
 def get_trends():
     """获取流派趋势"""
     trends = defaultdict(lambda: defaultdict(int))
-
     for entry in DATA:
         year = int(entry['year'])
         genre = entry['genre']
@@ -127,13 +144,11 @@ def get_trends():
 
     main_genres = ['pop', 'rock', 'hip-hop', 'electronic', 'r&b']
     result = {}
-
     for genre in main_genres:
         result[genre] = {
             'label': genre.upper(),
             'data': [trends[genre].get(y, 0) for y in range(1995, 2021)]
         }
-
     return result
 
 # 加载数据
@@ -145,87 +160,70 @@ def application(environ, start_response):
     path = environ.get('PATH_INFO', '/')
     method = environ.get('REQUEST_METHOD', 'GET')
 
-    if path == '/' and method == 'GET':
-        with open('templates/index.html', 'r', encoding='utf-8') as f:
-            body = f.read()
-        status = '200 OK'
-        headers = [('Content-Type', 'text/html; charset=utf-8')]
-        start_response(status, headers)
-        return [body.encode('utf-8')]
-
-    elif path == '/api/periods' and method == 'GET':
-        data = get_periods()
-        body = json.dumps(data, ensure_ascii=False).encode('utf-8')
-        status = '200 OK'
-        headers = [('Content-Type', 'application/json')]
-        start_response(status, headers)
-        return [body]
-
-    elif path.startswith('/api/period/') and method == 'GET':
-        try:
-            year = int(path.split('/')[-1])
-            data = get_period(year)
-            body = json.dumps(data, ensure_ascii=False).encode('utf-8')
-            status = '200 OK'
-            headers = [('Content-Type', 'application/json')]
-            start_response(status, headers)
-            return [body]
-        except:
-            status = '404 Not Found'
-            start_response(status, [])
-            return [b'Not Found']
-
-    elif path == '/api/trends' and method == 'GET':
-        data = get_trends()
-        body = json.dumps(data, ensure_ascii=False).encode('utf-8')
-        status = '200 OK'
-        headers = [('Content-Type', 'application/json')]
-        start_response(status, headers)
-        return [body]
-
-    elif path.startswith('/static/'):
-        filepath = path[1:]  # 移除开头的 /
-        try:
-            # 确保文件路径存在
-            if not os.path.exists(filepath):
-                status = '404 Not Found'
-                start_response(status, [])
+    try:
+        # 主页
+        if path == '/' and method == 'GET':
+            body = read_file('templates/index.html')
+            if body:
+                start_response('200 OK', [('Content-Type', 'text/html; charset=utf-8')])
+                return [body]
+            else:
+                start_response('404 Not Found', [])
                 return [b'Not Found']
 
-            with open(filepath, 'rb') as f:
-                body = f.read()
-
-            if filepath.endswith('.css'):
-                content_type = 'text/css; charset=utf-8'
-            elif filepath.endswith('.js'):
-                content_type = 'application/javascript; charset=utf-8'
-            elif filepath.endswith('.png'):
-                content_type = 'image/png'
-            elif filepath.endswith('.jpg') or filepath.endswith('.jpeg'):
-                content_type = 'image/jpeg'
-            else:
-                content_type = 'application/octet-stream'
-
-            status = '200 OK'
-            headers = [('Content-Type', content_type), ('Cache-Control', 'max-age=3600')]
-            start_response(status, headers)
+        # API: 5年周期
+        elif path == '/api/periods' and method == 'GET':
+            data = get_periods()
+            body = json.dumps(data, ensure_ascii=False).encode('utf-8')
+            start_response('200 OK', [('Content-Type', 'application/json')])
             return [body]
-        except Exception as e:
-            print("[ERROR] Static file error: {}".format(e))
-            status = '404 Not Found'
-            start_response(status, [])
+
+        # API: 特定年份
+        elif path.startswith('/api/period/') and method == 'GET':
+            try:
+                year = int(path.split('/')[-1])
+                data = get_period(year)
+                body = json.dumps(data, ensure_ascii=False).encode('utf-8')
+                start_response('200 OK', [('Content-Type', 'application/json')])
+                return [body]
+            except:
+                start_response('404 Not Found', [])
+                return [b'Not Found']
+
+        # API: 流派趋势
+        elif path == '/api/trends' and method == 'GET':
+            data = get_trends()
+            body = json.dumps(data, ensure_ascii=False).encode('utf-8')
+            start_response('200 OK', [('Content-Type', 'application/json')])
+            return [body]
+
+        # 静态文件
+        elif path.startswith('/static/'):
+            filepath = path[1:]
+            body = read_file(filepath)
+            if body:
+                content_type = get_content_type(filepath)
+                start_response('200 OK', [('Content-Type', content_type)])
+                return [body]
+            else:
+                start_response('404 Not Found', [])
+                return [b'Not Found']
+
+        # 其他路由 404
+        else:
+            start_response('404 Not Found', [])
             return [b'Not Found']
 
-    else:
-        status = '404 Not Found'
-        start_response(status, [])
-        return [b'Not Found']
+    except Exception as e:
+        print("Error: {}".format(e))
+        start_response('500 Internal Server Error', [])
+        return [b'Internal Server Error']
 
-# 兼容 Flask 名称
+# 兼容 gunicorn
 app = application
 
 if __name__ == '__main__':
     from wsgiref.simple_server import make_server
+    print('Starting server on http://127.0.0.1:5000')
     server = make_server('127.0.0.1', 5000, application)
-    print('[OK] Server running on http://127.0.0.1:5000')
     server.serve_forever()
