@@ -205,6 +205,15 @@ async function loadTrends(chartType = 'line') {
         const data = await response.json();
 
         const chartDom = document.getElementById('trendsChart');
+
+        // 销毁旧图表实例
+        if (window.trendsChart) {
+            window.trendsChart.dispose();
+        }
+
+        // 清空容器
+        chartDom.innerHTML = '';
+
         const myChart = echarts.init(chartDom);
 
         const years = Array.from({ length: 26 }, (_, i) => 1995 + i);
@@ -529,6 +538,15 @@ async function loadChinaTrends(chartType = 'line') {
         const data = await response.json();
 
         const chartDom = document.getElementById('chinaTrendsChart');
+
+        // 销毁旧图表实例
+        if (window.chinaTrendsChart) {
+            window.chinaTrendsChart.dispose();
+        }
+
+        // 清空容器
+        chartDom.innerHTML = '';
+
         const myChart = echarts.init(chartDom);
 
         const months = Array.from({ length: 12 }, (_, i) => `${i + 1}月`);
