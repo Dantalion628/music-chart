@@ -3,7 +3,6 @@
 支持 QQ音乐、网易云音乐等平台
 """
 
-import requests
 import json
 import csv
 from datetime import datetime, timedelta

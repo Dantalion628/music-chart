@@ -205,8 +205,8 @@ def application(environ, start_response):
 
         # API: 中国音乐趋势
         elif path == '/api/china/trends' and method == 'GET':
-            from china_music_crawler import get_china_genres_trend, generate_china_music_data
             try:
+                from china_music_crawler import get_china_genres_trend, generate_china_music_data
                 data = get_china_genres_trend()
                 if not data:
                     generate_china_music_data()
