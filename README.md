@@ -34,56 +34,6 @@ music-charts/
     └── js/main.js             # 前端交互逻辑
 ```
 
-## 🚀 快速开始（本地运行）
-
-### 1. 环境准备
-
-```bash
-cd music-charts
-pip install -r requirements.txt
-```
-
-### 2. 生成数据
-
-如果数据已存在：
-```bash
-python app.py
-```
-
-如果需要生成演示数据：
-```bash
-python generate_demo.py
-python app.py
-```
-
-### 3. 访问应用
-
-打开浏览器访问：`http://localhost:5000`
-
-## 🌐 部署到 Render
-
-### 1. 关联 GitHub 仓库
-
-```bash
-git remote add origin <你的GitHub仓库URL>
-git push -u origin master
-```
-
-### 2. 在 Render 创建新服务
-
-1. 访问 https://render.com
-2. 点击 "New +" → "Web Service"
-3. 连接你的 GitHub 账户
-4. 选择 `music-charts` 仓库
-5. 填写配置：
-   - **Name**: `music-charts` (或你喜欢的名字)
-   - **Environment**: `Python 3`
-   - **Build Command**: `pip install -r requirements.txt && python generate_demo.py`
-   - **Start Command**: `gunicorn app:app`
-
-### 3. 部署
-
-点击 "Create Web Service"，Render 会自动部署。等待部署完成，你会得到一个类似 `music-charts-xxxx.onrender.com` 的 URL。
 
 ## 📊 数据信息
 
