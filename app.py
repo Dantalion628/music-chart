@@ -273,6 +273,9 @@ def application(environ, start_response):
         start_response('500 Internal Server Error', [])
         return [b'Internal Server Error']
 
+# 暴露给 gunicorn
+app = application
+
 # 当本地运行时
 if __name__ == '__main__':
     from wsgiref.simple_server import make_server
