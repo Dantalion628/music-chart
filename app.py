@@ -206,11 +206,8 @@ def application(environ, start_response):
         # API: 中国音乐趋势
         elif path == '/api/china/trends' and method == 'GET':
             try:
-                from china_music_crawler import get_china_genres_trend, generate_china_music_data
-                data = get_china_genres_trend()
-                if not data:
-                    generate_china_music_data()
-                    data = get_china_genres_trend()
+                from china_music_netease import get_netease_genres_trend
+                data = get_netease_genres_trend()
 
                 result = {}
                 for genre, trend in data.items():
@@ -228,10 +225,10 @@ def application(environ, start_response):
 
         # API: 中国音乐排行
         elif path.startswith('/api/china/rankings/') and method == 'GET':
-            from china_music_crawler import get_china_top_songs
             try:
+                from china_music_netease import get_netease_top_songs
                 month = int(path.split('/')[-1]) if path.split('/')[-1].isdigit() else None
-                songs = get_china_top_songs(month=month)
+                songs = get_netease_top_songs(month=month)
                 body = json.dumps([dict(row) for row in songs], ensure_ascii=False).encode('utf-8')
                 start_response('200 OK', [('Content-Type', 'application/json')])
                 return [body]
@@ -241,9 +238,9 @@ def application(environ, start_response):
 
         # API: 中国音乐流派统计
         elif path == '/api/china/stats' and method == 'GET':
-            from china_music_crawler import get_china_genre_stats
             try:
-                stats = get_china_genre_stats()
+                from china_music_netease import get_netease_genre_stats
+                stats = get_netease_genre_stats()
                 body = json.dumps(stats, ensure_ascii=False).encode('utf-8')
                 start_response('200 OK', [('Content-Type', 'application/json')])
                 return [body]

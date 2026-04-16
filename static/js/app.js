@@ -208,55 +208,13 @@ async function loadTrends(chartType = 'line') {
         const myChart = echarts.init(chartDom);
 
         const years = Array.from({ length: 26 }, (_, i) => 1995 + i);
-        const series = [];
         const colors = ['#4a90e2', '#ef5350', '#66bb6a', '#ffa726', '#ab47bc'];
         const genres = ['pop', 'rock', 'hip-hop', 'electronic', 'r&b'];
 
-        genres.forEach((genre, idx) => {
-            if (data[genre]) {
-                const seriesItem = {
-                    name: data[genre].label,
-                    type: chartType === 'funnel' ? 'funnel' : chartType,
-                    data: chartType === 'funnel' ?
-                        data[genre].data.map((v, i) => ({ value: v, name: `${1995 + i}` })) :
-                        data[genre].data,
-                    smooth: true,
-                    color: colors[idx],
-                };
-
-                if (chartType === 'line') {
-                    seriesItem.smooth = true;
-                    seriesItem.lineStyle = { width: 2 };
-                    seriesItem.areaStyle = {
-                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                            { offset: 0, color: colors[idx] + '40' },
-                            { offset: 1, color: colors[idx] + '00' }
-                        ])
-                    };
-                } else if (chartType === 'radar') {
-                    seriesItem.type = 'radar';
-                    seriesItem.areaStyle = { opacity: 0.3 };
-                } else if (chartType === 'scatter') {
-                    seriesItem.type = 'scatter';
-                    seriesItem.symbolSize = 8;
-                    seriesItem.data = data[genre].data.map((v, i) => [i, v]);
-                } else if (chartType === 'bar') {
-                    seriesItem.type = 'bar';
-                    seriesItem.itemStyle = { color: colors[idx] };
-                }
-
-                series.push(seriesItem);
-            }
-        });
-
-        const xAxisData = chartType === 'radar' ?
-            Array.from({ length: 26 }, (_, i) => (1995 + i).toString()) :
-            years;
-
-        const option = {
+        let option = {
             backgroundColor: 'transparent',
             tooltip: {
-                trigger: chartType === 'radar' ? 'item' : 'axis',
+                trigger: 'axis',
                 backgroundColor: '#1a1f2e',
                 borderColor: '#4a90e2',
                 textStyle: { color: '#e0e6ed' },
@@ -265,38 +223,36 @@ async function loadTrends(chartType = 'line') {
                 top: 'bottom',
                 textStyle: { color: '#e0e6ed' }
             },
+            grid: { top: 20, right: 20, bottom: 50, left: 60, containLabel: true },
         };
 
-        if (chartType === 'radar') {
-            option.radar = {
-                indicator: xAxisData.map(year => ({ name: year, max: 100 })),
-                shape: 'polygon',
-                splitNumber: 4,
-                name: { textStyle: { color: '#a8b2c1' } },
-                splitLine: { lineStyle: { color: ['#2d3648', '#2d3648', '#2d3648', '#2d3648'] } },
-                splitArea: { areaStyle: { color: [] } },
-                axisLine: { lineStyle: { color: '#2d3648' } }
-            };
-        } else if (chartType === 'scatter') {
-            option.xAxis = {
-                type: 'value',
-                axisLabel: { color: '#a8b2c1' },
-                axisLine: { lineStyle: { color: '#2d3648' } }
-            };
-            option.yAxis = {
-                type: 'value',
-                axisLabel: { color: '#a8b2c1' },
-                axisLine: { lineStyle: { color: '#2d3648' } }
-            };
-            option.grid = { top: 20, right: 20, bottom: 50, left: 60, containLabel: true };
-        } else if (chartType === 'funnel') {
-            option.series[0].data = series[0].data;
-        } else {
-            option.grid = { top: 20, right: 20, bottom: 50, left: 60, containLabel: true };
+        // ══════════════════════════════════
+        // 折线图
+        // ══════════════════════════════════
+        if (chartType === 'line') {
+            const series = [];
+            genres.forEach((genre, idx) => {
+                if (data[genre]) {
+                    series.push({
+                        name: data[genre].label,
+                        type: 'line',
+                        data: data[genre].data,
+                        smooth: true,
+                        lineStyle: { width: 2.5 },
+                        itemStyle: { color: colors[idx] },
+                        areaStyle: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                { offset: 0, color: colors[idx] + '50' },
+                                { offset: 1, color: colors[idx] + '00' }
+                            ])
+                        }
+                    });
+                }
+            });
+
             option.xAxis = {
                 type: 'category',
-                data: xAxisData,
-                boundaryGap: chartType !== 'line',
+                data: years,
                 axisLabel: { color: '#a8b2c1' },
                 axisLine: { lineStyle: { color: '#2d3648' } }
             };
@@ -305,9 +261,217 @@ async function loadTrends(chartType = 'line') {
                 axisLabel: { color: '#a8b2c1' },
                 splitLine: { lineStyle: { color: '#2d3648' } }
             };
+            option.series = series;
         }
 
-        option.series = series;
+        // ══════════════════════════════════
+        // 柱状图
+        // ══════════════════════════════════
+        else if (chartType === 'bar') {
+            const series = [];
+            genres.forEach((genre, idx) => {
+                if (data[genre]) {
+                    series.push({
+                        name: data[genre].label,
+                        type: 'bar',
+                        data: data[genre].data,
+                        itemStyle: { color: colors[idx] }
+                    });
+                }
+            });
+
+            option.xAxis = {
+                type: 'category',
+                data: years,
+                axisLabel: { color: '#a8b2c1' },
+                axisLine: { lineStyle: { color: '#2d3648' } }
+            };
+            option.yAxis = {
+                type: 'value',
+                axisLabel: { color: '#a8b2c1' },
+                splitLine: { lineStyle: { color: '#2d3648' } }
+            };
+            option.series = series;
+        }
+
+        // ══════════════════════════════════
+        // 面积图
+        // ══════════════════════════════════
+        else if (chartType === 'area') {
+            const series = [];
+            genres.forEach((genre, idx) => {
+                if (data[genre]) {
+                    series.push({
+                        name: data[genre].label,
+                        type: 'line',
+                        data: data[genre].data,
+                        smooth: true,
+                        stack: 'total',
+                        lineStyle: { width: 2, color: colors[idx] },
+                        areaStyle: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                { offset: 0, color: colors[idx] + '80' },
+                                { offset: 1, color: colors[idx] + '20' }
+                            ])
+                        }
+                    });
+                }
+            });
+
+            option.xAxis = {
+                type: 'category',
+                data: years,
+                axisLabel: { color: '#a8b2c1' },
+                axisLine: { lineStyle: { color: '#2d3648' } }
+            };
+            option.yAxis = {
+                type: 'value',
+                axisLabel: { color: '#a8b2c1' },
+                splitLine: { lineStyle: { color: '#2d3648' } }
+            };
+            option.series = series;
+        }
+
+        // ══════════════════════════════════
+        // 散点图
+        // ══════════════════════════════════
+        else if (chartType === 'scatter') {
+            const series = [];
+            genres.forEach((genre, idx) => {
+                if (data[genre]) {
+                    series.push({
+                        name: data[genre].label,
+                        type: 'scatter',
+                        data: data[genre].data.map((v, i) => [i, v]),
+                        symbolSize: 10,
+                        itemStyle: { color: colors[idx], opacity: 0.7 }
+                    });
+                }
+            });
+
+            option.xAxis = {
+                type: 'value',
+                axisLabel: { color: '#a8b2c1' },
+                axisLine: { lineStyle: { color: '#2d3648' } }
+            };
+            option.yAxis = {
+                type: 'value',
+                axisLabel: { color: '#a8b2c1' },
+                axisLine: { lineStyle: { color: '#2d3648' } }
+            };
+            option.series = series;
+        }
+
+        // ══════════════════════════════════
+        // 雷达图
+        // ══════════════════════════════════
+        else if (chartType === 'radar') {
+            const yearLabels = years.map(y => y.toString());
+            const series = [];
+
+            genres.forEach((genre, idx) => {
+                if (data[genre]) {
+                    series.push({
+                        name: data[genre].label,
+                        value: data[genre].data,
+                        areaStyle: { opacity: 0.3 },
+                        itemStyle: { color: colors[idx] },
+                        lineStyle: { color: colors[idx] }
+                    });
+                }
+            });
+
+            option = {
+                backgroundColor: 'transparent',
+                tooltip: { trigger: 'item', backgroundColor: '#1a1f2e', textStyle: { color: '#e0e6ed' } },
+                legend: { textStyle: { color: '#e0e6ed' }, bottom: 20 },
+                radar: {
+                    indicator: yearLabels.map(year => ({ name: year, max: 100 })),
+                    shape: 'polygon',
+                    splitNumber: 4,
+                    axisLine: { lineStyle: { color: '#2d3648' } },
+                    splitLine: { lineStyle: { color: '#2d3648' } },
+                    axisLabel: { color: '#a8b2c1' }
+                },
+                series: [{
+                    type: 'radar',
+                    data: series.map((s, idx) => ({
+                        value: s.value,
+                        name: genres[idx] ? data[genres[idx]].label : '',
+                        itemStyle: { color: colors[idx] },
+                        areaStyle: { opacity: 0.3 }
+                    }))
+                }]
+            };
+        }
+
+        // ══════════════════════════════════
+        // 热力图
+        // ══════════════════════════════════
+        else if (chartType === 'heatmap') {
+            const heatmapData = [];
+            genres.forEach((genre, genreIdx) => {
+                if (data[genre]) {
+                    data[genre].data.forEach((value, yearIdx) => {
+                        heatmapData.push([yearIdx, genreIdx, value]);
+                    });
+                }
+            });
+
+            option.xAxis = {
+                type: 'category',
+                data: years,
+                axisLabel: { color: '#a8b2c1' },
+                axisLine: { lineStyle: { color: '#2d3648' } }
+            };
+            option.yAxis = {
+                type: 'category',
+                data: genres.map(g => data[g]?.label || g),
+                axisLabel: { color: '#a8b2c1' },
+                axisLine: { lineStyle: { color: '#2d3648' } }
+            };
+            option.visualMap = {
+                min: 0,
+                max: 100,
+                calculable: true,
+                inRange: {
+                    color: ['#313695', '#4575b4', '#74add1', '#abd9e9', '#e0f3f8', '#ffffbf', '#fee090', '#fdae61', '#f46d43', '#d73027', '#a50026']
+                },
+                textStyle: { color: '#a8b2c1' }
+            };
+            option.series = [{
+                name: '热度',
+                type: 'heatmap',
+                data: heatmapData,
+                emphasis: { itemStyle: { borderColor: '#58a6ff', borderWidth: 2 } }
+            }];
+        }
+
+        // ══════════════════════════════════
+        // 漏斗图
+        // ══════════════════════════════════
+        else if (chartType === 'funnel') {
+            const funnelData = genres.map((genre, idx) => {
+                const avgValue = data[genre] ? Math.round(data[genre].data.reduce((a, b) => a + b) / data[genre].data.length) : 0;
+                return {
+                    value: avgValue,
+                    name: data[genre]?.label || genre
+                };
+            }).sort((a, b) => b.value - a.value);
+
+            option = {
+                backgroundColor: 'transparent',
+                tooltip: { backgroundColor: '#1a1f2e', textStyle: { color: '#e0e6ed' } },
+                legend: { textStyle: { color: '#e0e6ed' }, bottom: 20 },
+                series: [{
+                    name: '平均热度',
+                    type: 'funnel',
+                    data: funnelData,
+                    itemStyle: { borderColor: '#2d3648' }
+                }]
+            };
+        }
+
         myChart.setOption(option);
         window.trendsChart = myChart;
         window.addEventListener('resize', () => myChart.resize());
