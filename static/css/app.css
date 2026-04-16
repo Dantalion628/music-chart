@@ -260,12 +260,111 @@ html, body {
     margin-bottom: 40px;
 }
 
-/* 年份选择器 */
-.year-selector {
+/* 图表类型选择器 */
+.chart-type-selector {
     display: flex;
-    gap: 12px;
-    margin-bottom: 30px;
+    gap: 10px;
+    margin-bottom: 20px;
     flex-wrap: wrap;
+}
+
+.chart-type-btn, .china-chart-btn, .china-tab-btn {
+    padding: 8px 16px;
+    background: var(--bg-lighter);
+    border: 2px solid var(--border-color);
+    color: var(--text-secondary);
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 0.9em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.chart-type-btn:hover, .china-chart-btn:hover, .china-tab-btn:hover {
+    border-color: var(--accent-blue);
+    color: var(--accent-light);
+}
+
+.chart-type-btn.active, .china-chart-btn.active, .china-tab-btn.active {
+    background: var(--accent-blue);
+    border-color: var(--accent-blue);
+    color: white;
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+}
+
+/* 中国音乐内容 */
+.china-content {
+    display: none;
+}
+
+.china-content.active {
+    display: block;
+    animation: fadeIn 0.4s ease;
+}
+
+.month-selector {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.month-selector label {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.month-selector select {
+    padding: 10px 15px;
+    background: var(--bg-lighter);
+    border: 2px solid var(--border-color);
+    color: var(--text-primary);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+.month-selector select:hover {
+    border-color: var(--accent-blue);
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    background: var(--bg-lighter);
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 4px solid var(--accent-blue);
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(74, 144, 226, 0.2);
+}
+
+.stat-genre {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--accent-light);
+    margin-bottom: 10px;
+}
+
+.stat-value {
+    font-size: 2em;
+    font-weight: 300;
+    color: var(--text-primary);
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.9em;
+    color: var(--text-secondary);
 }
 
 .year-btn {

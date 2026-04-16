@@ -1,37 +1,42 @@
 // 应用状态
 let currentYear = 1995;
+let currentMonth = new Date().getMonth() + 1;
 let currentPlaylist = [];
 let currentTrackIndex = 0;
 let isPlaying = false;
 let spotifyAccessToken = null;
-
-// Spotify 配置（需要替换为你的凭证）
-const SPOTIFY_CLIENT_ID = 'YOUR_CLIENT_ID';
-const SPOTIFY_REDIRECT_URI = window.location.origin + '/callback';
+let currentChartType = 'line';
+let currentChinaChartType = 'line';
 
 // 初始化
 document.addEventListener('DOMContentLoaded', () => {
     setupNavigation();
     setupYearSelector();
-    loadPeriods();
-    loadTrends();
-    loadRankings(1995);
+    setupChartTypeSelector();
+    setupChinaNavigation();
+    setupMonthSelector();
 
-    // 尝试从URL获取Spotify token
-    const hash = window.location.hash;
-    if (hash) {
-        const token = new URLSearchParams(hash.substring(1)).get('access_token');
-        if (token) {
-            spotifyAccessToken = token;
-            localStorage.setItem('spotifyToken', token);
-        }
-    }
+    loadPeriods();
+    loadTrends('line');
+    loadRankings(1995);
+    loadChinaTrends('line');
+    loadChinaRankings(1);
+    loadChinaStats();
 });
 
-// 导航切换
+// ═══════════════════════════════════════════════════
+// 基础导航和UI控制
+// ═══════════════════════════════════════════════════
+
 function setupNavigation() {
     document.querySelectorAll('.nav-btn').forEach(btn => {
         btn.addEventListener('click', switchTab);
+    });
+}
+
+function setupChinaNavigation() {
+    document.querySelectorAll('.china-tab-btn').forEach(btn => {
+        btn.addEventListener('click', switchChinaTab);
     });
 }
 
@@ -52,13 +57,69 @@ function switchTab(e) {
         setTimeout(() => {
             window.trendsChart?.resize();
         }, 100);
+    } else if (tabName === 'china') {
+        setTimeout(() => {
+            window.chinaTrendsChart?.resize();
+        }, 100);
     }
 }
 
-// 年份选择
+function switchChinaTab(e) {
+    const tabName = 'china-' + e.target.dataset.chinaTab;
+
+    document.querySelectorAll('.china-tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    e.target.classList.add('active');
+
+    document.querySelectorAll('.china-content').forEach(content => {
+        content.classList.remove('active');
+    });
+    document.getElementById(tabName).classList.add('active');
+
+    if (e.target.dataset.chinaTab === 'trends') {
+        setTimeout(() => {
+            window.chinaTrendsChart?.resize();
+        }, 100);
+    }
+}
+
+// 图表类型选择器
+function setupChartTypeSelector() {
+    document.querySelectorAll('.chart-type-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            document.querySelectorAll('.chart-type-btn').forEach(b => {
+                b.classList.remove('active');
+            });
+            e.target.classList.add('active');
+            currentChartType = e.target.dataset.chart;
+            loadTrends(currentChartType);
+        });
+    });
+
+    // 中国音乐图表选择
+    document.querySelectorAll('.china-chart-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            document.querySelectorAll('.china-chart-btn').forEach(b => {
+                b.classList.remove('active');
+            });
+            e.target.classList.add('active');
+            currentChinaChartType = e.target.dataset.chart;
+            loadChinaTrends(currentChinaChartType);
+        });
+    });
+}
+
 function setupYearSelector() {
     document.querySelectorAll('.year-btn').forEach(btn => {
         btn.addEventListener('click', selectYear);
+    });
+}
+
+function setupMonthSelector() {
+    document.getElementById('monthSelect')?.addEventListener('change', (e) => {
+        currentMonth = parseInt(e.target.value);
+        loadChinaRankings(currentMonth);
     });
 }
 
@@ -74,7 +135,10 @@ function selectYear(e) {
     loadRankings(year);
 }
 
-// 加载5年周期数据
+// ═══════════════════════════════════════════════════
+// 国际音乐数据加载
+// ═══════════════════════════════════════════════════
+
 async function loadPeriods() {
     try {
         const response = await fetch('/api/periods');
@@ -97,7 +161,6 @@ async function loadPeriods() {
     }
 }
 
-// 创建周期卡片
 function createPeriodCard(period) {
     const card = document.createElement('div');
     card.className = 'period-card';
@@ -114,7 +177,6 @@ function createPeriodCard(period) {
 
     genresHtml += '</div>';
 
-    // 添加代表歌曲
     if (period.genres[0] && period.genres[0].sample_songs) {
         genresHtml += '<div class="sample-songs"><strong>代表歌曲：</strong>';
         period.genres[0].sample_songs.forEach(song => {
@@ -137,8 +199,7 @@ function createPeriodCard(period) {
     return card;
 }
 
-// 加载流派趋势
-async function loadTrends() {
+async function loadTrends(chartType = 'line') {
     try {
         const response = await fetch('/api/trends');
         const data = await response.json();
@@ -153,58 +214,100 @@ async function loadTrends() {
 
         genres.forEach((genre, idx) => {
             if (data[genre]) {
-                series.push({
+                const seriesItem = {
                     name: data[genre].label,
-                    type: 'line',
-                    data: data[genre].data,
+                    type: chartType === 'funnel' ? 'funnel' : chartType,
+                    data: chartType === 'funnel' ?
+                        data[genre].data.map((v, i) => ({ value: v, name: `${1995 + i}` })) :
+                        data[genre].data,
                     smooth: true,
-                    lineStyle: { width: 2 },
-                    itemStyle: { borderWidth: 0 },
-                    areaStyle: {
+                    color: colors[idx],
+                };
+
+                if (chartType === 'line') {
+                    seriesItem.smooth = true;
+                    seriesItem.lineStyle = { width: 2 };
+                    seriesItem.areaStyle = {
                         color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
                             { offset: 0, color: colors[idx] + '40' },
                             { offset: 1, color: colors[idx] + '00' }
                         ])
-                    },
-                    color: colors[idx]
-                });
+                    };
+                } else if (chartType === 'radar') {
+                    seriesItem.type = 'radar';
+                    seriesItem.areaStyle = { opacity: 0.3 };
+                } else if (chartType === 'scatter') {
+                    seriesItem.type = 'scatter';
+                    seriesItem.symbolSize = 8;
+                    seriesItem.data = data[genre].data.map((v, i) => [i, v]);
+                } else if (chartType === 'bar') {
+                    seriesItem.type = 'bar';
+                    seriesItem.itemStyle = { color: colors[idx] };
+                }
+
+                series.push(seriesItem);
             }
         });
+
+        const xAxisData = chartType === 'radar' ?
+            Array.from({ length: 26 }, (_, i) => (1995 + i).toString()) :
+            years;
 
         const option = {
             backgroundColor: 'transparent',
             tooltip: {
-                trigger: 'axis',
+                trigger: chartType === 'radar' ? 'item' : 'axis',
                 backgroundColor: '#1a1f2e',
                 borderColor: '#4a90e2',
                 textStyle: { color: '#e0e6ed' },
             },
-            grid: {
-                top: 20,
-                right: 20,
-                bottom: 50,
-                left: 60,
-                containLabel: true
-            },
-            xAxis: {
-                type: 'category',
-                data: years,
-                boundaryGap: false,
-                axisLabel: { color: '#a8b2c1' },
-                axisLine: { lineStyle: { color: '#2d3648' } }
-            },
-            yAxis: {
-                type: 'value',
-                axisLabel: { color: '#a8b2c1' },
-                splitLine: { lineStyle: { color: '#2d3648' } }
-            },
-            series: series,
             legend: {
                 top: 'bottom',
                 textStyle: { color: '#e0e6ed' }
-            }
+            },
         };
 
+        if (chartType === 'radar') {
+            option.radar = {
+                indicator: xAxisData.map(year => ({ name: year, max: 100 })),
+                shape: 'polygon',
+                splitNumber: 4,
+                name: { textStyle: { color: '#a8b2c1' } },
+                splitLine: { lineStyle: { color: ['#2d3648', '#2d3648', '#2d3648', '#2d3648'] } },
+                splitArea: { areaStyle: { color: [] } },
+                axisLine: { lineStyle: { color: '#2d3648' } }
+            };
+        } else if (chartType === 'scatter') {
+            option.xAxis = {
+                type: 'value',
+                axisLabel: { color: '#a8b2c1' },
+                axisLine: { lineStyle: { color: '#2d3648' } }
+            };
+            option.yAxis = {
+                type: 'value',
+                axisLabel: { color: '#a8b2c1' },
+                axisLine: { lineStyle: { color: '#2d3648' } }
+            };
+            option.grid = { top: 20, right: 20, bottom: 50, left: 60, containLabel: true };
+        } else if (chartType === 'funnel') {
+            option.series[0].data = series[0].data;
+        } else {
+            option.grid = { top: 20, right: 20, bottom: 50, left: 60, containLabel: true };
+            option.xAxis = {
+                type: 'category',
+                data: xAxisData,
+                boundaryGap: chartType !== 'line',
+                axisLabel: { color: '#a8b2c1' },
+                axisLine: { lineStyle: { color: '#2d3648' } }
+            };
+            option.yAxis = {
+                type: 'value',
+                axisLabel: { color: '#a8b2c1' },
+                splitLine: { lineStyle: { color: '#2d3648' } }
+            };
+        }
+
+        option.series = series;
         myChart.setOption(option);
         window.trendsChart = myChart;
         window.addEventListener('resize', () => myChart.resize());
@@ -213,7 +316,6 @@ async function loadTrends() {
     }
 }
 
-// 加载排行榜
 async function loadRankings(year) {
     try {
         const response = await fetch(`/api/period/${year}`);
@@ -253,54 +355,170 @@ async function loadRankings(year) {
     }
 }
 
-// 播放歌曲
+// ═══════════════════════════════════════════════════
+// 中国音乐数据加载
+// ═══════════════════════════════════════════════════
+
+async function loadChinaTrends(chartType = 'line') {
+    try {
+        const response = await fetch('/api/china/trends');
+        const data = await response.json();
+
+        const chartDom = document.getElementById('chinaTrendsChart');
+        const myChart = echarts.init(chartDom);
+
+        const months = Array.from({ length: 12 }, (_, i) => `${i + 1}月`);
+        const series = [];
+        const colors = ['#4a90e2', '#ef5350', '#66bb6a', '#ffa726', '#ab47bc', '#29b6f6', '#ec407a'];
+
+        let genreIdx = 0;
+        for (const genre in data) {
+            if (genreIdx >= colors.length) break;
+
+            const seriesItem = {
+                name: data[genre].label,
+                type: chartType,
+                data: data[genre].data,
+                smooth: chartType === 'line',
+                color: colors[genreIdx],
+            };
+
+            if (chartType === 'line') {
+                seriesItem.lineStyle = { width: 2 };
+                seriesItem.areaStyle = {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                        { offset: 0, color: colors[genreIdx] + '40' },
+                        { offset: 1, color: colors[genreIdx] + '00' }
+                    ])
+                };
+            }
+
+            series.push(seriesItem);
+            genreIdx++;
+        }
+
+        const option = {
+            backgroundColor: 'transparent',
+            tooltip: {
+                trigger: 'axis',
+                backgroundColor: '#1a1f2e',
+                borderColor: '#4a90e2',
+                textStyle: { color: '#e0e6ed' },
+            },
+            grid: {
+                top: 20,
+                right: 20,
+                bottom: 50,
+                left: 60,
+                containLabel: true
+            },
+            xAxis: {
+                type: 'category',
+                data: months,
+                axisLabel: { color: '#a8b2c1' },
+                axisLine: { lineStyle: { color: '#2d3648' } }
+            },
+            yAxis: {
+                type: 'value',
+                axisLabel: { color: '#a8b2c1' },
+                splitLine: { lineStyle: { color: '#2d3648' } }
+            },
+            series: series,
+            legend: {
+                top: 'bottom',
+                textStyle: { color: '#e0e6ed' }
+            }
+        };
+
+        myChart.setOption(option);
+        window.chinaTrendsChart = myChart;
+        window.addEventListener('resize', () => myChart.resize());
+    } catch (error) {
+        console.error('加载中国音乐趋势失败:', error);
+    }
+}
+
+async function loadChinaRankings(month) {
+    try {
+        const response = await fetch(`/api/china/rankings/${month}`);
+        const songs = await response.json();
+
+        const container = document.getElementById('chinaRankingsContainer');
+        container.innerHTML = '';
+
+        if (Array.isArray(songs) && songs.length > 0) {
+            songs.forEach((song, idx) => {
+                const item = document.createElement('div');
+                item.className = 'ranking-item';
+
+                const rankBadge = ['🥇', '🥈', '🥉'][idx] || `${idx + 1}`;
+                const rankClass = idx < 3 ? 'ranking-number top-3' : 'ranking-number';
+
+                item.innerHTML = `
+                    <div class="${rankClass}">${rankBadge}</div>
+                    <div class="ranking-info">
+                        <div class="ranking-song">${song.song}</div>
+                        <div class="ranking-artist">${song.artist}</div>
+                    </div>
+                    <div class="ranking-meta">
+                        <span class="ranking-genre">${song.genre}</span>
+                        <span class="ranking-popularity">热度: ${song.popularity}/100</span>
+                    </div>
+                    <div class="play-icon" onclick="playSong('${song.song}', '${song.artist}', '${song.genre}')">▶</div>
+                `;
+
+                container.appendChild(item);
+            });
+        }
+    } catch (error) {
+        console.error('加载中国排行榜失败:', error);
+    }
+}
+
+async function loadChinaStats() {
+    try {
+        const response = await fetch('/api/china/stats');
+        const stats = await response.json();
+
+        const container = document.getElementById('chinaStatsContainer');
+        container.innerHTML = '';
+
+        for (const genre in stats) {
+            const stat = stats[genre];
+            const card = document.createElement('div');
+            card.className = 'stat-card';
+            card.innerHTML = `
+                <div class="stat-genre">${genre}</div>
+                <div class="stat-value">${stat.avg_popularity}</div>
+                <div class="stat-label">平均热度（${stat.count}首）</div>
+            `;
+            container.appendChild(card);
+        }
+    } catch (error) {
+        console.error('加载中国统计失败:', error);
+    }
+}
+
+// ═══════════════════════════════════════════════════
+// 音乐播放器
+// ═══════════════════════════════════════════════════
+
 function playSong(title, artist, genre) {
     const modal = document.getElementById('playerModal');
     modal.classList.add('show');
 
     document.getElementById('playerSongTitle').textContent = title;
     document.getElementById('playerArtist').textContent = artist;
-    document.getElementById('playerGenre').textContent = genre.toUpperCase();
+    document.getElementById('playerGenre').textContent = typeof genre === 'string' ? genre.toUpperCase() : '未知';
 
-    // 生成封面艺术
     const colorHash = Math.abs(hashCode(title + artist)) % 360;
     document.getElementById('coverArt').style.background =
         `linear-gradient(135deg, hsl(${colorHash}, 70%, 50%), hsl(${colorHash + 60}, 70%, 50%))`;
 
-    // 模拟播放
     isPlaying = true;
     document.getElementById('playBtn').classList.add('playing');
-
-    // 如果有Spotify token，搜索真实歌曲
-    if (spotifyAccessToken) {
-        searchSpotifyTrack(title, artist);
-    }
 }
 
-// 搜索Spotify歌曲
-async function searchSpotifyTrack(title, artist) {
-    try {
-        const response = await fetch(
-            `https://api.spotify.com/v1/search?q=track:${title} artist:${artist}&type=track&limit=1`,
-            {
-                headers: {
-                    'Authorization': 'Bearer ' + spotifyAccessToken
-                }
-            }
-        );
-
-        const data = await response.json();
-        if (data.tracks && data.tracks.items.length > 0) {
-            const track = data.tracks.items[0];
-            // 这里可以添加播放功能
-            console.log('Found track:', track);
-        }
-    } catch (error) {
-        console.error('Spotify搜索失败:', error);
-    }
-}
-
-// 播放/暂停
 function togglePlay() {
     const btn = document.getElementById('playBtn');
     isPlaying = !isPlaying;
@@ -308,7 +526,6 @@ function togglePlay() {
     btn.classList.toggle('playing');
 }
 
-// 上一首
 function playPrev() {
     currentTrackIndex = (currentTrackIndex - 1 + currentPlaylist.length) % currentPlaylist.length;
     const track = currentPlaylist[currentTrackIndex];
@@ -317,7 +534,6 @@ function playPrev() {
     }
 }
 
-// 下一首
 function playNext() {
     currentTrackIndex = (currentTrackIndex + 1) % currentPlaylist.length;
     const track = currentPlaylist[currentTrackIndex];
@@ -326,24 +542,20 @@ function playNext() {
     }
 }
 
-// 关闭播放器
 function closePlayer() {
     document.getElementById('playerModal').classList.remove('show');
     isPlaying = false;
 }
 
-// 收藏
 function addToPlaylist() {
     const title = document.getElementById('playerSongTitle').textContent;
     alert('已收藏: ' + title);
-    // 这里可以保存到localStorage
 }
 
-// 分享
 function shareTrack() {
     const title = document.getElementById('playerSongTitle').textContent;
     const artist = document.getElementById('playerArtist').textContent;
-    const text = `我在听《${title}》by ${artist}，来自"大众金曲"🎵`;
+    const text = `我在听《${title}》by ${artist} 🎵`;
 
     if (navigator.share) {
         navigator.share({
@@ -356,12 +568,10 @@ function shareTrack() {
     }
 }
 
-// 返回首页
 function goBack() {
     window.location.href = '/';
 }
 
-// 字符串Hash函数
 function hashCode(str) {
     let hash = 0;
     for (let i = 0; i < str.length; i++) {
@@ -372,7 +582,6 @@ function hashCode(str) {
     return hash;
 }
 
-// 点击外部关闭模态框
 window.onclick = function(event) {
     const modal = document.getElementById('playerModal');
     if (event.target == modal) {

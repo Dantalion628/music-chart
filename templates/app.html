@@ -20,6 +20,7 @@
                 <button class="nav-btn active" data-tab="periods">五年周期</button>
                 <button class="nav-btn" data-tab="trends">流派趋势</button>
                 <button class="nav-btn" data-tab="rankings">排行榜</button>
+                <button class="nav-btn" data-tab="china">🇨🇳 中国音乐</button>
             </nav>
         </header>
 
@@ -32,6 +33,15 @@
         <!-- 流派趋势 -->
         <section id="trends" class="tab-content">
             <div class="section-title">📈 流派流行度趋势（1995-2020）</div>
+            <div class="chart-type-selector">
+                <button class="chart-type-btn active" data-chart="line">折线图</button>
+                <button class="chart-type-btn" data-chart="radar">雷达图</button>
+                <button class="chart-type-btn" data-chart="heatmap">热力图</button>
+                <button class="chart-type-btn" data-chart="scatter">散点图</button>
+                <button class="chart-type-btn" data-chart="bar">柱状图</button>
+                <button class="chart-type-btn" data-chart="area">面积图</button>
+                <button class="chart-type-btn" data-chart="funnel">漏斗图</button>
+            </div>
             <div id="trendsChart" class="chart-container"></div>
         </section>
 
@@ -47,6 +57,47 @@
                 <button class="year-btn" data-year="2020">2020</button>
             </div>
             <div id="rankingsContainer" class="rankings-container"></div>
+        </section>
+
+        <!-- 中国音乐分析 -->
+        <section id="china" class="tab-content">
+            <div class="section-title">🎼 中国音乐流行度分析</div>
+            <div class="china-tabs">
+                <button class="china-tab-btn active" data-china-tab="trends">流派趋势</button>
+                <button class="china-tab-btn" data-china-tab="rankings">排行榜</button>
+                <button class="china-tab-btn" data-china-tab="stats">统计分析</button>
+            </div>
+            <div id="china-trends" class="china-content active">
+                <div class="chart-type-selector">
+                    <button class="china-chart-btn active" data-chart="line">折线图</button>
+                    <button class="china-chart-btn" data-chart="bar">柱状图</button>
+                    <button class="china-chart-btn" data-chart="radar">雷达图</button>
+                </div>
+                <div id="chinaTrendsChart" class="chart-container"></div>
+            </div>
+            <div id="china-rankings" class="china-content">
+                <div class="month-selector">
+                    <label for="monthSelect">选择月份：</label>
+                    <select id="monthSelect">
+                        <option value="1">1月</option>
+                        <option value="2">2月</option>
+                        <option value="3">3月</option>
+                        <option value="4">4月</option>
+                        <option value="5">5月</option>
+                        <option value="6">6月</option>
+                        <option value="7">7月</option>
+                        <option value="8">8月</option>
+                        <option value="9">9月</option>
+                        <option value="10">10月</option>
+                        <option value="11">11月</option>
+                        <option value="12">12月</option>
+                    </select>
+                </div>
+                <div id="chinaRankingsContainer" class="rankings-container"></div>
+            </div>
+            <div id="china-stats" class="china-content">
+                <div id="chinaStatsContainer" class="stats-container"></div>
+            </div>
         </section>
     </div>
 

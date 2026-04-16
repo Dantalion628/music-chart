@@ -203,6 +203,54 @@ def application(environ, start_response):
             start_response('200 OK', [('Content-Type', 'application/json')])
             return [body]
 
+        # API: 中国音乐趋势
+        elif path == '/api/china/trends' and method == 'GET':
+            from china_music_crawler import get_china_genres_trend, generate_china_music_data
+            try:
+                data = get_china_genres_trend()
+                if not data:
+                    generate_china_music_data()
+                    data = get_china_genres_trend()
+
+                result = {}
+                for genre, trend in data.items():
+                    result[genre.lower()] = {
+                        'label': genre.upper(),
+                        'data': trend
+                    }
+                body = json.dumps(result, ensure_ascii=False).encode('utf-8')
+                start_response('200 OK', [('Content-Type', 'application/json')])
+                return [body]
+            except Exception as e:
+                sys.stderr.write("Error: {}\n".format(e))
+                start_response('500 Internal Server Error', [])
+                return [b'Internal Server Error']
+
+        # API: 中国音乐排行
+        elif path.startswith('/api/china/rankings/') and method == 'GET':
+            from china_music_crawler import get_china_top_songs
+            try:
+                month = int(path.split('/')[-1]) if path.split('/')[-1].isdigit() else None
+                songs = get_china_top_songs(month=month)
+                body = json.dumps([dict(row) for row in songs], ensure_ascii=False).encode('utf-8')
+                start_response('200 OK', [('Content-Type', 'application/json')])
+                return [body]
+            except:
+                start_response('404 Not Found', [])
+                return [b'Not Found']
+
+        # API: 中国音乐流派统计
+        elif path == '/api/china/stats' and method == 'GET':
+            from china_music_crawler import get_china_genre_stats
+            try:
+                stats = get_china_genre_stats()
+                body = json.dumps(stats, ensure_ascii=False).encode('utf-8')
+                start_response('200 OK', [('Content-Type', 'application/json')])
+                return [body]
+            except:
+                start_response('500 Internal Server Error', [])
+                return [b'Internal Server Error']
+
         # 静态文件
         elif path.startswith('/static/'):
             filepath = path[1:]
