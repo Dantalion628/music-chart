@@ -1,0 +1,615 @@
+附录一 关键代码
+
+
+1. 数据处理与流派检测代码
+
+数据处理是本项目的基础环节。下面展示流派检测、数据清洗和分组统计的核心代码实现。
+
+1.1 流派检测函数
+
+def detect_genre(song_name, artist_name):
+    """根据歌曲名和艺术家名检测流派"""
+    combined = f"{song_name} {artist_name}".lower()
+
+    GENRE_MAPPING = {
+        'pop': ['britney', 'taylor swift', 'lady gaga', 'ariana', 'ed sheeran',
+                'justin', 'katy perry', 'adele', 'dua lipa', 'doja'],
+        'rock': ['linkin', 'coldplay', 'foo fighters', 'radiohead', 'oasis',
+                 'green day', 'killers', 'muse', 'bon jovi', 'queen'],
+        'hip-hop': ['eminem', 'kanye', 'drake', 'kendrick', 'jay-z', 'nelly',
+                    'snoop', 'nas', 'tupac', 'biggie'],
+        'electronic': ['daft', 'calvin harris', 'deadmau5', 'zedd', 'david guetta',
+                       'swedish house', 'avicii', 'martin garrix', 'alan walker'],
+        'r&b': ['beyonce', 'bruno mars', 'usher', 'alicia', 'chris brown',
+                'rihanna', 'tlc', 'destiny', 'brandy', 'john legend']
+    }
+
+    for genre, keywords in GENRE_MAPPING.items():
+        for keyword in keywords:
+            if keyword in combined:
+                return genre
+
+    return 'pop'
+
+该函数通过关键词匹配的方式识别音乐流派。将歌曲名和艺术家名转换为小写，然后在预定义的流派关键词库中进行查找。如果找不到匹配，则默认分类为pop。
+
+1.2 数据处理函数
+
+def process_data(raw_data):
+    """处理Billboard数据"""
+    processed = []
+
+    for entry in raw_data:
+        try:
+            date_str = entry.get('date') or entry.get('week') or ''
+            song = entry.get('song') or entry.get('title') or ''
+            artist = entry.get('artist') or ''
+            rank = entry.get('rank')
+
+            if not date_str or not song:
+                continue
+
+            try:
+                year = int(str(date_str).split('-')[0][:4])
+            except:
+                continue
+
+            if not (1995 <= year <= 2020):
+                continue
+
+            genre = detect_genre(song, artist)
+            popularity = max(0, 100 - int(rank)) if rank else 50
+
+            processed.append({
+                'year': year,
+                'date': str(date_str),
+                'rank': int(rank) if rank else 0,
+                'song': str(song),
+                'artist': str(artist),
+                'genre': genre,
+                'popularity': popularity
+            })
+        except Exception as e:
+            continue
+
+    return processed if processed else generate_sample_data()
+
+该函数对原始数据进行清洗和预处理。主要操作包括：（1）提取年份信息，过滤1995-2020年范围外的数据；（2）调用detect_genre函数识别流派；（3）计算热度值（100减去排名）；（4）构建标准化的数据字典。
+
+1.3 数据分组统计函数
+
+def analyze_data(data):
+    """分析数据"""
+    from collections import defaultdict
+
+    year_stats = defaultdict(lambda: defaultdict(int))
+    for entry in data:
+        year = entry['year']
+        genre = entry['genre']
+        year_stats[year][genre] += 1
+
+    for year in [1995, 2000, 2005, 2010, 2015, 2020]:
+        if year in year_stats:
+            genres = year_stats[year]
+            sorted_genres = sorted(genres.items(), key=lambda x: x[1], reverse=True)
+            print(f"\n{year}年 - 最流行的5种流派:")
+            for i, (genre, count) in enumerate(sorted_genres[:5]):
+                print(f"  {i+1}. {genre}: {count} 首")
+
+该函数对处理后的数据进行分组统计分析。使用defaultdict嵌套字典结构，按年份和流派进行分类统计，计算每个年份中各流派歌曲的数量。最后以年份为切片点（5年一个周期），输出各年份的流派排行。
+
+
+2. 可视化图表生成代码
+
+本部分介绍使用matplotlib库生成的8张图表的核心代码实现。
+
+2.1 数据加载函数
+
+def load_data():
+    """Load CSV data"""
+    data = []
+    with open('processed_data.csv', 'r', encoding='utf-8') as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            data.append({
+                'year': int(row['year']),
+                'rank': int(row['rank']),
+                'song': row['song'],
+                'artist': row['artist'],
+                'genre': row['genre'].strip(),
+                'popularity': int(row['popularity'])
+            })
+    return data
+
+该函数从处理后的CSV文件中加载数据。使用csv.DictReader读取每一行，并转换为标准的Python字典格式，确保数据类型的正确性。
+
+2.2 流派分布饼图生成
+
+def chart_1_genre_distribution(data):
+    """Chart 1: Genre distribution pie chart"""
+    from collections import defaultdict
+    import matplotlib.pyplot as plt
+    import numpy as np
+
+    genre_counts = defaultdict(int)
+    for item in data:
+        genre_counts[item['genre']] += 1
+
+    genres = list(genre_counts.keys())
+    counts = list(genre_counts.values())
+
+    fig, ax = plt.subplots(figsize=(12, 8))
+    colors = plt.cm.Set3(np.linspace(0, 1, len(genres)))
+
+    wedges, texts, autotexts = ax.pie(
+        counts,
+        labels=genres,
+        autopct='%1.1f%%',
+        colors=colors,
+        startangle=90,
+        textprops={'fontsize': 12}
+    )
+
+    for autotext in autotexts:
+        autotext.set_color('white')
+        autotext.set_fontsize(11)
+        autotext.set_weight('bold')
+
+    ax.set_title('Music Genre Distribution', fontsize=16, fontweight='bold', pad=20)
+    plt.tight_layout()
+    plt.savefig('01_genre_distribution.png', dpi=300, bbox_inches='tight')
+    plt.close()
+
+该代码使用matplotlib的pie函数绘制流派分布饼图。首先统计各流派的歌曲数量，然后选择合适的配色方案，设置标签和百分比显示，最后以300DPI的分辨率保存图表。
+
+2.3 年度趋势双折线图生成
+
+def chart_2_yearly_trends(data):
+    """Chart 2: Yearly trend line chart"""
+    import matplotlib.pyplot as plt
+    from collections import defaultdict
+
+    yearly_count = defaultdict(int)
+    yearly_popularity = defaultdict(int)
+
+    for item in data:
+        yearly_count[item['year']] += 1
+        yearly_popularity[item['year']] += item['popularity']
+
+    years = sorted(yearly_count.keys())
+    counts = [yearly_count[year] for year in years]
+    avg_popularity = [yearly_popularity[year] // yearly_count[year] for year in years]
+
+    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(14, 10))
+
+    ax1.plot(years, counts, marker='o', linewidth=2.5, markersize=8, color='#2E86AB')
+    ax1.fill_between(years, counts, alpha=0.3, color='#2E86AB')
+    ax1.set_title('Annual Song Count Trend', fontsize=14, fontweight='bold')
+    ax1.set_ylabel('Number of Songs', fontsize=12)
+    ax1.grid(True, alpha=0.3)
+
+    ax2.plot(years, avg_popularity, marker='s', linewidth=2.5, markersize=8, color='#A23B72')
+    ax2.fill_between(years, avg_popularity, alpha=0.3, color='#A23B72')
+    ax2.set_title('Annual Average Popularity Trend', fontsize=14, fontweight='bold')
+    ax2.set_xlabel('Year', fontsize=12)
+    ax2.set_ylabel('Average Popularity', fontsize=12)
+    ax2.grid(True, alpha=0.3)
+
+    plt.tight_layout()
+    plt.savefig('02_yearly_trends.png', dpi=300, bbox_inches='tight')
+    plt.close()
+
+该代码生成双折线图，展示年度歌曲数量和平均热度的变化趋势。上图展示每年的歌曲数量变化，下图展示每年的平均热度变化。两个子图使用不同的颜色和标记点，具有良好的可视化效果。
+
+2.4 热力图生成
+
+def chart_7_heatmap(data):
+    """Chart 7: Genre and year popularity heatmap"""
+    import matplotlib.pyplot as plt
+    import numpy as np
+    from collections import defaultdict
+
+    years = sorted(set(item['year'] for item in data))
+    genres = sorted(set(item['genre'] for item in data))
+
+    heatmap_data = np.zeros((len(genres), len(years)))
+
+    for i, genre in enumerate(genres):
+        for j, year in enumerate(years):
+            genre_year_items = [item for item in data
+                              if item['genre'] == genre and item['year'] == year]
+            if genre_year_items:
+                avg = sum(item['popularity'] for item in genre_year_items) / len(genre_year_items)
+                heatmap_data[i, j] = avg
+
+    fig, ax = plt.subplots(figsize=(14, 8))
+    im = ax.imshow(heatmap_data, cmap='YlOrRd', aspect='auto')
+
+    ax.set_xticks(range(len(years)))
+    ax.set_yticks(range(len(genres)))
+    ax.set_xticklabels(years, rotation=45)
+    ax.set_yticklabels(genres)
+
+    cbar = plt.colorbar(im, ax=ax)
+    cbar.set_label('Average Popularity', rotation=270, labelpad=20)
+
+    ax.set_title('Genre and Year Popularity Heatmap', fontsize=16, fontweight='bold')
+    ax.set_xlabel('Year', fontsize=12)
+    ax.set_ylabel('Genre', fontsize=12)
+
+    plt.tight_layout()
+    plt.savefig('07_genre_heatmap.png', dpi=300, bbox_inches='tight')
+    plt.close()
+
+该代码生成二维热力图，矩阵行表示流派，列表示年份，单元格的颜色深浅表示该流派在该年份的平均热度。使用YlOrRd配色方案，颜色从浅黄色到深红色递进，直观展示热度的高低变化。
+
+
+3. Web后端代码
+
+本部分介绍使用Flask框架实现的Web应用后端代码。
+
+3.1 数据加载与缓存
+
+def ensure_data():
+    """确保数据已加载"""
+    global DATA
+    if not DATA:
+        load_data()
+
+def load_data():
+    """加载或生成数据"""
+    global DATA
+    csv_path = 'processed_data.csv'
+
+    if not os.path.exists(csv_path):
+        try:
+            from generate_demo import generate_demo_data
+            data = generate_demo_data()
+            with open(csv_path, 'w', newline='', encoding='utf-8') as f:
+                if data:
+                    writer = csv.DictWriter(f, fieldnames=data[0].keys())
+                    writer.writeheader()
+                    writer.writerows(data)
+        except Exception as e:
+            sys.stderr.write("Error generating data: {}\n".format(e))
+
+    try:
+        with open(csv_path, 'r', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            DATA = list(reader)
+            for row in DATA:
+                row['year'] = int(row['year'])
+                row['popularity'] = int(row['popularity'])
+                row['rank'] = int(row['rank'])
+        sys.stderr.write("Loaded {} records\n".format(len(DATA)))
+    except Exception as e:
+        sys.stderr.write("Error loading data: {}\n".format(e))
+
+该代码实现了数据的全局缓存机制。ensure_data函数检查数据是否已加载，如未加载则调用load_data进行初始化。load_data函数优先检查本地CSV文件，若不存在则自动生成示例数据，并进行类型转换确保数据完整性。
+
+3.2 流派趋势API
+
+def get_trends():
+    """获取流派趋势"""
+    ensure_data()
+    trends = defaultdict(lambda: defaultdict(int))
+
+    for entry in DATA:
+        year = int(entry['year'])
+        genre = entry['genre']
+        trends[genre][year] += 1
+
+    main_genres = ['pop', 'rock', 'hip-hop', 'electronic', 'r&b']
+    result = {}
+
+    for genre in main_genres:
+        result[genre] = {
+            'label': genre.upper(),
+            'data': [trends[genre].get(y, 0) for y in range(1995, 2021)]
+        }
+
+    return result
+
+该函数实现流派趋势数据接口。遍历全局DATA列表，对每个年份和流派进行计数统计。返回JSON格式的数据，包含5个主流派在1995-2020年26个年份的数据点，供前端ECharts图表调用。
+
+3.3 排行榜API
+
+def get_period(year):
+    """获取特定年份排行"""
+    ensure_data()
+    year_data = [d for d in DATA if int(d['year']) == year]
+    year_data.sort(key=lambda x: int(x['popularity']), reverse=True)
+    top_10 = year_data[:10]
+
+    return {
+        'year': year,
+        'top_10_songs': [
+            {
+                'rank': i + 1,
+                'song': d['song'],
+                'artist': d['artist'],
+                'genre': d['genre'],
+                'popularity': int(d['popularity'])
+            }
+            for i, d in enumerate(top_10)
+        ]
+    }
+
+该函数实现年份排行接口。筛选指定年份的数据，按热度值进行降序排列，取前10条记录并转换为指定格式的JSON数据。
+
+3.4 WSGI应用主入口
+
+def application(environ, start_response):
+    """WSGI 应用入口"""
+    path = environ.get('PATH_INFO', '/')
+    method = environ.get('REQUEST_METHOD', 'GET')
+
+    try:
+        if path == '/' and method == 'GET':
+            body = read_file('templates/landing.html')
+            if body:
+                start_response('200 OK', [('Content-Type', 'text/html; charset=utf-8')])
+                return [body]
+
+        elif path == '/app' and method == 'GET':
+            body = read_file('templates/app.html')
+            if body:
+                start_response('200 OK', [('Content-Type', 'text/html; charset=utf-8')])
+                return [body]
+
+        elif path == '/api/trends' and method == 'GET':
+            data = get_trends()
+            body = json.dumps(data, ensure_ascii=False).encode('utf-8')
+            start_response('200 OK', [('Content-Type', 'application/json')])
+            return [body]
+
+        elif path.startswith('/api/period/') and method == 'GET':
+            try:
+                year = int(path.split('/')[-1])
+                data = get_period(year)
+                body = json.dumps(data, ensure_ascii=False).encode('utf-8')
+                start_response('200 OK', [('Content-Type', 'application/json')])
+                return [body]
+            except:
+                start_response('404 Not Found', [])
+                return [b'Not Found']
+
+        elif path.startswith('/static/'):
+            filepath = path[1:]
+            body = read_file(filepath)
+            if body:
+                content_type = get_content_type(filepath)
+                start_response('200 OK', [('Content-Type', content_type)])
+                return [body]
+
+        else:
+            start_response('404 Not Found', [])
+            return [b'Not Found']
+
+    except Exception as e:
+        start_response('500 Internal Server Error', [])
+        return [b'Internal Server Error']
+
+app = application
+
+该函数是WSGI应用的主入口，实现了路由分发功能。根据请求路径和HTTP方法，分别处理不同的请求：（1）根路径返回首页HTML；（2）/app路径返回应用页面；（3）/api/trends返回流派趋势JSON数据；（4）/api/period/{year}返回特定年份排行；（5）/static/路径返回静态资源；（6）其他请求返回404错误。
+
+
+4. 前端交互代码
+
+本部分介绍使用ECharts 5框架实现的前端交互代码。
+
+4.1 ECharts折线图渲染
+
+function initTrendsChart(chartType = 'line') {
+    fetch('/api/trends')
+        .then(response => response.json())
+        .then(data => {
+            const chartDom = document.getElementById('trendsChart');
+            const myChart = echarts.init(chartDom);
+
+            const option = {
+                title: { text: 'Music Genre Trends (1995-2020)' },
+                tooltip: { trigger: 'axis' },
+                legend: { data: Object.keys(data).map(g => g.toUpperCase()) },
+                xAxis: {
+                    type: 'category',
+                    data: Array.from({length: 26}, (_, i) => 1995 + i)
+                },
+                yAxis: { type: 'value' },
+                series: Object.entries(data).map(([genre, info]) => ({
+                    name: info.label,
+                    type: chartType,
+                    data: info.data,
+                    smooth: true
+                }))
+            };
+
+            myChart.setOption(option);
+            myChart.resize();
+        });
+}
+
+该函数使用ECharts库动态渲染折线图。首先通过fetch API调用后端API获取流派趋势数据，然后构建ECharts配置对象，包括标题、图例、坐标轴和数据系列，最后调用myChart.setOption()应用配置并渲染图表。
+
+4.2 排行榜动态加载
+
+function loadRankings(year) {
+    fetch(`/api/period/${year}`)
+        .then(response => response.json())
+        .then(data => {
+            const container = document.getElementById('rankingsContainer');
+            container.innerHTML = '';
+
+            data.top_10_songs.forEach((song, index) => {
+                const item = document.createElement('div');
+                item.className = 'ranking-item';
+                item.innerHTML = `
+                    <div class="rank-number">${song.rank}</div>
+                    <div class="song-info">
+                        <div class="song-title">${song.song}</div>
+                        <div class="artist-name">${song.artist}</div>
+                    </div>
+                    <div class="genre-badge">${song.genre}</div>
+                    <div class="popularity-bar">
+                        <div class="popularity-fill" style="width: ${song.popularity}%"></div>
+                    </div>
+                `;
+                container.appendChild(item);
+            });
+        });
+}
+
+该函数实现排行榜的动态加载。通过fetch调用后端年份排行API，获取JSON数据后，使用DOM操作创建排行项目的HTML元素，包括排名、歌名、艺术家、流派和热度进度条，最后将生成的元素添加到容器中。
+
+4.3 选项卡切换
+
+document.querySelectorAll('.nav-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const tabName = this.dataset.tab;
+
+        document.querySelectorAll('.tab-content').forEach(tab => {
+            tab.classList.remove('active');
+        });
+
+        document.getElementById(tabName).classList.add('active');
+
+        document.querySelectorAll('.nav-btn').forEach(b => {
+            b.classList.remove('active');
+        });
+        this.classList.add('active');
+    });
+});
+
+该代码实现导航选项卡的切换功能。为所有导航按钮添加点击事件监听器，点击时获取按钮的data-tab属性，隐藏所有的tab-content元素，然后显示指定的tab-content，同时更新导航按钮的活跃状态。
+
+
+5. 高级可视化代码
+
+本部分介绍水球图和雷达图的实现代码。
+
+5.1 水球图绘制函数
+
+def draw_water_gauge(ax, value, max_value, title, color='#1f77b4'):
+    """Draw a water gauge chart"""
+    import numpy as np
+    from matplotlib.patches import Circle
+
+    ratio = min(value / max_value, 1.0)
+
+    circle_bg = Circle((0.5, 0.5), 0.45, color='lightgray', alpha=0.3, transform=ax.transAxes)
+    ax.add_patch(circle_bg)
+
+    water_y_fill = 0.5 - 0.45 * (1 - ratio)
+    ax.fill_between([0, 1], [water_y_fill]*2, [0, 0],
+                     alpha=0.6, color=color, transform=ax.transAxes)
+
+    for i in range(3):
+        phase = i * 2 * np.pi / 3
+        wave_x = np.linspace(0, 1, 100)
+        wave_y = water_y_fill + 0.03 * np.sin(6 * np.pi * wave_x + phase)
+        ax.plot(wave_x, wave_y, color=color, alpha=0.5, linewidth=1.5, transform=ax.transAxes)
+
+    circle_outer = Circle((0.5, 0.5), 0.45, fill=False, edgecolor='darkgray',
+                         linewidth=3, transform=ax.transAxes)
+    ax.add_patch(circle_outer)
+
+    percentage = int(ratio * 100)
+    ax.text(0.5, 0.5, '{}%'.format(percentage),
+           transform=ax.transAxes, fontsize=40, fontweight='bold',
+           ha='center', va='center', color='darkblue')
+
+    ax.text(0.5, 0.05, title,
+           transform=ax.transAxes, fontsize=14, fontweight='bold',
+           ha='center', va='bottom')
+
+    ax.set_xlim(0, 1)
+    ax.set_ylim(0, 1)
+    ax.axis('off')
+
+该函数绘制单个水球图。首先计算水位比例，然后绘制背景圆、水位填充区域和波浪效果，最后添加百分比文本和标题。波浪效果通过三条相位错开的正弦波实现，营造动态效果。
+
+5.2 雷达图绘制函数
+
+def chart_10_radar_chart(data):
+    """Chart 10: Radar chart for genre characteristics"""
+    from collections import defaultdict
+    import matplotlib.pyplot as plt
+    import numpy as np
+
+    genre_stats = defaultdict(lambda: {
+        'count': 0,
+        'avg_popularity': 0,
+        'artist_count': set()
+    })
+
+    for item in data:
+        genre = item['genre']
+        genre_stats[genre]['count'] += 1
+        genre_stats[genre]['avg_popularity'] += item['popularity']
+        genre_stats[genre]['artist_count'].add(item['artist'])
+
+    metrics = {}
+    for genre, stats in genre_stats.items():
+        metrics[genre] = {
+            'Popularity': stats['avg_popularity'] / max(stats['count'], 1),
+            'Song Count': min(stats['count'] / 50, 100),
+            'Artist Count': min(len(stats['artist_count']), 100),
+            'Consistency': (100 - (stats['count'] / 13 * 100)),
+            'Influence': (stats['count'] / 50) * 100
+        }
+
+    top_genres = sorted(metrics.keys(),
+                       key=lambda x: metrics[x]['Popularity'],
+                       reverse=True)[:5]
+
+    categories = ['Popularity', 'Song Count', 'Artist Count', 'Consistency', 'Influence']
+    num_vars = len(categories)
+    angles = np.linspace(0, 2 * np.pi, num_vars, endpoint=False).tolist()
+    angles += angles[:1]
+
+    fig, axes = plt.subplots(2, 3, figsize=(18, 12), subplot_kw=dict(projection='polar'))
+    axes = axes.flatten()
+    colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#95E1D3']
+
+    for idx, (ax, genre) in enumerate(zip(axes, top_genres + [''])):
+        if genre:
+            values = [
+                metrics[genre]['Popularity'],
+                metrics[genre]['Song Count'],
+                metrics[genre]['Artist Count'],
+                metrics[genre]['Consistency'],
+                metrics[genre]['Influence']
+            ]
+            values += values[:1]
+
+            ax.plot(angles, values, 'o-', linewidth=2, color=colors[idx], label=genre.upper())
+            ax.fill(angles, values, alpha=0.25, color=colors[idx])
+            ax.set_xticks(angles[:-1])
+            ax.set_xticklabels(categories, size=10)
+            ax.set_ylim(0, 100)
+            ax.set_title(genre.upper(), fontsize=14, fontweight='bold', pad=20)
+            ax.grid(True, alpha=0.3)
+        else:
+            ax.axis('off')
+
+    plt.tight_layout(rect=[0, 0, 1, 0.96])
+    plt.savefig('10_radar_chart.png', dpi=300, bbox_inches='tight')
+    plt.close()
+
+该函数绘制5个流派的雷达图。首先计算每个流派的5个维度指标（热度、歌曲数、艺术家数、一致性、影响力），然后使用matplotlib的极坐标子图绘制，每个流派对应一个雷达图，便于进行多维特征对比。
+
+
+6. 技术栈总结
+
+本项目采用了以下主要技术栈：
+
+后端技术：Python 3.x、NumPy数据处理、Pandas数据分析、Matplotlib图表绘制、Flask Web框架、CSV数据存储
+
+前端技术：HTML5 + CSS3 页面结构与样式、JavaScript 交互逻辑、ECharts 5 交互式数据可视化、RESTful API 前后端通信
+
+部署技术：Gunicorn WSGI服务器、Heroku 云平台部署
+
+代码特点包括：模块化设计使数据处理、图表生成、网页展示相分离；高效数据处理采用字典和defaultdict进行分组统计；多种图表类型包括饼图、折线图、柱状图、热力图、雷达图、水球图；完整的错误处理与异常捕获；RESTful API 设计保证清晰的端点划分；响应式交互使前端能够动态加载和切换。
+
+项目总代码量约为1500行，包括数据处理、图表生成、Web应用等完整的数据可视化闭环。

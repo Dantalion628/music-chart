@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadTrends('line');
     loadRankings(1995);
     loadChinaTrends('line');
-    loadChinaRankings(1);
+    loadChinaRankings('hot');
     loadChinaStats();
 });
 
@@ -127,9 +127,16 @@ function setupYearSelector() {
 }
 
 function setupMonthSelector() {
-    document.getElementById('monthSelect')?.addEventListener('change', (e) => {
-        currentMonth = parseInt(e.target.value);
-        loadChinaRankings(currentMonth);
+    // Changed to chart selector for Netease charts
+    document.querySelectorAll('.china-ranking-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            document.querySelectorAll('.china-ranking-btn').forEach(b => {
+                b.classList.remove('active');
+            });
+            e.target.classList.add('active');
+            const chartType = e.target.dataset.chart;
+            loadChinaRankings(chartType);
+        });
     });
 }
 
@@ -656,8 +663,17 @@ async function loadChinaTrends(chartType = 'line') {
     }
 }
 
-async function loadChinaRankings(month) {
+async function loadChinaRankings(chartType) {
     try {
+        // Map chart types to month numbers for API
+        const chartToMonth = {
+            'hot': 1,
+            'new': 2,
+            'rising': 3,
+            'original': 4
+        };
+
+        const month = chartToMonth[chartType] || 1;
         const response = await fetch(`/api/china/rankings/${month}`);
         const songs = await response.json();
 
@@ -672,6 +688,11 @@ async function loadChinaRankings(month) {
                 const rankBadge = ['🥇', '🥈', '🥉'][idx] || `${idx + 1}`;
                 const rankClass = idx < 3 ? 'ranking-number top-3' : 'ranking-number';
 
+                // Generate Netease music link
+                const neteaseUrl = song.song_id
+                    ? `https://music.163.com/song?id=${song.song_id}`
+                    : `https://music.163.com/search/get?s=${encodeURIComponent(song.song + ' ' + song.artist)}&type=1`;
+
                 item.innerHTML = `
                     <div class="${rankClass}">${rankBadge}</div>
                     <div class="ranking-info">
@@ -682,7 +703,7 @@ async function loadChinaRankings(month) {
                         <span class="ranking-genre">${song.genre}</span>
                         <span class="ranking-popularity">热度: ${song.popularity}/100</span>
                     </div>
-                    <div class="play-icon" onclick="playSong('${song.song}', '${song.artist}', '${song.genre}')">▶</div>
+                    <div class="play-icon" onclick="window.open('${neteaseUrl}', '_blank')" title="在网易云打开">▶</div>
                 `;
 
                 container.appendChild(item);

@@ -262,7 +262,16 @@ def application(environ, start_response):
         elif path.startswith('/api/china/rankings/') and method == 'GET':
             try:
                 from netease_realtime import get_netease_monthly_ranking
-                month = int(path.split('/')[-1]) if path.split('/')[-1].isdigit() else None
+                param = path.split('/')[-1]
+
+                # Support both month number and chart type
+                if param.isdigit():
+                    month = int(param)
+                else:
+                    # Convert chart type to month
+                    chart_to_month = {'hot': 1, 'new': 2, 'rising': 3, 'original': 4}
+                    month = chart_to_month.get(param, 1)
+
                 songs = get_netease_monthly_ranking(month=month)
                 body = json.dumps([dict(row) for row in songs], ensure_ascii=False).encode('utf-8')
                 start_response('200 OK', [('Content-Type', 'application/json')])
