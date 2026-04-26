@@ -8,6 +8,10 @@ let spotifyAccessToken = null;
 let currentChartType = 'line';
 let currentChinaChartType = 'line';
 
+// 图表实例（初始为null）
+let trendsChartInstance = null;
+let chinaTrendsChartInstance = null;
+
 // 初始化
 document.addEventListener('DOMContentLoaded', () => {
     setupNavigation();
@@ -55,11 +59,15 @@ function switchTab(e) {
 
     if (tabName === 'trends') {
         setTimeout(() => {
-            window.trendsChart?.resize();
+            if (trendsChartInstance && typeof trendsChartInstance.resize === 'function') {
+                trendsChartInstance.resize();
+            }
         }, 100);
     } else if (tabName === 'china') {
         setTimeout(() => {
-            window.chinaTrendsChart?.resize();
+            if (chinaTrendsChartInstance && typeof chinaTrendsChartInstance.resize === 'function') {
+                chinaTrendsChartInstance.resize();
+            }
         }, 100);
     }
 }
@@ -79,7 +87,9 @@ function switchChinaTab(e) {
 
     if (e.target.dataset.chinaTab === 'trends') {
         setTimeout(() => {
-            window.chinaTrendsChart?.resize();
+            if (chinaTrendsChartInstance && typeof chinaTrendsChartInstance.resize === 'function') {
+                chinaTrendsChartInstance.resize();
+            }
         }, 100);
     }
 }
@@ -201,14 +211,29 @@ function createPeriodCard(period) {
 
 async function loadTrends(chartType = 'line') {
     try {
+        console.log('开始加载趋势数据，图表类型:', chartType);
         const response = await fetch('/api/trends');
+
+        if (!response.ok) {
+            throw new Error(`API错误: ${response.status} ${response.statusText}`);
+        }
+
         const data = await response.json();
+        console.log('趋势数据加载成功:', data);
 
         const chartDom = document.getElementById('trendsChart');
+        if (!chartDom) {
+            console.error('找不到 trendsChart 容器');
+            return;
+        }
 
         // 销毁旧图表实例
-        if (window.trendsChart) {
-            window.trendsChart.dispose();
+        if (trendsChartInstance && typeof trendsChartInstance.dispose === 'function') {
+            try {
+                trendsChartInstance.dispose();
+            } catch (e) {
+                console.warn('销毁旧图表失败:', e);
+            }
         }
 
         // 清空容器
@@ -482,10 +507,17 @@ async function loadTrends(chartType = 'line') {
         }
 
         myChart.setOption(option);
-        window.trendsChart = myChart;
+        trendsChartInstance = myChart;
         window.addEventListener('resize', () => myChart.resize());
+        console.log('图表已成功渲染');
     } catch (error) {
         console.error('加载趋势数据失败:', error);
+        const chartDom = document.getElementById('trendsChart');
+        if (chartDom) {
+            chartDom.innerHTML = `<div style="color:#e0e6ed; padding:20px; text-align:center;">
+                加载失败: ${error.message}
+            </div>`;
+        }
     }
 }
 
@@ -540,8 +572,12 @@ async function loadChinaTrends(chartType = 'line') {
         const chartDom = document.getElementById('chinaTrendsChart');
 
         // 销毁旧图表实例
-        if (window.chinaTrendsChart) {
-            window.chinaTrendsChart.dispose();
+        if (chinaTrendsChartInstance && typeof chinaTrendsChartInstance.dispose === 'function') {
+            try {
+                chinaTrendsChartInstance.dispose();
+            } catch (e) {
+                console.warn('销毁旧图表失败:', e);
+            }
         }
 
         // 清空容器
@@ -613,7 +649,7 @@ async function loadChinaTrends(chartType = 'line') {
         };
 
         myChart.setOption(option);
-        window.chinaTrendsChart = myChart;
+        chinaTrendsChartInstance = myChart;
         window.addEventListener('resize', () => myChart.resize());
     } catch (error) {
         console.error('加载中国音乐趋势失败:', error);

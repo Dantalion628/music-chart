@@ -141,18 +141,36 @@ def get_period(year):
 def get_trends():
     """获取流派趋势"""
     ensure_data()
-    trends = defaultdict(lambda: defaultdict(int))
+    trends = defaultdict(lambda: {'count': 0, 'popularity': 0})
     for entry in DATA:
         year = int(entry['year'])
         genre = entry['genre']
-        trends[genre][year] += 1
+        trends[genre][year] = trends[genre].get(year, {'count': 0, 'popularity': 0})
+        trends[genre][year]['count'] += 1
+        trends[genre][year]['popularity'] += int(entry['popularity'])
 
     main_genres = ['pop', 'rock', 'hip-hop', 'electronic', 'r&b']
     result = {}
     for genre in main_genres:
+        genre_trends = defaultdict(lambda: {'count': 0, 'popularity': 0})
+        for entry in DATA:
+            year = int(entry['year'])
+            if entry['genre'] == genre:
+                genre_trends[year]['count'] += 1
+                genre_trends[year]['popularity'] += int(entry['popularity'])
+
+        # 计算每年的平均热度
+        data = []
+        for year in range(1995, 2021):
+            if year in genre_trends:
+                avg_popularity = genre_trends[year]['popularity'] / max(genre_trends[year]['count'], 1)
+                data.append(int(avg_popularity))
+            else:
+                data.append(0)
+
         result[genre] = {
             'label': genre.upper(),
-            'data': [trends[genre].get(y, 0) for y in range(1995, 2021)]
+            'data': data
         }
     return result
 
