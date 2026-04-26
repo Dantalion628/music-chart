@@ -83,17 +83,20 @@ def get_periods():
         if not period_data:
             continue
 
-        genre_stats = defaultdict(lambda: {'count': 0, 'popularity': 0, 'songs': []})
+        genre_stats = defaultdict(lambda: {'count': 0, 'popularity': 0, 'songs': {}, 'song_list': []})
         for entry in period_data:
             genre = entry['genre']
             genre_stats[genre]['count'] += 1
             genre_stats[genre]['popularity'] += int(entry['popularity'])
-            if len(genre_stats[genre]['songs']) < 3:
-                genre_stats[genre]['songs'].append({
+
+            # 对样本歌曲按 (song, artist) 去重，保留最高热度
+            song_key = (entry['song'], entry['artist'])
+            if song_key not in genre_stats[genre]['songs'] or int(entry['popularity']) > genre_stats[genre]['songs'][song_key]['popularity']:
+                genre_stats[genre]['songs'][song_key] = {
                     'song': entry['song'],
                     'artist': entry['artist'],
                     'popularity': int(entry['popularity'])
-                })
+                }
 
         sorted_genres = sorted(
             genre_stats.items(),
@@ -109,7 +112,11 @@ def get_periods():
                     'name': name,
                     'count': stats['count'],
                     'popularity': stats['popularity'] // max(stats['count'], 1),
-                    'sample_songs': stats['songs']
+                    'sample_songs': sorted(
+                        stats['songs'].values(),
+                        key=lambda s: s['popularity'],
+                        reverse=True
+                    )[:3]
                 }
                 for name, stats in sorted_genres
             ]
