@@ -573,7 +573,8 @@ async function loadRankings(year) {
 
 async function loadChinaTrends(chartType = 'line') {
     try {
-        const response = await fetch('/api/china/trends');
+        // Fetch genre distribution data instead of trends
+        const response = await fetch('/api/china/genre-distribution');
         const data = await response.json();
 
         const chartDom = document.getElementById('chinaTrendsChart');
@@ -592,40 +593,42 @@ async function loadChinaTrends(chartType = 'line') {
 
         const myChart = echarts.init(chartDom);
 
-        // Use chart names instead of months (4 charts: Hot, New, Rising, Original)
+        // Chart names mapping
         const chartNames = ['热歌榜', '新歌榜', '飙升榜', '原创榜'];
-        const series = [];
+        const chartKeys = ['hot', 'new', 'rising', 'original'];
         const colors = ['#4a90e2', '#ef5350', '#66bb6a', '#ffa726', '#ab47bc', '#29b6f6', '#ec407a'];
 
+        // Collect all unique genres
+        const allGenres = new Set();
+        for (const chartKey in data) {
+            for (const genre in data[chartKey]) {
+                allGenres.add(genre);
+            }
+        }
+        const genres = Array.from(allGenres).sort();
+
+        // Build series data: each genre is a series
+        const series = [];
         let genreIdx = 0;
-        for (const genre in data) {
+
+        for (const genre of genres) {
             if (genreIdx >= colors.length) break;
 
-            // Limit to first 4 data points (corresponding to 4 charts)
-            const chartData = data[genre].data.slice(0, 4);
+            const genreData = [];
+            for (const chartKey of chartKeys) {
+                const count = data[chartKey] && data[chartKey][genre] ? data[chartKey][genre] : 0;
+                genreData.push(count);
+            }
 
             const seriesItem = {
-                name: data[genre].label,
-                type: chartType,
-                data: chartData,
-                smooth: chartType === 'line',
-                color: colors[genreIdx],
+                name: genre.charAt(0).toUpperCase() + genre.slice(1),
+                type: chartType === 'line' ? 'bar' : chartType,
+                data: genreData,
+                itemStyle: { color: colors[genreIdx] }
             };
 
-            if (chartType === 'line') {
-                seriesItem.lineStyle = { width: 2.5 };
-                seriesItem.areaStyle = {
-                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                        { offset: 0, color: colors[genreIdx] + '50' },
-                        { offset: 1, color: colors[genreIdx] + '00' }
-                    ])
-                };
-                seriesItem.smooth = true;
-            } else if (chartType === 'bar') {
-                seriesItem.itemStyle = { color: colors[genreIdx] };
-            } else if (chartType === 'radar') {
-                seriesItem.areaStyle = { opacity: 0.3 };
-                seriesItem.lineStyle = { color: colors[genreIdx] };
+            if (chartType === 'bar') {
+                seriesItem.type = 'bar';
             }
 
             series.push(seriesItem);
@@ -639,6 +642,7 @@ async function loadChinaTrends(chartType = 'line') {
                 backgroundColor: '#1a1f2e',
                 borderColor: '#4a90e2',
                 textStyle: { color: '#e0e6ed' },
+                axisPointer: { type: 'shadow' }
             },
             grid: {
                 top: 20,
@@ -656,7 +660,8 @@ async function loadChinaTrends(chartType = 'line') {
             yAxis: {
                 type: 'value',
                 axisLabel: { color: '#a8b2c1' },
-                splitLine: { lineStyle: { color: '#2d3648' } }
+                splitLine: { lineStyle: { color: '#2d3648' } },
+                name: '歌曲数量'
             },
             series: series,
             legend: {

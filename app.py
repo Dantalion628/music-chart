@@ -294,6 +294,19 @@ def application(environ, start_response):
                 start_response('500 Internal Server Error', [])
                 return [b'Internal Server Error']
 
+        # API: 中国音乐流派分布（每个榜单）
+        elif path == '/api/china/genre-distribution' and method == 'GET':
+            try:
+                from netease_realtime import get_netease_genre_stats
+                stats = get_netease_genre_stats()
+                body = json.dumps(stats, ensure_ascii=False).encode('utf-8')
+                start_response('200 OK', [('Content-Type', 'application/json')])
+                return [body]
+            except Exception as e:
+                sys.stderr.write("Error: {}\n".format(e))
+                start_response('500 Internal Server Error', [])
+                return [b'Internal Server Error']
+
         # 静态文件
         elif path.startswith('/static/'):
             filepath = path[1:]

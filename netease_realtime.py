@@ -16,6 +16,49 @@ import urllib.error
 from datetime import datetime
 from collections import defaultdict
 import sys
+import re
+
+def detect_genre(song_name, artist_name):
+    """
+    Detect genre based on song name and artist name
+    Uses keyword matching and common patterns
+    """
+
+    # Combine text for analysis
+    text = (song_name + ' ' + artist_name).lower()
+
+    # Genre keywords mapping
+    genre_keywords = {
+        'pop': ['pop', '流行', '说好不', '说好了', '光年', '光辉', '星辰', '说好', '告白', '一生', '春风', '好久', '告白气球', '漂洋过海'],
+        'rock': ['rock', '摇滚', '黑梦', '烟火', '光年之外', '曾经', '晴天', '蜀国', '黑龙', '许巍', '梦想', '山河'],
+        'hiphop': ['hip-hop', '说唱', 'rap', '火', 'freestyle', 'gai', '中国说唱', 'vava', 'young', 'mc天佑', '打工人', '嘻哈'],
+        'electronic': ['electronic', '电子', '电音', 'edm', 'dj', 'house', 'synth', '往后余生', '潮鸣', '未来', '星河', '冲破'],
+        'folk': ['民谣', '民族', '成都', '赵雷', '理想', '南山南', '烟火', '梦里花', '故乡'],
+        'rnb': ['r&b', 'rnb', '节奏蓝调', '韵律'],
+        'indie': ['独立', 'indie', '独立音乐'],
+        'jazz': ['jazz', '爵士'],
+        'classical': ['古典', '交响', 'classical'],
+    }
+
+    # Check keywords
+    for genre, keywords in genre_keywords.items():
+        for keyword in keywords:
+            if keyword in text:
+                return genre
+
+    # Default genre based on some heuristics
+    if '梦' in text or '风' in text or '光' in text:
+        return 'pop'
+    elif 'dj' in text or 'edm' in text:
+        return 'electronic'
+    elif '摇' in text or '滚' in text:
+        return 'rock'
+    elif '说唱' in text or 'rap' in text:
+        return 'hiphop'
+
+    # Default to pop
+    return 'pop'
+
 
 class NeteaseAPI:
     """Netease Cloud Music API Client"""
@@ -81,14 +124,18 @@ class NeteaseAPI:
             songs = []
             for idx, track in enumerate(tracks, 1):
                 try:
+                    name = track.get('name', 'Unknown')
+                    artist = ' / '.join([ar.get('name', '') for ar in track.get('ar', [])])
+
                     song_info = {
                         'rank': idx,
-                        'name': track.get('name', 'Unknown'),
-                        'artist': ' / '.join([ar.get('name', '') for ar in track.get('ar', [])]),
+                        'name': name,
+                        'artist': artist,
                         'album': track.get('al', {}).get('name', ''),
                         'popularity': int(track.get('pop', 50)),
                         'id': track.get('id'),
-                        'duration': track.get('dt', 0) // 1000
+                        'duration': track.get('dt', 0) // 1000,
+                        'genre': detect_genre(name, artist)
                     }
                     songs.append(song_info)
                 except Exception as e:
@@ -180,7 +227,7 @@ def save_netease_data(charts_data):
 
     flat_data = []
 
-    for chart_key, (month, genre_name) in chart_month_mapping.items():
+    for chart_key, (month, chart_name) in chart_month_mapping.items():
         if chart_key in charts_data:
             songs = charts_data[chart_key]
 
@@ -188,7 +235,8 @@ def save_netease_data(charts_data):
                 flat_data.append({
                     'year': 2025,
                     'month': month,
-                    'genre': genre_name,
+                    'chart_type': chart_name,
+                    'song_genre': song.get('genre', 'pop'),
                     'song': song.get('name', ''),
                     'artist': song.get('artist', ''),
                     'popularity': song.get('popularity', 50),
@@ -200,7 +248,7 @@ def save_netease_data(charts_data):
                 })
 
     with open(filename, 'w', newline='', encoding='utf-8') as f:
-        fieldnames = ['year', 'month', 'genre', 'song', 'artist', 'popularity', 'rank', 'region', 'source', 'song_id', 'update_time']
+        fieldnames = ['year', 'month', 'chart_type', 'song_genre', 'song', 'artist', 'popularity', 'rank', 'region', 'source', 'song_id', 'update_time']
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(flat_data)
@@ -286,7 +334,7 @@ def get_netease_yearly_trends():
 
 
 def get_netease_genre_stats():
-    """Get genre statistics"""
+    """Get genre statistics for each chart type"""
     filename = 'china_music_netease_realtime.csv'
 
     if not os.path.exists(filename):
@@ -303,20 +351,30 @@ def get_netease_genre_stats():
     except:
         return {}
 
-    stats = defaultdict(lambda: {'count': 0, 'avg_popularity': 0})
+    # Map month to chart type
+    month_to_chart = {
+        '1': 'hot',
+        '2': 'new',
+        '3': 'rising',
+        '4': 'original'
+    }
+
+    # Structure: {chart_type: {genre: count}}
+    stats = defaultdict(lambda: defaultdict(int))
 
     for row in data:
-        genre = row.get('genre', 'Mixed')
-        stats[genre]['count'] += 1
-        stats[genre]['avg_popularity'] += int(row.get('popularity', 50))
+        month = row.get('month', '1')
+        chart_type = month_to_chart.get(month, 'hot')
+        genre = row.get('song_genre', 'pop')
 
-    for genre in stats:
-        if stats[genre]['count'] > 0:
-            stats[genre]['avg_popularity'] = int(
-                stats[genre]['avg_popularity'] / stats[genre]['count']
-            )
+        stats[chart_type][genre] += 1
 
-    return dict(stats)
+    # Convert to simple dict
+    result = {}
+    for chart_type in stats:
+        result[chart_type] = dict(stats[chart_type])
+
+    return result
 
 
 if __name__ == '__main__':
