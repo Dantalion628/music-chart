@@ -121,8 +121,18 @@ def get_period(year):
     """获取特定年份排行"""
     ensure_data()
     year_data = [d for d in DATA if int(d['year']) == year]
-    year_data.sort(key=lambda x: int(x['popularity']), reverse=True)
-    top_10 = year_data[:10]
+
+    # 按歌曲名去重，保留最高热度的记录
+    song_best = {}
+    for entry in year_data:
+        song_key = (entry['song'], entry['artist'])
+        if song_key not in song_best or int(entry['popularity']) > int(song_best[song_key]['popularity']):
+            song_best[song_key] = entry
+
+    # 按热度排序，获取 Top 10
+    unique_songs = list(song_best.values())
+    unique_songs.sort(key=lambda x: int(x['popularity']), reverse=True)
+    top_10 = unique_songs[:10]
 
     return {
         'year': year,
