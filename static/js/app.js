@@ -197,8 +197,9 @@ function createPeriodCard(period) {
     if (period.genres[0] && period.genres[0].sample_songs) {
         genresHtml += '<div class="sample-songs"><strong>代表歌曲：</strong>';
         period.genres[0].sample_songs.forEach(song => {
+            const neteaseUrl = `https://music.163.com/search/get?s=${encodeURIComponent(song.song + ' ' + song.artist)}&type=1`;
             genresHtml += `
-                <div class="sample-song" onclick="playSong('${song.song}', '${song.artist}', '${song.popularity}')">
+                <div class="sample-song" onclick="window.open('${neteaseUrl}', '_blank')" style="cursor: pointer;" title="在网易云打开">
                     <div class="sample-song-title">🎵 ${song.song}</div>
                     <div class="sample-song-artist">${song.artist}</div>
                 </div>
@@ -546,6 +547,9 @@ async function loadRankings(year) {
                 const rankBadge = ['🥇', '🥈', '🥉'][idx] || `${idx + 1}`;
                 const rankClass = idx < 3 ? 'ranking-number top-3' : 'ranking-number';
 
+                // Generate Netease music link for global songs
+                const neteaseUrl = `https://music.163.com/search/get?s=${encodeURIComponent(song.song + ' ' + song.artist)}&type=1`;
+
                 item.innerHTML = `
                     <div class="${rankClass}">${rankBadge}</div>
                     <div class="ranking-info">
@@ -556,7 +560,7 @@ async function loadRankings(year) {
                         <span class="ranking-genre">${song.genre}</span>
                         <span class="ranking-popularity">热度: ${song.popularity}/100</span>
                     </div>
-                    <div class="play-icon" onclick="playSong('${song.song}', '${song.artist}', '${song.genre}')">▶</div>
+                    <div class="play-icon" onclick="window.open('${neteaseUrl}', '_blank')" title="在网易云打开">▶</div>
                 `;
 
                 container.appendChild(item);
@@ -635,7 +639,7 @@ async function loadChinaTrends(chartType = 'line') {
             genreIdx++;
         }
 
-        const option = {
+        let option = {
             backgroundColor: 'transparent',
             tooltip: {
                 trigger: 'axis',
@@ -651,24 +655,80 @@ async function loadChinaTrends(chartType = 'line') {
                 left: 60,
                 containLabel: true
             },
-            xAxis: {
-                type: 'category',
-                data: chartNames,
-                axisLabel: { color: '#a8b2c1', fontSize: 12 },
-                axisLine: { lineStyle: { color: '#2d3648' } }
-            },
-            yAxis: {
-                type: 'value',
-                axisLabel: { color: '#a8b2c1' },
-                splitLine: { lineStyle: { color: '#2d3648' } },
-                name: '歌曲数量'
-            },
-            series: series,
             legend: {
                 top: 'bottom',
                 textStyle: { color: '#e0e6ed' }
             }
         };
+
+        // Customize based on chart type
+        if (chartType === 'bar' || chartType === 'line') {
+            option.xAxis = {
+                type: 'category',
+                data: chartNames,
+                axisLabel: { color: '#a8b2c1', fontSize: 12 },
+                axisLine: { lineStyle: { color: '#2d3648' } }
+            };
+            option.yAxis = {
+                type: 'value',
+                axisLabel: { color: '#a8b2c1' },
+                splitLine: { lineStyle: { color: '#2d3648' } },
+                name: '歌曲数量'
+            };
+
+            // Update series for line chart
+            if (chartType === 'line') {
+                for (let i = 0; i < series.length; i++) {
+                    series[i].type = 'line';
+                    series[i].smooth = true;
+                    series[i].lineStyle = { width: 2.5 };
+                    series[i].areaStyle = {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                            { offset: 0, color: colors[i % colors.length] + '50' },
+                            { offset: 1, color: colors[i % colors.length] + '00' }
+                        ])
+                    };
+                }
+            }
+
+            option.series = series;
+        } else if (chartType === 'radar') {
+            // Radar chart configuration
+            const radarIndicators = chartNames.map(name => ({
+                name: name,
+                max: 10
+            }));
+
+            const radarSeries = genres.map((genre, idx) => {
+                const genreData = [];
+                for (const chartKey of chartKeys) {
+                    const count = data[chartKey] && data[chartKey][genre] ? data[chartKey][genre] : 0;
+                    genreData.push(count);
+                }
+                return {
+                    name: genre.charAt(0).toUpperCase() + genre.slice(1),
+                    value: genreData,
+                    areaStyle: { opacity: 0.3 },
+                    itemStyle: { color: colors[idx % colors.length] },
+                    lineStyle: { color: colors[idx % colors.length] }
+                };
+            });
+
+            option.radar = {
+                indicator: radarIndicators,
+                shape: 'polygon',
+                splitNumber: 4,
+                axisLine: { lineStyle: { color: '#2d3648' } },
+                splitLine: { lineStyle: { color: '#2d3648' } },
+                axisLabel: { color: '#a8b2c1' }
+            };
+
+            option.series = [{
+                name: '',
+                type: 'radar',
+                data: radarSeries
+            }];
+        }
 
         myChart.setOption(option);
         chinaTrendsChartInstance = myChart;
