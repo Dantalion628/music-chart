@@ -238,11 +238,11 @@ def application(environ, start_response):
             start_response('200 OK', [('Content-Type', 'application/json')])
             return [body]
 
-        # API: 中国音乐趋势
+        # API: 中国音乐趋势（2025年月份数据）
         elif path == '/api/china/trends' and method == 'GET':
             try:
-                from china_music_qq import get_qq_genres_trend
-                data = get_qq_genres_trend()
+                from china_music_2025 import get_2025_yearly_trends
+                data = get_2025_yearly_trends()
 
                 result = {}
                 for genre, trend in data.items():
@@ -258,12 +258,12 @@ def application(environ, start_response):
                 start_response('500 Internal Server Error', [])
                 return [b'Internal Server Error']
 
-        # API: 中国音乐排行
+        # API: 中国音乐排行（2025年月份数据）
         elif path.startswith('/api/china/rankings/') and method == 'GET':
             try:
-                from china_music_qq import get_qq_top_songs
+                from china_music_2025 import get_2025_monthly_ranking
                 month = int(path.split('/')[-1]) if path.split('/')[-1].isdigit() else None
-                songs = get_qq_top_songs(month=month)
+                songs = get_2025_monthly_ranking(month=month)
                 body = json.dumps([dict(row) for row in songs], ensure_ascii=False).encode('utf-8')
                 start_response('200 OK', [('Content-Type', 'application/json')])
                 return [body]
@@ -272,11 +272,11 @@ def application(environ, start_response):
                 start_response('404 Not Found', [])
                 return [b'Not Found']
 
-        # API: 中国音乐流派统计
+        # API: 中国音乐流派统计（2025年数据）
         elif path == '/api/china/stats' and method == 'GET':
             try:
-                from china_music_qq import get_qq_genre_stats
-                stats = get_qq_genre_stats()
+                from china_music_2025 import get_2025_genre_stats
+                stats = get_2025_genre_stats()
                 body = json.dumps(stats, ensure_ascii=False).encode('utf-8')
                 start_response('200 OK', [('Content-Type', 'application/json')])
                 return [body]
