@@ -245,7 +245,7 @@ def get_netease_monthly_ranking(month=None):
 
 
 def get_netease_yearly_trends():
-    """Get Netease yearly trends (4 months only)"""
+    """Get Netease trends for 4 chart types"""
     filename = 'china_music_netease_realtime.csv'
 
     if not os.path.exists(filename):
@@ -262,11 +262,11 @@ def get_netease_yearly_trends():
     except:
         return {}
 
-    trends = defaultdict(lambda: [0] * 12)
-    counts = defaultdict(lambda: [0] * 12)
+    trends = defaultdict(lambda: [0, 0, 0, 0])  # Only 4 chart types
+    counts = defaultdict(lambda: [0, 0, 0, 0])
 
     for row in data:
-        month = int(row.get('month', 0)) - 1
+        month = int(row.get('month', 0)) - 1  # 0-3 index
         genre = row.get('genre', 'Mixed')
         popularity = int(row.get('popularity', 50))
 
@@ -279,6 +279,8 @@ def get_netease_yearly_trends():
         for month in range(4):
             if counts[genre][month] > 0:
                 trends[genre][month] = int(trends[genre][month] / counts[genre][month])
+            else:
+                trends[genre][month] = 0
 
     return dict(trends)
 

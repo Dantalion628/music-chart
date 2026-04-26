@@ -592,7 +592,8 @@ async function loadChinaTrends(chartType = 'line') {
 
         const myChart = echarts.init(chartDom);
 
-        const months = Array.from({ length: 12 }, (_, i) => `${i + 1}月`);
+        // Use chart names instead of months (4 charts: Hot, New, Rising, Original)
+        const chartNames = ['热歌榜', '新歌榜', '飙升榜', '原创榜'];
         const series = [];
         const colors = ['#4a90e2', '#ef5350', '#66bb6a', '#ffa726', '#ab47bc', '#29b6f6', '#ec407a'];
 
@@ -600,22 +601,31 @@ async function loadChinaTrends(chartType = 'line') {
         for (const genre in data) {
             if (genreIdx >= colors.length) break;
 
+            // Limit to first 4 data points (corresponding to 4 charts)
+            const chartData = data[genre].data.slice(0, 4);
+
             const seriesItem = {
                 name: data[genre].label,
                 type: chartType,
-                data: data[genre].data,
+                data: chartData,
                 smooth: chartType === 'line',
                 color: colors[genreIdx],
             };
 
             if (chartType === 'line') {
-                seriesItem.lineStyle = { width: 2 };
+                seriesItem.lineStyle = { width: 2.5 };
                 seriesItem.areaStyle = {
                     color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                        { offset: 0, color: colors[genreIdx] + '40' },
+                        { offset: 0, color: colors[genreIdx] + '50' },
                         { offset: 1, color: colors[genreIdx] + '00' }
                     ])
                 };
+                seriesItem.smooth = true;
+            } else if (chartType === 'bar') {
+                seriesItem.itemStyle = { color: colors[genreIdx] };
+            } else if (chartType === 'radar') {
+                seriesItem.areaStyle = { opacity: 0.3 };
+                seriesItem.lineStyle = { color: colors[genreIdx] };
             }
 
             series.push(seriesItem);
@@ -639,8 +649,8 @@ async function loadChinaTrends(chartType = 'line') {
             },
             xAxis: {
                 type: 'category',
-                data: months,
-                axisLabel: { color: '#a8b2c1' },
+                data: chartNames,
+                axisLabel: { color: '#a8b2c1', fontSize: 12 },
                 axisLine: { lineStyle: { color: '#2d3648' } }
             },
             yAxis: {

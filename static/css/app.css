@@ -268,7 +268,7 @@ html, body {
     flex-wrap: wrap;
 }
 
-.chart-type-btn, .china-chart-btn, .china-tab-btn {
+.chart-type-btn, .china-chart-btn, .china-tab-btn, .china-ranking-btn {
     padding: 8px 16px;
     background: var(--bg-lighter);
     border: 2px solid var(--border-color);
@@ -280,16 +280,38 @@ html, body {
     transition: all 0.3s ease;
 }
 
-.chart-type-btn:hover, .china-chart-btn:hover, .china-tab-btn:hover {
+.chart-type-btn:hover, .china-chart-btn:hover, .china-tab-btn:hover, .china-ranking-btn:hover {
     border-color: var(--accent-blue);
     color: var(--accent-light);
+    transform: translateY(-2px);
 }
 
-.chart-type-btn.active, .china-chart-btn.active, .china-tab-btn.active {
+.chart-type-btn.active, .china-chart-btn.active, .china-tab-btn.active, .china-ranking-btn.active {
     background: var(--accent-blue);
     border-color: var(--accent-blue);
     color: white;
     box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+}
+
+/* Netease-style ranking buttons */
+.china-ranking-btn {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, rgba(74, 144, 226, 0.1) 0%, rgba(107, 163, 245, 0.05) 100%);
+    border: 1.5px solid rgba(74, 144, 226, 0.3);
+    font-size: 1em;
+    letter-spacing: 1px;
+}
+
+.china-ranking-btn:hover {
+    background: linear-gradient(135deg, rgba(74, 144, 226, 0.2) 0%, rgba(107, 163, 245, 0.1) 100%);
+    border-color: var(--accent-blue);
+}
+
+.china-ranking-btn.active {
+    background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-light) 100%);
+    border-color: var(--accent-light);
+    box-shadow: 0 8px 20px rgba(74, 144, 226, 0.4);
+    transform: translateY(-3px);
 }
 
 /* 中国音乐内容 */
